@@ -62,7 +62,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="/.." class="nav-link">
+      <a href="/dataprogram" class="nav-link">
         <i class="nav-icon fas fa-fax"></i>
         <p>
           Data Program
@@ -71,7 +71,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="/.." class="nav-link">
+      <a href="/datapenyaluran" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
           Data Penyaluran
