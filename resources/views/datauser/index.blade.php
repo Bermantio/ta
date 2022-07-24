@@ -53,6 +53,7 @@
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datauser.destroy', $datauser->id) }}" method="POST">
                                        
                                         <a href="{{ route('datauser.edit', $datauser->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                        <a href="{{ route('datauser.show', $datauser->id) }}" class="btn btn-sm btn-primary">DETAIL</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

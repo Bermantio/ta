@@ -49,6 +49,7 @@
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapenyaluran.destroy', $datapenyaluran->id) }}" method="POST">
                                        
                                         <a href="{{ route('datapenyaluran.edit', $datapenyaluran->id) }}" class="btn btn-sm btn-warning">EDIT</a>
+                                        <a href="{{ route('datapenyaluran.show', $datapenyaluran->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

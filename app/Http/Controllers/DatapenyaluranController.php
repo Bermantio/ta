@@ -71,7 +71,7 @@ class DatapenyaluranController extends Controller
      */
     public function show(Datapenyaluran $datapenyaluran)
     {
-        //
+        return view('datapenyaluran.show',compact('datapenyaluran'));
     }
 
     /**

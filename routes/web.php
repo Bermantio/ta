@@ -22,6 +22,7 @@ Route::resource('datanontunai', DatanontunaiController::class);
 Route::resource('dataprogram', DataprogramController::class);
 Route::resource('datapenyaluran', DatapenyaluranController::class);
 
+
 Route::get('/',[HomeController::class, 'index']);
 Route::get('/home',[HomeController::class, 'index']);
 Auth::routes();

@@ -70,7 +70,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Tanggal Dibuat</label>
-                                <input type="text" class="form-control @error('tanggal_dibuat') is-invalid @enderror" name="tanggal_dibuat" value="{{ old('tanggal_dibuat') }}" placeholder="Masukkan Tanggal">
+                                <input type="date" class="form-control @error('tanggal_dibuat') is-invalid @enderror" name="tanggal_dibuat" value="{{ old('tanggal_dibuat') }}" placeholder="Masukkan Tanggal">
                             </div>
 
                             <div class="form-group">

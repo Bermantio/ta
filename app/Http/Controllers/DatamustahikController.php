@@ -73,7 +73,7 @@ class DatamustahikController extends Controller
      */
     public function show(Datamustahik $datamustahik)
     {
-        
+        return view('datamustahik.show',compact('datamustahik'));
     }
 
     /**

@@ -46,11 +46,13 @@
                                     <td>{{ $datamustahik->profesi }}</td>
                                     <td>{{ $datamustahik->keterangan }}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datamustahik.destroy', $datamustahik->id) }}" method="POST">
+                                    <a href="{{ route('datamustahik.show', $datamustahik->id) }}" class="btn btn-sm btn-warning">DETAIL</a>    
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datamustahik.destroy', $datamustahik->id) }}" method="POST">
                                        
                                         <a href="{{ route('datamustahik.edit', $datamustahik->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
+                                            
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                         </form>
                                     </td>

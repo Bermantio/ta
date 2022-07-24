@@ -25,13 +25,6 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Foto</label>
                                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
-                            
-                                <!-- error message untuk title -->
-                                @error('image')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -59,8 +52,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Status</label>
-                                <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}" placeholder="Masukkan Status">
+                                <label>Status Pembayaran</label>
+                                <select name="status" class="form-control" value="{{ old('status') }}">
+                                <option value="" selected disabled>-- Pilih --</option>
+                                <option value="sudah dibayar">Sudah Dibayar</option>
+                                <option value="menunggu pembayaran">Menunggu Pembayaran</option>
+                                <option value="belum dibayar">Belum Dibayar</option>
+                                </select>
                             </div>
 
                             <div class="form-group">

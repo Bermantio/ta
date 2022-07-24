@@ -78,7 +78,7 @@ class DatauserController extends Controller
      */
     public function show(Datauser $datauser)
     {
-        //
+        return view('datauser.show',compact('datauser'));
     }
 
     /**
@@ -163,6 +163,15 @@ class DatauserController extends Controller
      */
     public function destroy(Datauser $datauser)
     {
-        //
+        $datauser = Datauser::findOrFail($datauser->id);
+        $datauser->delete();
+
+        if($datauser){
+            //redirect dengan pesan sukses
+            return redirect()->route('datauser.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('datauser.index')->with(['error' => 'Data Gagal Dihapus!']);
+        }
     }
 }
