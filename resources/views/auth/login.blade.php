@@ -1,31 +1,23 @@
 <head>
 <title>Login</title>
 <style>/* Credit to bootsnipp.com for the css for the color graph */
-.colorgraph {
-  height: 5px;
-  border-top: 0;
-  background: #c4e17f;
-  border-radius: 5px;
-  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-}
 body {
-  background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b);
+  background: -webkit-linear-gradient(bottom, #DA8B03, #F49F36);
        background-repeat: no-repeat;
 } 
+.header {
+  height: 170px;
+  width: 100px;
+  padding-top: 15px;
+  margin-left: 125px;
+}
 #card {
         background: #fbfbfb;
-        border-radius: 5px;
+        border-radius: 10px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-        height: 360px;
-        margin: 6rem auto 8.1rem auto;
+        height: 400px;
+        margin: 10rem auto 8.1rem auto;
         width: 500px;
-}
-#card-title {
-      padding-bottom: 23px;
-      padding-top: 13px;
 }
 </style>
 </head>
@@ -43,12 +35,13 @@ body {
 <div id="card">
 <div class="container">
     <div id="card-title">
-				<h2><center>LOGIN</center></h2>
-        <form method="POST" action="{{route('login')}}">
+				<form method="POST" action="{{route('login')}}">
                     @csrf
-				<hr class="colorgraph">
+        <div class="header">
+						<div class="logo text-center"><img src="asset/img/lazismukabpekalonganicon.png" alt="Lazismu Logo"></div>
+				</div>
         <div class="input-group mb-3">
-        <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus margin-bottom="10px">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -77,14 +70,13 @@ body {
           <!-- /.col -->
           <div class="col">
           <button type="submit" class="btn btn-primary btn-block">
-            {{ __('Login') }}
+            {{ _('Login') }}
           </button>
           </div>
           <!-- /.col -->
         </div>
       </form>
       <p class="mb-0">
-          <br>
         <center><a href="{{ route('register') }}" class="text-center">Register</a></center>
       </p>
     </div>
