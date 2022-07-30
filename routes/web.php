@@ -37,8 +37,18 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan'],function(){
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
-    Route::resource('datatunai', DatatunaiController::class);
     Route::resource('datanontunai', DatanontunaiController::class);
+    Route::resource('dataprogram', DataprogramController::class);
+    Route::resource('datapenyaluran', DatapenyaluranController::class);
+});
+
+Route::group(['middleware' => 'CheckRole:Admin,Penghimpun'],function(){
+    Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('datamustahik', DatamustahikController::class);
+    Route::resource('datalazismu', DatalazismuController::class);
+    Route::resource('datalaporan', DatalaporanController::class);
+    Route::resource('datamuzakki', DatamuzakkiController::class);
+    Route::resource('datatunai', DatatunaiController::class);
     Route::resource('dataprogram', DataprogramController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });

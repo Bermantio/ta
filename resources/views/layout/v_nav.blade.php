@@ -13,6 +13,7 @@
         </p>
       </a>
     <ul class="nav nav-treeview">
+    @if(auth()->user()->role=='Penghimpun')
     <li class="nav-item">
       <a href="/datatunai" class="nav-link">
         <i class="nav-icon fas fa-tag"></i>
@@ -22,15 +23,18 @@
         </p>
       </a>
     </li>
+    @endif
+    @if(auth()->user()->role=='Pendayagunaan')
     <li class="nav-item">
       <a href="/datanontunai" class="nav-link">
         <i class="nav-icon fas fa-tag"></i>
         <p>
-          Transaksi Non-Tunai
+          Transaksi Non Tunai
           <i class="right fas"></i>
         </p>
       </a>
     </li>
+    @endif
   </ul>
 </li>
       <li class="nav-item menu-open">
