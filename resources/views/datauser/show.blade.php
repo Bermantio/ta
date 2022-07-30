@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Detail Data User')
+@section('title','Data User')
 
 @section('content')
 
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Penjualan User</title>
+    <title>Data User</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -20,7 +20,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <div class="pull-left">
-            <h2>Tampil Data User</h2>
+            <h2>Data User</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('datauser.index') }}"> Back</a>
@@ -42,10 +42,15 @@
                     <td>{{ $datauser->kode_user }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Nama User</td>
+                    <td width="150px">Nama Lengkao\p</td>
                     <td width="30px">:</td>
                     <td>{{ $datauser->name_user }}</td>
                 </tr>
+                <tr>
+                    <td width="150px">Email</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datauser->email }}</td>
+                </tr> 
                 <tr>
                     <td width="150px">Jenis Kelamin</td>
                     <td width="30px">:</td>
@@ -60,11 +65,6 @@
                     <td width="150px">Status</td>
                     <td width="30px">:</td>
                     <td>{{ $datauser->status }}</td>
-                </tr> 
-                <tr>
-                    <td width="150px">Email</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datauser->email }}</td>
                 </tr> 
             </table>
 @endsection

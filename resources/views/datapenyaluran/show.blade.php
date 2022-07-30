@@ -31,7 +31,7 @@
             <!-- masukin kode disini -->
             <table class="table table-bordered">
                 <tr>
-                    <td width="150px">Kode Transaksi</td>
+                    <td width="150px">Kode Penyaluran</td>
                     <td width="30px">:</td>
                     <td>{{ $datapenyaluran->kode_transaksi }}</td>
                 </tr>

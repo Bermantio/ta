@@ -27,11 +27,11 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Foto</th>
                                 <th scope="col">Kode User</th>
-                                <th scope="col">Nama User</th>
+                                <th scope="col">Nama Lengkap</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Alamat</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Status User</th>
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
@@ -45,10 +45,10 @@
                                     </td>
                                     <td>{{ $datauser->kode_user }}</td>
                                     <td>{{ $datauser->name_user }}</td>
+                                    <td>{{ $datauser->email }}</td>
                                     <td>{{ $datauser->jenis_kelamin }}</td>
                                     <td>{{ $datauser->alamat }}</td>
                                     <td>{{ $datauser->status }}</td>
-                                    <td>{{ $datauser->email }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datauser.destroy', $datauser->id) }}" method="POST">
                                        
@@ -62,7 +62,7 @@
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">
-                                      Data User belum Tersedia.
+                                      Data Belum Tersedia
                                   </div>
                               @endforelse
                             </tbody>

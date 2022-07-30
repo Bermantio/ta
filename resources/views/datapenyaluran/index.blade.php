@@ -25,7 +25,7 @@
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Kode Transaksi</th>
+                                <th scope="col">Kode Penyaluran</th>
                                 <th scope="col">Tanggal Penyaluran</th>
                                 <th scope="col">Nama Program </th>
                                 <th scope="col">Nama Mustahik</th>
@@ -62,7 +62,7 @@
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">
-                                      Data Transaksi Penyaluran Belum Tersedia.
+                                      Data Belum Tersedia
                                   </div>
                               @endforelse
                             </tbody>

@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Edit Data User')
+@section('title','Data User')
 
 @section('content')
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Data User</title>
+    <title>Data User</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -40,8 +40,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama User</label>
+                                <label class="font-weight-bold">Nama Lengkap</label>
                                 <input type="text" class="form-control @error('name_user') is-invalid @enderror" name="name_user" value="{{ old('name_user', $datauser->name_user) }}" placeholder="Masukkan Nama User">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Email</label>
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $datauser->email) }}" placeholder="Masukkan Email">
                             </div>
 
                             <div class="form-group">
@@ -59,13 +64,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Status</label>
+                                <label class="font-weight-bold">Status User</label>
                                 <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status', $datauser->status) }}" placeholder="Masukkan Status">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Email</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $datauser->email) }}" placeholder="Masukkan Email">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>

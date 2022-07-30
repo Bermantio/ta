@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Tambah Data User')
+@section('title','Data User')
 
 @section('content')
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Data User</title>
+    <title>Data User</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -33,9 +33,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama User</label>
+                                <label class="font-weight-bold">Nama Lengkap</label>
                                 <input type="text" class="form-control @error('name_user') is-invalid @enderror" name="name_user" value="{{ old('name_user') }}" placeholder="Masukkan Nama User">
                             </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Email</label>
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Masukkan Email">
+                            </div>
+
 
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
@@ -52,18 +58,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Status Pembayaran</label>
+                                <label>Status User</label>
                                 <select name="status" class="form-control" value="{{ old('status') }}">
                                 <option value="" selected disabled>-- Pilih --</option>
-                                <option value="sudah dibayar">Sudah Dibayar</option>
-                                <option value="menunggu pembayaran">Menunggu Pembayaran</option>
-                                <option value="belum dibayar">Belum Dibayar</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Penghimpun">Penghimpun</option>
+                                <option value="Pendayagunaan">Pendayagunaan</option>
                                 </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Email</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Masukkan Email">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>

@@ -23,7 +23,7 @@
                             @method('PUT')
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Kode Transaksi</label>
+                                <label class="font-weight-bold">Kode Penyaluran</label>
                                 <input type="text" class="form-control @error('kode_transaksi') is-invalid @enderror" name="kode_transaksi" value="{{ old('kode_transaksi', $datapenyaluran->kode_transaksi) }}" placeholder="Masukkan Kode Transaksi">
                             </div>
 
