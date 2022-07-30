@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Data Transaksi Tunai')
+@section('title','Transaksi Tunai')
 
 @section('content')
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Transaksi Tunai</title>
+    <title>Transaksi Tunai</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Jumlah Transaksi</label>
+                                <label class="font-weight-bold">Nominal Transaksi</label>
                                 <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" id="jumlah_transaksi">
                             </div>
 

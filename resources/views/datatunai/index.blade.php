@@ -29,7 +29,7 @@
                                 <th scope="col">Kode Muzakki</th>
                                 <th scope="col">Nama Muzakki</th>
                                 <th scope="col">Tanggal Transaksi</th>
-                                <th scope="col">Jumlah Transaksi</th>
+                                <th scope="col">Nominal Transaksi</th>
                                 <th scope="col">Program</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -65,7 +65,7 @@
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">
-                                      Data Muzakki belum Tersedia.
+                                      Data Belum Tersedia
                                   </div>
                               @endforelse
                             </tbody>

@@ -1,5 +1,5 @@
 @extends ('layout.v_template');
-@section('title','Detail Data Transaksi Non-Tunai')
+@section('title','Transaksi Non Tunai')
 
 @section('content')
 
@@ -13,7 +13,7 @@
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-warning">
             <div class="card-header">
-                <h3 class="card-title">Detail Data Transaksi Non-Tunai</h3>
+                <h3 class="card-title">Transaksi Non Tunai</h3>
             </div>
             <div class="card">
                 <div class="card-body">
@@ -34,7 +34,7 @@
                         <th>Kode Transaksi</th>
                         <th>Kode Muzakki</th>
                         <th>Nama Muzakki</th>
-                        <th>Jumlah Transaksi</th>
+                        <th>Nominal Transaksi</th>
                         <th>Status Pembayaran</th>
                     </tr>
                 </thead>

@@ -1,5 +1,5 @@
 @extends ('layout.v_template');
-@section('title','Detail Data Mustahik')
+@section('title','Data Mustahik')
 
 @section('content')
 <div>

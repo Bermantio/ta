@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Transaksi Non-Tunai')
+@section('title','Transaksi Non Tunai')
 
 @section('content')
 
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Transaksi Tunai</title>
+    <title>Transaksi Non Tunai</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -29,7 +29,7 @@
                                 <th scope="col">Kode Muzakki</th>
                                 <th scope="col">Nama Muzakki</th>
                                 <th scope="col">Tanggal Transaksi</th>
-                                <th scope="col">Jumlah Transaksi</th>
+                                <th scope="col">Nominal Transaksi</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                               </tr>
@@ -57,7 +57,7 @@
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">
-                                      Data Transaksi Non Tunai belum Tersedia.
+                                      Data Belum Tersedia
                                   </div>
                               @endforelse
                             </tbody>

@@ -65,7 +65,7 @@
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">
-                                      Data Muzakki belum Tersedia.
+                                      Data Belum Tersedia
                                   </div>
                               @endforelse
                             </tbody>

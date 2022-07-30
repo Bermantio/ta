@@ -35,7 +35,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3>Transaksi Sukses</h3>
-                    <h5>Transaksi anda sudah <strong>LUNAS</strong> dengan nominal : 
+                    <h5>Transaksi Anda sudah <strong>LUNAS</strong> dengan nominal : 
                         <strong>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</strong></h5>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                     <td>{{ $datatunai->name_muz }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Jumlah Transaksi</td>
+                    <td width="150px">Nominal Transaksi</td>
                     <td width="30px">:</td>
                     <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
                 </tr>   
