@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Transaksi Penyaluran')
+@section('title','Data Penyaluran')
 
 @section('content')
 
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Transaksi Penyaluran</title>
+    <title>Data Penyaluran</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -29,8 +29,10 @@
                                 <th scope="col">Tanggal Penyaluran</th>
                                 <th scope="col">Nama Program </th>
                                 <th scope="col">Nama Mustahik</th>
-                                <th scope="col">Jumlah Donasi </th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Jenis Kelamin</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Profesi</th>
+                                <th scope="col">Nominal Penyaluran </th>
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
@@ -43,8 +45,10 @@
                                     <td>{{ $datapenyaluran->tanggal_penyaluran }}</td>
                                     <td>{{ $datapenyaluran->name_program }}</td>
                                     <td>{{ $datapenyaluran->nama_mustahik }}</td>
+                                    <td>{{ $datapenyaluran->jenis_kelamin }}</td>
+                                    <td>{{ $datapenyaluran->alamat }}</td>
+                                    <td>{{ $datapenyaluran->profesi }}</td>
                                     <td>{{ $datapenyaluran->jumlah_donasi }}</td>
-                                    <td>{{ $datapenyaluran->status }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapenyaluran.destroy', $datapenyaluran->id) }}" method="POST">
                                        
@@ -58,7 +62,7 @@
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">
-                                      Data Transaksi Penyaluran belum Tersedia.
+                                      Data Transaksi Penyaluran Belum Tersedia.
                                   </div>
                               @endforelse
                             </tbody>

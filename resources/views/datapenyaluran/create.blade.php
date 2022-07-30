@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Tambah Data Penyaluran')
+@section('title','Data Penyaluran')
 
 @section('content')
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Data Penyaluran</title>
+    <title>Data Penyaluran</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -43,13 +43,27 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Jumlah Donasi</label>
-                                <input type="text" class="form-control @error('jumlah_donasi') is-invalid @enderror" name="jumlah_donasi" value="{{ old('jumlah_donasi') }}" placeholder="Masukkan Jumlah Donasi">
+                                <label>Jenis Kelamin</label>
+                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
+                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+                                <option value="perempuan">Perempuan</option>
+                                <option value="laki-laki">Laki-Laki</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Status</label>
-                                <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}" placeholder="Masukkan Status">
+                                <label class="font-weight-bold">Alamat</label>
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Profesi</label>
+                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Nominal Penyaluran</label>
+                                <input type="text" class="form-control @error('jumlah_donasi') is-invalid @enderror" name="jumlah_donasi" value="{{ old('jumlah_donasi') }}" placeholder="Masukkan Jumlah Donasi">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>

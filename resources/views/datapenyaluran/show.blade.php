@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Detail Data Penyaluran')
+@section('title','Data Penyaluran')
 
 @section('content')
 
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Penjualan Buah</title>
+    <title>Data Penyaluran</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -20,7 +20,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <div class="pull-left">
-            <h2>Tampil Data Penyaluran</h2>
+            <h2>Data Penyaluran</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('datapenyaluran.index') }}"> Back</a>
@@ -51,14 +51,24 @@
                     <td>{{ $datapenyaluran->nama_mustahik }}</td>
                 </tr>   
                 <tr>
+                    <td width="150px">Jenis Kelamin</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datapenyaluran->jenis_kelamin }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">Alamat</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datapenyaluran->alamat }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">Profesi</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datapenyaluran->profesi }}</td>
+                </tr>
+                <tr>
                     <td width="150px">Jumlah Donasi</td>
                     <td width="30px">:</td>
                     <td>{{ $datapenyaluran->jumlah_donasi }}</td>
-                </tr> 
-                <tr>
-                    <td width="150px">Status</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datapenyaluran->status }}</td>
                 </tr> 
             </table>
 @endsection
