@@ -5,6 +5,7 @@
          with font-awesome or any other icon font library -->
 
       <!-- Data -->
+      @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin' or auth()->user()->role=='Penghimpun')
       <li class="nav-item"><a href="#" class="nav-link">
     <i class="nav-icon fas fa-database"></i>
     <p>
@@ -37,6 +38,7 @@
     @endif
   </ul>
 </li>
+@endif
 @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
       <li class="nav-item menu-open">
     <li class="nav-item">
@@ -49,6 +51,7 @@
       </a>
     </li>
     @endif
+    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin' or auth()->user()->role=='Penghimpun')
     <li class="nav-item">
       <a href="/datamuzakki" class="nav-link">
         <i class="nav-icon fas fa-lock"></i>
@@ -58,7 +61,8 @@
         </p>
       </a>
     </li>
-    @if(auth()->user()->role=='Admin')
+    @endif
+    @if(auth()->user()->role=='Admin' or auth()->user()->role=='Supervisor')
     <li class="nav-item">
       <a href="/datauser" class="nav-link">
         <i class="nav-icon fas fa-cubes"></i>

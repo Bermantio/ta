@@ -64,6 +64,7 @@
                                 <option value="Admin">Admin</option>
                                 <option value="Penghimpun">Penghimpun</option>
                                 <option value="Pendayagunaan">Pendayagunaan</option>
+                                <option value="Supervisor">Supervisor</option>
                                 </select>
                             </div>
 

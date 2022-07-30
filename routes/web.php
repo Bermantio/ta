@@ -53,4 +53,10 @@ Route::group(['middleware' => 'CheckRole:Admin,Penghimpun'],function(){
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
+Route::group(['middleware' => 'CheckRole:Admin,Supervisor'],function(){
+    Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('datalaporan', DatalaporanController::class);
+    Route::resource('datauser', DatauserController::class);
+});
+
 Auth::routes();

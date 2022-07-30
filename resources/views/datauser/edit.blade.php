@@ -64,8 +64,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Status User</label>
-                                <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status', $datauser->status) }}" placeholder="Masukkan Status">
+                                <label>Status User</label>
+                                <select name="status" class="form-control" value="{{ old('status') }}">
+                                <option value="" selected disabled>-- Pilih --</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Penghimpun">Penghimpun</option>
+                                <option value="Pendayagunaan">Pendayagunaan</option>
+                                <option value="Supervisor">Supervisor</option>
+                                </select>
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
