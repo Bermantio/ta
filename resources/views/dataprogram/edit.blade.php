@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Data Transaksi Tunai</title>
+    <title>Edit Data Program</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -28,14 +28,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Nama Program Bencana</label>
-                                <select name="name_program" class="form-control" value="{{ old('name_program', $dataprogram->name_program) }}">
-                                <option value="" selected disabled>-- Pilih Nama Program Bencana --</option>
-                                <option value="banjir">Bencana Banjir</option>
-                                <option value="longsor">Bencana Longsor</option>
-                                <option value="tsunami">Bencana Tsunami</option>
-                                <option value="gempa_bumi">Bencana Gempa Bumi</option>
-                                </select>
+                                <label class="font-weight-bold">Nama Program</label>
+                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program') }}" placeholder="Masukkan Program">
                             </div>
 
                             <div class="form-group">

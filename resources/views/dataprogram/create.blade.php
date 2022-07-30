@@ -28,13 +28,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Nama Program Bencana</label>
-                                <select name="name_program" class="form-control" value="{{ old('name_program') }}">
-                                <option value="" selected disabled>-- Pilih Nama Program --</option>
-                                <option value="Zakat">Zakat</option>
-                                <option value="Infaq">Infaq</option>
-                                <option value="Sedekah">Sedekah</option>
-                                </select>
+                                <label class="font-weight-bold">Nama Program</label>
+                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program') }}" placeholder="Masukkan Program">
                             </div>
 
                             <div class="form-group">
