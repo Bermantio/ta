@@ -12,7 +12,7 @@ use App\Http\Controllers\DatanontunaiController;
 use App\Http\Controllers\DataprogramController;
 use App\Http\Controllers\DatapenyaluranController;
 
-<<<<<<< HEAD
+
 Route::resource('datamustahik', DatamustahikController::class);
 Route::resource('datalazismu', DatalazismuController::class);
 Route::resource('datalaporan', DatalaporanController::class);
@@ -32,8 +32,10 @@ Route::get('/home',[HomeController::class, 'index']);
 Route::get('/print',[DatatunaiController::class, 'print']);
 
 //Route::get('/cetakdata',[DatatunaiController::cetakdata, 'cetakdata']);
-=======
+
 Route::get('/',[HomeController::class, 'index']);
+Route::get('/',[HomeController::class, 'index']);
+
 Route::group(['middleware' => 'CheckRole:admin'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datamustahik', DatamustahikController::class);
@@ -58,5 +60,5 @@ Route::group(['middleware' => 'CheckRole:admin,datauser'],function(){
     Route::resource('dataprogram', DataprogramController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
->>>>>>> ca342e308626e4b6af204364f7b8d3952efb17b5
+
 Auth::routes();
