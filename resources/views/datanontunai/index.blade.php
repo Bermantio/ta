@@ -40,14 +40,14 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $datanontunai->kode_transaksi }}</td>
-                                    <td>{{ $datanontunai->kode_muzakki }}</td>
-                                    <td>{{ $datanontunai->name_muzakki }}</td>
+                                    <td>{{ $datanontunai->kode_zakki }}</td>
+                                    <td>{{ $datanontunai->name_zakki }}</td>
                                     <td>{{ $datanontunai->tanggal_transaksi }}</td>
                                     <td>{{ $datanontunai->jumlah_transaksi }}</td>
                                     <td>{{ $datanontunai->status }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datanontunai.destroy', $datanontunai->id) }}" method="POST">
-                                       
+                                        <a href="{{ route('datanontunai.show', $datanontunai->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
                                         <a href="{{ route('datanontunai.edit', $datanontunai->id) }}" class="btn btn-sm btn-warning">EDIT</a>
                                             @csrf
                                             @method('DELETE')

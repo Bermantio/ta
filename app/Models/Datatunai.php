@@ -14,6 +14,6 @@ class Datatunai extends Model
      * @var array
      */
     protected $fillable = [
-        'kode_transaksi', 'kode_muzakki', 'name_muzakki','tanggal_transaksi', 'jumlah_transaksi', 'status'
+        'kode_transaksi', 'kode_muz', 'name_muz','tanggal_transaksi', 'jumlah_transaksi', 'name_program', 'status'
     ];
 }

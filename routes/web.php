@@ -21,8 +21,14 @@ Route::resource('datatunai', DatatunaiController::class);
 Route::resource('datanontunai', DatanontunaiController::class);
 Route::resource('dataprogram', DataprogramController::class);
 Route::resource('datapenyaluran', DatapenyaluranController::class);
+Route::resource('datapenyaluran', DatapenyaluranController::class);
 
 
 Route::get('/',[HomeController::class, 'index']);
 Route::get('/home',[HomeController::class, 'index']);
+
+//Route::get('/laporantunai.lap', [App\Http\Controllers\LaporantunaiController::class, 'index'])->name('lap');
+Route::get('/print',[DatatunaiController::class, 'print']);
+
+//Route::get('/cetakdata',[DatatunaiController::cetakdata, 'cetakdata']);
 Auth::routes();

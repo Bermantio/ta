@@ -48,6 +48,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="font-weight-bold">Program</label>
+                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program', $datatunai->name_program) }}" placeholder="Masukkan Jenis Program">
+                            </div>
+
+                            <div class="form-group">
                                 <label class="font-weight-bold">Status</label>
                                 <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status', $datatunai->status) }}" placeholder="Masukkan Status">
                             </div>

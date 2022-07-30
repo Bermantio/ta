@@ -28,13 +28,23 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Kode Muzakki</label>
-                                <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki') }}" placeholder="Masukkan Kode Muzakki">
+                                <label>Kode Muzakki</label>
+                                <select name="kode_muz" id="pilih" class="form-control" onchange="GetHarga(this.value)">
+                                <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
+                                    @foreach ($niken as $buah)
+                                        <option value="{{ $buah->kode_muzakki.'_'.$buah->name_muzakki }}">{{ $buah->kode_muzakki }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('kode_muz')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama Muzakki</label>
-                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki') }}" placeholder="Masukkan Nama Muzakki">
+                                <label>Nama Muzakki</label>
+                                <input type="text" name="name_muz" id="name_muz" class="form-control" onchange="GetHarga(this.value)" readonly>
                             </div>
 
                             <div class="form-group">
@@ -44,7 +54,22 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Jumlah Transaksi</label>
-                                <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" id="jumlah_transaksi" onchange="GetHarga(this.value)" readonly>
+                                <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" id="jumlah_transaksi">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Program</label>
+                                <select name="name_program" class="form-control">
+                                <option value="" selected disableb>-- Pilih Program --</option>
+                                    @foreach ($program as $meili)
+                                        <option value="{{ $meili->name_program }}">{{ $meili->name_program }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('name_program')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -56,6 +81,18 @@
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
                         </form> 
+                        
+                        <script> //relasi
+                            function GetHarga() {
+                            var idHarga = $('#pilih').val();
+                            var name_muz =  idHarga.split("_");
+                            var name_program =  idHarga.split("_");
+
+                            $('#name_muz').val(name_muz[1]);
+                            $('#name_program').val(name_program[2]);
+                            }
+                        </script>
+
                     </div>
                 </div>
             </div>
@@ -67,14 +104,5 @@
 <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 </body>
 </html>
-
-<script type="text/javascript">
-var jumlah_transaksi = document.getElementById("harga");
-harga.addEventListener("keyup", function(e) {
-    harga.value = convertHarga(this.value, "Rp. ");
-});
-harga.addEventListener('keydown', function(event) {
-	return isNumberKey(event);
-});
 
 @endsection

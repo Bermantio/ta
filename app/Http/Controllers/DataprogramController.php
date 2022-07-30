@@ -68,7 +68,7 @@ class DataprogramController extends Controller
      */
     public function show(Dataprogram $dataprogram)
     {
-        //
+        return view('dataprogram.show',compact('dataprogram'));
     }
 
     /**

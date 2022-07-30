@@ -28,13 +28,23 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Kode Muzakki</label>
-                                <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki') }}" placeholder="Masukkan Kode Muzakki">
+                                <label>Kode Muzakki</label>
+                                <select name="kode_zakki" id="pilih" class="form-control" onchange="GetHarga(this.value)">
+                                <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
+                                    @foreach ($nontunai as $buah)
+                                        <option value="{{ $buah->kode_muzakki.'_'.$buah->name_muzakki }}">{{ $buah->kode_muzakki }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('kode_zakki')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama Muzakki</label>
-                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki') }}" placeholder="Masukkan Nama Muzakki">
+                                <label>Nama Muzakki</label>
+                                <input type="text" name="name_zakki" id="name_zakki" class="form-control" onchange="GetHarga(this.value)" readonly>
                             </div>
 
                             <div class="form-group">
@@ -56,6 +66,14 @@
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
                         </form> 
+                        <script> //relasi
+                            function GetHarga() {
+                            var idHarga = $('#pilih').val();
+                            var name_zakki =  idHarga.split("_");
+
+                            $('#name_zakki').val(name_zakki[1]);
+                            }
+                        </script>
                     </div>
                 </div>
             </div>

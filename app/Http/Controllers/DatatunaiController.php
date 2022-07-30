@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datatunai;
+use App\Models\Datamuzakki;
+use App\Models\Dataprogram;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,6 +22,12 @@ class DatatunaiController extends Controller
         return view('datatunai.index', compact('datatunais'));
     }
 
+    public function print(Datatunai $datatunai)
+    {
+        $niken = Datatunai::latest()->paginate(10);
+        return view('datatunai.print', compact('datatunai'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +35,9 @@ class DatatunaiController extends Controller
      */
     public function create()
     {
-        return view('datatunai.create');
+        $niken = Datamuzakki::all();
+        $program = Dataprogram::all();
+        return view('datatunai.create', compact('niken', 'program'));
     }
 
     /**
@@ -39,19 +50,21 @@ class DatatunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
-            'kode_muzakki'        => 'required',
-            'name_muzakki'        => 'required',
+            'kode_muz'            => 'required',
+            'name_muz'            => 'required',
             'tanggal_transaksi'   => 'required',
             'jumlah_transaksi'    => 'required',
+            'name_program'        => 'required',
             'status'              => 'required',
         ]);
 
         $datatunai = datatunai::create([
-            'kode_transaksi'        => $request->kode_transaksi,
-            'kode_muzakki'          => $request->kode_muzakki,
-            'name_muzakki'          => $request->name_muzakki,
+            'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            'kode_muz'              => $request->kode_muz,
+            'name_muz'              => $request->name_muz,
             'tanggal_transaksi'     => $request->tanggal_transaksi,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
+            'name_program'          => $request->name_program,
             'status'                => $request->status,
         ]);
 
@@ -72,7 +85,7 @@ class DatatunaiController extends Controller
      */
     public function show(Datatunai $datatunai)
     {
-        //
+        return view('datatunai.show', compact('datatunai'));
     }
 
     /**
@@ -97,10 +110,11 @@ class DatatunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
-            'kode_muzakki'        => 'required',
-            'name_muzakki'        => 'required',
+            'kode_muz'            => 'required',
+            'name_muz'            => 'required',
             'tanggal_transaksi'   => 'required',
             'jumlah_transaksi'    => 'required',
+            'name_program'        => 'required',
             'status'              => 'required',
         ]);
 
@@ -108,10 +122,11 @@ class DatatunaiController extends Controller
 
         $datatunai->update([
             'kode_transaksi'        => $request->kode_transaksi,
-            'kode_muzakki'          => $request->kode_muzakki,
-            'name_muzakki'          => $request->name_muzakki,
+            'kode_muz'              => $request->kode_muz,
+            'name_muz'              => $request->name_muz,
             'tanggal_transaksi'     => $request->tanggal_transaksi,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
+            'name_program'          => $request->name_program,
             'status'                => $request->status,
         ]);
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datanontunai;
+use App\Models\Datamuzakki;
+use DB;
 use Illuminate\Http\Request;
 
 class DatanontunaiController extends Controller
@@ -25,7 +27,8 @@ class DatanontunaiController extends Controller
      */
     public function create()
     {
-        return view('datanontunai.create');
+        $nontunai = Datamuzakki::all();
+        return view('datanontunai.create', compact('nontunai'));
     }
 
     /**
@@ -38,17 +41,17 @@ class DatanontunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
-            'kode_muzakki'        => 'required',
-            'name_muzakki'        => 'required',
+            'kode_zakki'          => 'required',
+            'name_zakki'          => 'required',
             'tanggal_transaksi'   => 'required',
             'jumlah_transaksi'    => 'required',
             'status'              => 'required',
         ]);
 
         $datanontunai = datanontunai::create([
-            'kode_transaksi'        => $request->kode_transaksi,
-            'kode_muzakki'          => $request->kode_muzakki,
-            'name_muzakki'          => $request->name_muzakki,
+            'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            'kode_zakki'            => $request->kode_zakki,
+            'name_zakki'            => $request->name_zakki,
             'tanggal_transaksi'     => $request->tanggal_transaksi,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
             'status'                => $request->status,
@@ -71,7 +74,7 @@ class DatanontunaiController extends Controller
      */
     public function show(Datanontunai $datanontunai)
     {
-        //
+        return view('datanontunai.show', compact('datanontunai'));
     }
 
     /**
@@ -96,8 +99,8 @@ class DatanontunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
-            'kode_muzakki'        => 'required',
-            'name_muzakki'        => 'required',
+            'kode_zakki'          => 'required',
+            'name_zakki'          => 'required',
             'tanggal_transaksi'   => 'required',
             'jumlah_transaksi'    => 'required',
             'status'              => 'required',
@@ -107,8 +110,8 @@ class DatanontunaiController extends Controller
 
         $datanontunai->update([
             'kode_transaksi'        => $request->kode_transaksi,
-            'kode_muzakki'          => $request->kode_muzakki,
-            'name_muzakki'          => $request->name_muzakki,
+            'kode_zakki'            => $request->kode_zakki,
+            'name_zakki'            => $request->name_zakki,
             'tanggal_transaksi'     => $request->tanggal_transaksi,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
             'status'                => $request->status,

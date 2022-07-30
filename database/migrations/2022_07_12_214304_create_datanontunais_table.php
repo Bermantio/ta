@@ -16,8 +16,8 @@ class CreateDatanontunaisTable extends Migration
         Schema::create('datanontunais', function (Blueprint $table) {
             $table->id();
             $table->char('kode_transaksi');
-            $table->char('kode_muzakki');
-            $table->char('name_muzakki');
+            $table->char('kode_zakki');
+            $table->char('name_zakki');
             $table->char('tanggal_transaksi');
             $table->char('jumlah_transaksi');
             $table->char('status');

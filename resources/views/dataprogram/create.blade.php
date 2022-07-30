@@ -30,11 +30,10 @@
                             <div class="form-group">
                                 <label>Nama Program Bencana</label>
                                 <select name="name_program" class="form-control" value="{{ old('name_program') }}">
-                                <option value="" selected disabled>-- Pilih Nama Program Bencana --</option>
-                                <option value="banjir">Bencana Banjir</option>
-                                <option value="longsor">Bencana Longsor</option>
-                                <option value="tsunami">Bencana Tsunami</option>
-                                <option value="gempa_bumi">Bencana Gempa Bumi</option>
+                                <option value="" selected disabled>-- Pilih Nama Program --</option>
+                                <option value="Zakat">Zakat</option>
+                                <option value="Infaq">Infaq</option>
+                                <option value="Sedekah">Sedekah</option>
                                 </select>
                             </div>
 

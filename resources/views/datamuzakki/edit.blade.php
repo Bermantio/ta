@@ -40,8 +40,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama User</label>
-                                <input type="text" class="form-control @error('name_user') is-invalid @enderror" name="name_user" value="{{ old('name_user') }}" placeholder="Masukkan Nama User">
+                                <label>Nama User</label>
+                                <select name="name_user" class="form-control">
+                                <option value="{{ $datamuzakki->name_user }}">{{ $datamuzakki->name_user }}</option>
+                                    @foreach ($puspan as $meili)
+                                        <option value="{{ $meili->name_user }}">{{ $meili->name_user }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="text-danger">
+                                            @error('name_user')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
                             </div>
 
                             <div class="form-group">

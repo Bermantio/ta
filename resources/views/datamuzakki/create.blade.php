@@ -40,8 +40,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama User</label>
-                                <input type="text" class="form-control @error('name_user') is-invalid @enderror" name="name_user" value="{{ old('name_user') }}" placeholder="Masukkan Nama User">
+                                <label>Nama User</label>
+                                <select name="name_user" class="form-control">
+                                <option value="" selected disableb>-- Pilih Nama User --</option>
+                                    @foreach ($puspan as $meili)
+                                        <option value="{{ $meili->name_user }}">{{ $meili->name_user }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('name_user')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -82,6 +92,14 @@
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
                         </form> 
+                        <script>
+                            function GetHarga() {
+                            var idHarga = $('#pilih').val();
+                            var name_user =  idHarga.split("_");
+                            
+                            $('#name_user').val(name_user[1]);
+                            }
+                        </script>
                     </div>
                 </div>
             </div>

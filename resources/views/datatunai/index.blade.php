@@ -30,6 +30,7 @@
                                 <th scope="col">Nama Muzakki</th>
                                 <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Jumlah Transaksi</th>
+                                <th scope="col">Program</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                               </tr>
@@ -40,14 +41,21 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $datatunai->kode_transaksi }}</td>
-                                    <td>{{ $datatunai->kode_muzakki }}</td>
-                                    <td>{{ $datatunai->name_muzakki }}</td>
+                                    <td>{{ $datatunai->kode_muz }}</td>
+                                    <td>{{ $datatunai->name_muz }}</td>
                                     <td>{{ $datatunai->tanggal_transaksi }}</td>
-                                    <td>{{ $datatunai->jumlah_transaksi }}</td>
-                                    <td>{{ $datatunai->status }}</td>
+                                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
+                                    <td>{{ $datatunai->name_program }}</td>
+                                    <td>
+                                        @if($datatunai->status == 1)
+                                        Sudah Pesan & Belum dibayar
+                                        @else
+                                        <strong>LUNAS</strong>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datatunai.destroy', $datatunai->id) }}" method="POST">
-                                       
+                                        <a href="{{ route('datatunai.show', $datatunai->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
                                         <a href="{{ route('datatunai.edit', $datatunai->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')

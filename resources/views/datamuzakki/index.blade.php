@@ -55,7 +55,7 @@
                                     <td>{{ $datamuzakki->keterangan }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datamuzakki.destroy', $datamuzakki->id) }}" method="POST">
-                                       
+                                        <a href="{{ route('datamuzakki.show', $datamuzakki->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
                                         <a href="{{ route('datamuzakki.edit', $datamuzakki->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')

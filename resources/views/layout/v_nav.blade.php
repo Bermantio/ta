@@ -8,7 +8,7 @@
       <li class="nav-item"><a href="#" class="nav-link">
     <i class="nav-icon fas fa-database"></i>
     <p>
-        Transaksi
+        Laporan Transaksi
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
@@ -75,6 +75,15 @@
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
           Data Penyaluran
+          <i class="right fas"></i>
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/laporantunai" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+          Laporan
           <i class="right fas"></i>
         </p>
       </a>

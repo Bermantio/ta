@@ -29,12 +29,12 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Kode Muzakki</label>
-                                <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki', $datanontunai->kode_muzakki) }}" placeholder="Masukkan Kode Muzakki">
+                                <input type="text" class="form-control @error('kode_zakki') is-invalid @enderror" name="kode_zakki" value="{{ old('kode_zakki', $datanontunai->kode_zakki) }}" placeholder="Masukkan Kode Muzakki">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama Muzakki</label>
-                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki', $datanontunai->name_muzakki) }}" placeholder="Masukkan Nama Muzakki">
+                                <input type="text" class="form-control @error('name_zakki') is-invalid @enderror" name="name_zakki" value="{{ old('name_zakki', $datanontunai->name_zakki) }}" placeholder="Masukkan Nama Muzakki">
                             </div>
 
                             <div class="form-group">
