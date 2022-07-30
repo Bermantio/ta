@@ -13,7 +13,7 @@
         </p>
       </a>
     <ul class="nav nav-treeview">
-    @if(auth()->user()->role=='Penghimpun')
+    @if(auth()->user()->role=='Penghimpun' or auth()->user()->role=='Admin')
     <li class="nav-item">
       <a href="/datatunai" class="nav-link">
         <i class="nav-icon fas fa-tag"></i>
@@ -24,7 +24,7 @@
       </a>
     </li>
     @endif
-    @if(auth()->user()->role=='Pendayagunaan')
+    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
     <li class="nav-item">
       <a href="/datanontunai" class="nav-link">
         <i class="nav-icon fas fa-tag"></i>
@@ -37,6 +37,7 @@
     @endif
   </ul>
 </li>
+@if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
       <li class="nav-item menu-open">
     <li class="nav-item">
       <a href="/datamustahik" class="nav-link">
@@ -47,6 +48,7 @@
         </p>
       </a>
     </li>
+    @endif
     <li class="nav-item">
       <a href="/datamuzakki" class="nav-link">
         <i class="nav-icon fas fa-lock"></i>
@@ -67,6 +69,7 @@
       </a>
     </li>
     @endif
+    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
     <li class="nav-item">
       <a href="/dataprogram" class="nav-link">
         <i class="nav-icon fas fa-fax"></i>
@@ -76,6 +79,8 @@
         </p>
       </a>
     </li>
+    @endif
+    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
     <li class="nav-item">
       <a href="/datapenyaluran" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -85,6 +90,7 @@
         </p>
       </a>
     </li>
+    @endif
     <li class="nav-item">
       <a href="/laporantunai" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
