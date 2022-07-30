@@ -52,6 +52,7 @@
         </p>
       </a>
     </li>
+    @if(auth()->user()->role=='admin')
     <li class="nav-item">
       <a href="/datauser" class="nav-link">
         <i class="nav-icon fas fa-cubes"></i>
@@ -61,6 +62,7 @@
         </p>
       </a>
     </li>
+    @endif
     <li class="nav-item">
       <a href="/dataprogram" class="nav-link">
         <i class="nav-icon fas fa-fax"></i>

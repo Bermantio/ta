@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jul 2022 pada 10.47
--- Versi server: 10.4.19-MariaDB
--- Versi PHP: 8.0.7
+-- Waktu pembuatan: 30 Jul 2022 pada 06.10
+-- Versi server: 10.4.17-MariaDB
+-- Versi PHP: 8.0.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `ta`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -126,11 +141,20 @@ CREATE TABLE `datapenyalurans` (
   `tanggal_penyaluran` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_program` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_mustahik` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_kelamin` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profesi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jumlah_donasi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `datapenyalurans`
+--
+
+INSERT INTO `datapenyalurans` (`id`, `kode_transaksi`, `tanggal_penyaluran`, `name_program`, `nama_mustahik`, `jenis_kelamin`, `alamat`, `profesi`, `jumlah_donasi`, `created_at`, `updated_at`) VALUES
+(5, '123', '2022-07-10', 'a', 'a', 'perempuan', 'a', 'b', '123', '2022-07-29 22:13:16', '2022-07-29 22:13:16');
 
 -- --------------------------------------------------------
 
@@ -174,6 +198,7 @@ CREATE TABLE `datatunais` (
 
 CREATE TABLE `datausers` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kode_user` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_user` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -184,13 +209,6 @@ CREATE TABLE `datausers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `datausers`
---
-
-INSERT INTO `datausers` (`id`, `image`, `kode_user`, `name_user`, `jenis_kelamin`, `alamat`, `status`, `email`, `created_at`, `updated_at`) VALUES
-(1, 'vJmn9eP4rYFlbopapn4tFcyHp3tIqZibLT6augqz.jpg', '23211', 'Meilinia', 'perempuan', 'mijen', 'menunggu pembayaran', 'nikennn@gmail.com', '2022-07-20 19:09:10', '2022-07-20 19:09:10');
 
 -- --------------------------------------------------------
 
@@ -225,21 +243,19 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(6, '2021_11_13_063058_create_tb_kategori_table', 4),
-(76, '2021_11_07_074710_create_tb_jenissewa_table', 5),
-(77, '2021_11_12_032617_create_tb_karyawan_table', 5),
-(88, '2014_10_12_000000_create_users_table', 6),
-(89, '2014_10_12_100000_create_password_resets_table', 6),
-(90, '2019_08_19_000000_create_failed_jobs_table', 6),
-(91, '2022_07_04_063129_create_datamustahiks_table', 6),
-(92, '2022_07_05_062123_create_datalazismus_table', 6),
-(93, '2022_07_05_100114_create_datalaporans_table', 6),
-(94, '2022_07_06_163442_create_datamuzakkis_table', 6),
-(95, '2022_07_11_044740_create_datausers_table', 6),
-(96, '2022_07_12_092422_create_datatunais_table', 6),
-(97, '2022_07_12_214304_create_datanontunais_table', 6),
-(98, '2022_07_16_053844_create_dataprograms_table', 6),
-(99, '2022_07_16_071553_create_datapenyalurans_table', 6);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2022_07_04_063129_create_datamustahiks_table', 1),
+(5, '2022_07_05_062123_create_datalazismus_table', 1),
+(6, '2022_07_05_100114_create_datalaporans_table', 1),
+(7, '2022_07_06_163442_create_datamuzakkis_table', 1),
+(8, '2022_07_11_044740_create_datausers_table', 1),
+(9, '2022_07_12_092422_create_datatunais_table', 1),
+(10, '2022_07_12_214304_create_datanontunais_table', 1),
+(11, '2022_07_16_053844_create_dataprograms_table', 1),
+(12, '2022_07_16_071553_create_datapenyalurans_table', 1),
+(13, '2022_07_20_084625_create_blogs_table', 1);
 
 -- --------------------------------------------------------
 
@@ -261,6 +277,7 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `role` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -274,12 +291,19 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'meilinianiken', 'meilinia@gmail.com', NULL, '$2y$10$165vSxOIEW3Max2lPnrxmOQo0mXIjbAhavAOONXOk7I7/qrWiGXb2', NULL, '2022-07-20 01:55:56', '2022-07-20 01:55:56');
+INSERT INTO `users` (`id`, `role`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'Ber', 'bermantio@yahoo.com', NULL, '$2y$10$S5iuOtELWKYLSu2.2S0Wgu7swUAXCcQ6iygxvW/pEpGvsh2Cdq1mO', NULL, '2022-07-29 15:31:54', '2022-07-29 15:31:54'),
+(10, 'Pendayagunaan', 'Ber', 'bermantio@gmail.com', NULL, '$2y$10$hsqPGkm.6GJ0Ong59zjRGewWodiyFkobpwYQumPezuvkad8hW4Pte', NULL, '2022-07-29 23:02:43', '2022-07-29 23:02:43');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `datalaporans`
@@ -366,6 +390,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `datalaporans`
 --
 ALTER TABLE `datalaporans`
@@ -399,7 +429,7 @@ ALTER TABLE `datanontunais`
 -- AUTO_INCREMENT untuk tabel `datapenyalurans`
 --
 ALTER TABLE `datapenyalurans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `dataprograms`
@@ -417,7 +447,7 @@ ALTER TABLE `datatunais`
 -- AUTO_INCREMENT untuk tabel `datausers`
 --
 ALTER TABLE `datausers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -429,13 +459,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

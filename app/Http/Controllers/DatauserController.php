@@ -51,15 +51,16 @@ class DatauserController extends Controller
         $image = $request->file('image');
         $image->storeAs('public/datausers', $image->hashName());
 
-        $datauser = Datauser::create([
-            'image'             => $image->hashName(),
-            'kode_user'         => $request->kode_user,
-            'name_user'         => $request->name_user,
-            'jenis_kelamin'     => $request->jenis_kelamin,
-            'alamat'            => $request->alamat,
-            'status'            => $request->status,
-            'email'             => $request->email,
-        ]);
+        //insert ke tabel user
+        $user = new \App\Models\User;
+        $user->role = 'datauser';
+        $user->name = $request->name_user;
+        $user->email = $request->email;
+        $user->password = bcrypt('password');
+        $user->save();
+        
+        $request->request->add(['user_id' => $user->id]);
+        $datauser = Datauser::create($request->all());
 
         if($datauser){
             //redirect dengan pesan sukses

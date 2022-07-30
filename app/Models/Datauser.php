@@ -14,6 +14,6 @@ class Datauser extends Model
      * @var array
      */
     protected $fillable = [
-        'image', 'kode_user', 'name_user','jenis_kelamin', 'alamat', 'status', 'email'
+        'image', 'kode_user', 'name_user','jenis_kelamin', 'alamat', 'status', 'email','user_id'
     ];
 }
