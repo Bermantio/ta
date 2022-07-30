@@ -12,31 +12,13 @@ use App\Http\Controllers\DatanontunaiController;
 use App\Http\Controllers\DataprogramController;
 use App\Http\Controllers\DatapenyaluranController;
 
-
-Route::resource('datamustahik', DatamustahikController::class);
-Route::resource('datalazismu', DatalazismuController::class);
-Route::resource('datalaporan', DatalaporanController::class);
-Route::resource('datamuzakki', DatamuzakkiController::class);
-Route::resource('datauser', DatauserController::class);
-Route::resource('datatunai', DatatunaiController::class);
-Route::resource('datanontunai', DatanontunaiController::class);
-Route::resource('dataprogram', DataprogramController::class);
-Route::resource('datapenyaluran', DatapenyaluranController::class);
-Route::resource('datapenyaluran', DatapenyaluranController::class);
-
-
-Route::get('/',[HomeController::class, 'index']);
-Route::get('/home',[HomeController::class, 'index']);
-
 //Route::get('/laporantunai.lap', [App\Http\Controllers\LaporantunaiController::class, 'index'])->name('lap');
 Route::get('/print',[DatatunaiController::class, 'print']);
 
 //Route::get('/cetakdata',[DatatunaiController::cetakdata, 'cetakdata']);
 
 Route::get('/',[HomeController::class, 'index']);
-Route::get('/',[HomeController::class, 'index']);
-
-Route::group(['middleware' => 'CheckRole:admin'],function(){
+Route::group(['middleware' => 'CheckRole:Admin'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
@@ -49,7 +31,7 @@ Route::group(['middleware' => 'CheckRole:admin'],function(){
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
-Route::group(['middleware' => 'CheckRole:admin,datauser'],function(){
+Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);

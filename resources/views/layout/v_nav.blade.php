@@ -52,7 +52,7 @@
         </p>
       </a>
     </li>
-    @if(auth()->user()->role=='admin')
+    @if(auth()->user()->role=='Admin')
     <li class="nav-item">
       <a href="/datauser" class="nav-link">
         <i class="nav-icon fas fa-cubes"></i>
