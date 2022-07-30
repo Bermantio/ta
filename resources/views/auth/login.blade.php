@@ -16,7 +16,7 @@ body {
         border-radius: 10px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
         height: 400px;
-        margin: 10rem auto 8.1rem auto;
+        margin: 8rem auto;
         width: 500px;
 }
 </style>
