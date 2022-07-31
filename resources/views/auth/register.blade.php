@@ -111,7 +111,7 @@ body {
         </div>
         <center>
         <div id="card-title">
-            <a href="http://127.0.0.1:8000/login">Kembali ke halaman Login</a>
+            <a href="http://127.0.0.1:8000/login">Kembali Ke Halaman Login</a>
           </div>
 </center>
 		</form>
