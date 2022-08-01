@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Jul 2022 pada 06.10
+-- Waktu pembuatan: 01 Agu 2022 pada 10.32
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.21
 
@@ -90,6 +90,13 @@ CREATE TABLE `datamustahiks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `datamustahiks`
+--
+
+INSERT INTO `datamustahiks` (`id`, `kode`, `name`, `jenis_kelamin`, `alamat`, `profesi`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, '2', 'b', 'perempuan', 'Bandung', 'b', 'a', '2022-07-31 23:07:56', '2022-07-31 23:08:41');
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +117,13 @@ CREATE TABLE `datamuzakkis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `datamuzakkis`
+--
+
+INSERT INTO `datamuzakkis` (`id`, `image`, `kode_muzakki`, `name_user`, `name_muzakki`, `jenis_kelamin`, `alamat`, `profesi`, `tanggal_dibuat`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, 'gR2VVc9qDfaGN12OzFgnoYuCOHbnXrvHJKEWnlfM.jpg', '12', 'Ber', 'ae', 'laki-laki', 'a', 'b', '2022-08-01', 'a', '2022-08-01 03:25:30', '2022-08-01 03:25:30');
 
 -- --------------------------------------------------------
 
@@ -166,11 +180,19 @@ CREATE TABLE `dataprograms` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `kode_program` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_program` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_program` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_program` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deskripsi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `dataprograms`
+--
+
+INSERT INTO `dataprograms` (`id`, `kode_program`, `name_program`, `jenis_program`, `tanggal_program`, `deskripsi`, `created_at`, `updated_at`) VALUES
+(1, '1', 'Zakat Fitrah', 'Zakat', '2022-08-01', 'Zakat Fitrah Sebelum Sholat Ied', '2022-07-31 23:01:18', '2022-08-01 02:41:41');
 
 -- --------------------------------------------------------
 
@@ -183,6 +205,11 @@ CREATE TABLE `datatunais` (
   `kode_transaksi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kode_muzakki` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_muzakki` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_kelamin` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notelepon` int(14) NOT NULL,
+  `profesi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_transaksi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jumlah_transaksi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -209,6 +236,13 @@ CREATE TABLE `datausers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `datausers`
+--
+
+INSERT INTO `datausers` (`id`, `user_id`, `image`, `kode_user`, `name_user`, `jenis_kelamin`, `alamat`, `status`, `email`, `created_at`, `updated_at`) VALUES
+(5, 12, 'C:\\Users\\windows 10\\AppData\\Local\\Temp\\phpFBEE.tmp', '12345', 'Ber', 'laki-laki', 'Bandung', 'Admin', 'bermantio@gmail.com', '2022-08-01 03:24:24', '2022-08-01 03:24:24');
 
 -- --------------------------------------------------------
 
@@ -293,7 +327,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'Ber', 'bermantio@yahoo.com', NULL, '$2y$10$S5iuOtELWKYLSu2.2S0Wgu7swUAXCcQ6iygxvW/pEpGvsh2Cdq1mO', NULL, '2022-07-29 15:31:54', '2022-07-29 15:31:54'),
-(10, 'Pendayagunaan', 'Ber', 'bermantio@gmail.com', NULL, '$2y$10$hsqPGkm.6GJ0Ong59zjRGewWodiyFkobpwYQumPezuvkad8hW4Pte', NULL, '2022-07-29 23:02:43', '2022-07-29 23:02:43');
+(12, 'datauser', 'Ber', 'bermantio@gmail.com', NULL, '$2y$10$ZQzRJ0g9Ro6HEBq8hOG1r.nLLi/7lDMgMsu.T5/Xq74uOl5i8uRWi', NULL, '2022-08-01 03:24:24', '2022-08-01 03:24:24');
 
 --
 -- Indexes for dumped tables
@@ -411,13 +445,13 @@ ALTER TABLE `datalazismus`
 -- AUTO_INCREMENT untuk tabel `datamustahiks`
 --
 ALTER TABLE `datamustahiks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `datamuzakkis`
 --
 ALTER TABLE `datamuzakkis`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `datanontunais`
@@ -435,7 +469,7 @@ ALTER TABLE `datapenyalurans`
 -- AUTO_INCREMENT untuk tabel `dataprograms`
 --
 ALTER TABLE `dataprograms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `datatunais`
@@ -447,7 +481,7 @@ ALTER TABLE `datatunais`
 -- AUTO_INCREMENT untuk tabel `datausers`
 --
 ALTER TABLE `datausers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -465,7 +499,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
