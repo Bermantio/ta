@@ -33,6 +33,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Jenis Program</label>
+                                <select name="jenis_program" class="form-control" value="{{ old('jenis_program') }}">
+                                <option value="" selected disabled>-- Pilih Jenis Program --</option>
+                                <option value="Zakat">Zakat</option>
+                                <option value="Infaq">Infaq</option>
+                                <option value="Shadaqah">Shadaqah</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="font-weight-bold">Tanggal</label>
                                 <input type="date" class="form-control @error('tanggal_program') is-invalid @enderror" name="tanggal_program" value="{{ old('tanggal_program') }}" placeholder="Masukkan Tanggal Transaksi">
                             </div>

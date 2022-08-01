@@ -27,6 +27,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Kode Program</th>
                                 <th scope="col">Nama Program</th>
+                                <th scope="col">Jenis Program</th>
                                 <th scope="col">Tanggal </th>
                                 <th scope="col">Deskripsi</th>
                                 <th scope="col">Action</th>
@@ -39,6 +40,7 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $dataprogram->kode_program }}</td>
                                     <td>{{ $dataprogram->name_program }}</td>
+                                    <td>{{ $dataprogram->jenis_program }}</td>
                                     <td>{{ $dataprogram->tanggal_program }}</td>
                                     <td>{{ $dataprogram->deskripsi }}</td>
                                     <td class="text-center">

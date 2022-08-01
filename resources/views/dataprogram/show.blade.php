@@ -22,10 +22,15 @@
                     <td>{{ $dataprogram->kode_program }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Jenis Program</td>
+                    <td width="150px">Nama Program</td>
                     <td width="30px">:</td>
                     <td>{{ $dataprogram->name_program }}</td>
-
+                </tr>
+                <tr>
+                    <td width="150px">Jenis Program</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datamuzakki->jenis_program }}</td>
+                </tr>
                 <tr>
                     <td width="150px">Tanggal Bencana</td>
                     <td width="30px">:</td>
