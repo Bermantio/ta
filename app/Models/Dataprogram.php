@@ -14,6 +14,6 @@ class Dataprogram extends Model
      * @var array
      */
     protected $fillable = [
-        'kode_program', 'name_program', 'tanggal_program','deskripsi'
+        'kode_program', 'name_program', 'jenis_program','tanggal_program','deskripsi'
     ];
 }
