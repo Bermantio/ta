@@ -50,21 +50,31 @@ class DatatunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
+            'tanggal_transaksi'   => 'required',
             'kode_muz'            => 'required',
             'name_muz'            => 'required',
-            'tanggal_transaksi'   => 'required',
-            'jumlah_transaksi'    => 'required',
+            'jenis_kelamin'   => 'required',
+            'alamat'   => 'required',
+            'notelepon'   => 'required',
+            'profesi'   => 'required',
             'name_program'        => 'required',
+            'keterangan'        => 'required',
+            'jumlah_transaksi'    => 'required',
             'status'              => 'required',
         ]);
 
         $datatunai = datatunai::create([
             'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
             'kode_muz'              => $request->kode_muz,
             'name_muz'              => $request->name_muz,
-            'tanggal_transaksi'     => $request->tanggal_transaksi,
-            'jumlah_transaksi'      => $request->jumlah_transaksi,
+            'jenis_kelamin'     => $request->jenis_kelamin,
+            'alamat'     => $request->alamat,
+            'notelepon'     => $request->notelepon,
+            'profesi'     => $request->profesi,
             'name_program'          => $request->name_program,
+            'keterangan'     => $request->keterangan,
+            'jumlah_transaksi'      => $request->jumlah_transaksi,
             'status'                => $request->status,
         ]);
 
@@ -110,11 +120,16 @@ class DatatunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
+            'tanggal_transaksi'   => 'required',
             'kode_muz'            => 'required',
             'name_muz'            => 'required',
-            'tanggal_transaksi'   => 'required',
-            'jumlah_transaksi'    => 'required',
+            'jenis_kelamin'   => 'required',
+            'alamat'   => 'required',
+            'notelepon'   => 'required',
+            'profesi'   => 'required',
             'name_program'        => 'required',
+            'keterangan'        => 'required',
+            'jumlah_transaksi'    => 'required',
             'status'              => 'required',
         ]);
 
@@ -122,11 +137,16 @@ class DatatunaiController extends Controller
 
         $datatunai->update([
             'kode_transaksi'        => $request->kode_transaksi,
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
             'kode_muz'              => $request->kode_muz,
             'name_muz'              => $request->name_muz,
-            'tanggal_transaksi'     => $request->tanggal_transaksi,
-            'jumlah_transaksi'      => $request->jumlah_transaksi,
+            'jenis_kelamin'     => $request->jenis_kelamin,
+            'alamat'     => $request->alamat,
+            'notelepon'     => $request->notelepon,
+            'profesi'     => $request->profesi,
             'name_program'          => $request->name_program,
+            'keterangan'     => $request->keterangan,
+            'jumlah_transaksi'      => $request->jumlah_transaksi,
             'status'                => $request->status,
         ]);
 
