@@ -19,8 +19,10 @@ class CreateDatapenyaluransTable extends Migration
             $table->char('tanggal_penyaluran');
             $table->char('name_program');
             $table->char('nama_mustahik');
+            $table->char('jenis_kelamin');
+            $table->char('alamat');
+            $table->char('profesi');
             $table->char('jumlah_donasi');
-            $table->char('status');
             $table->timestamps();
         });
     }

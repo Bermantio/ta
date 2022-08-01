@@ -86,7 +86,7 @@
                                 <input type="text" class="form-control @error('jumlah_donasi') is-invalid @enderror" name="jumlah_donasi" value="{{ old('jumlah_donasi', $datapenyaluran->jumlah_donasi) }}" placeholder="Masukkan Jumlah Donasi">
                             </div>
 
-                            <button type="submit" class="btn btn-md btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-md btn-primary">Update</button>
                             <button type="batal" class="btn btn-md btn-secondary">Batal</button>
 
                         </form> 

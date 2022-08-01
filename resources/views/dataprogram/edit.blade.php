@@ -53,7 +53,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <button type="reset" class="btn btn-md btn-warning">Reset</button>
+                            <button type="batal" class="btn btn-md btn-secondary">Batal</button>
 
                         </form> 
                     </div>
