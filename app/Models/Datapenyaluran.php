@@ -14,6 +14,7 @@ class Datapenyaluran extends Model
      * @var array
      */
     protected $fillable = [
-        'kode_transaksi', 'tanggal_penyaluran', 'name_program','nama_mustahik', 'jumlah_donasi', 'status'
+        'kode_transaksi', 'tanggal_penyaluran', 'name_program','name','jenis_kelamin', 
+        'alamat', 'profesi', 'jumlah_donasi'
     ];
 }

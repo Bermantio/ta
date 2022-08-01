@@ -44,7 +44,7 @@
                                     <td>{{ $datapenyaluran->kode_transaksi }}</td>
                                     <td>{{ $datapenyaluran->tanggal_penyaluran }}</td>
                                     <td>{{ $datapenyaluran->name_program }}</td>
-                                    <td>{{ $datapenyaluran->nama_mustahik }}</td>
+                                    <td>{{ $datapenyaluran->name }}</td>
                                     <td>{{ $datapenyaluran->jenis_kelamin }}</td>
                                     <td>{{ $datapenyaluran->alamat }}</td>
                                     <td>{{ $datapenyaluran->profesi }}</td>

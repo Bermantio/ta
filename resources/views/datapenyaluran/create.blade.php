@@ -33,14 +33,34 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama Program</label>
-                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program') }}" placeholder="Masukkan Nama Program">
-                            </div>
+                                <label>Nama Program</label>
+                                <select name="name_program" class="form-control">
+                                <option value="" selected disableb>-- Pilih Nama Program --</option>
+                                    @foreach ($namaprog as $meili)
+                                        <option value="{{ $meili->name_program }}">{{ $meili->name_program }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('name_program')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>   
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama Mustahik</label>
-                                <input type="text" class="form-control @error('nama_mustahik') is-invalid @enderror" name="nama_mustahik" value="{{ old('nama_mustahik') }}" placeholder="Masukkan Nama Mustahik">
-                            </div>
+                                <label>Nama Mustahik</label>
+                                <select name="name" class="form-control">
+                                <option value="" selected disableb>-- Pilih Nama Mustahik --</option>
+                                    @foreach ($namahik as $nikber)
+                                        <option value="{{ $nikber->name }}">{{ $nikber->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('name')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div> 
 
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
@@ -70,6 +90,16 @@
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
                         </form> 
+                        <script>
+                            function GetHarga() {
+                            var idHarga = $('#pilih').val();
+                            var name_program =  idHarga.split("_");
+                            var name =  idHarga.split("_");
+                            
+                            $('#name_program').val(name_program[1]);
+                            $('#name').val(name[2]);
+                            }
+                        </script>
                     </div>
                 </div>
             </div>

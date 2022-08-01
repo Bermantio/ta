@@ -33,18 +33,38 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama Program</label>
-                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program', $datapenyaluran->name_program) }}" placeholder="Masukkan Nama Program">
-                            </div>
+                                <label>Nama Program</label>
+                                <select name="name_program" class="form-control">
+                                <option value="" selected disableb>-- Pilih Nama Program --</option>
+                                    @foreach ($namaprog as $meili)
+                                        <option value="{{ $meili->name_program }}">{{ $meili->name_program }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('name_program')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>   
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama Mustahik</label>
-                                <input type="text" class="form-control @error('nama_mustahik') is-invalid @enderror" name="nama_mustahik" value="{{ old('nama_mustahik', $datapenyaluran->nama_mustahik) }}" placeholder="Masukkan Nama Mustahik">
-                            </div>
+                                <label>Nama Mustahik</label>
+                                <select name="name" class="form-control">
+                                <option value="" selected disableb>-- Pilih Nama Mustahik --</option>
+                                    @foreach ($namahik as $nikber)
+                                        <option value="{{ $nikber->name }}">{{ $nikber->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('name')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div> 
 
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
+                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin', $datapenyaluran->jenis_kelamin) }}">
                                 <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
                                 <option value="perempuan">Perempuan</option>
                                 <option value="laki-laki">Laki-Laki</option>
@@ -53,12 +73,12 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat', $datapenyaluran->alamat) }}" placeholder="Masukkan Alamat">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
+                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi', $datapenyaluran->profesi) }}" placeholder="Masukkan Profesi">
                             </div>
 
                             <div class="form-group">
@@ -66,10 +86,20 @@
                                 <input type="text" class="form-control @error('jumlah_donasi') is-invalid @enderror" name="jumlah_donasi" value="{{ old('jumlah_donasi', $datapenyaluran->jumlah_donasi) }}" placeholder="Masukkan Jumlah Donasi">
                             </div>
 
-                            <button type="submit" class="btn btn-md btn-primary">Update</button>
+                            <button type="submit" class="btn btn-md btn-primary">Simpan</button>
                             <button type="batal" class="btn btn-md btn-secondary">Batal</button>
 
                         </form> 
+                        <script>
+                            function GetHarga() {
+                            var idHarga = $('#pilih').val();
+                            var name_program =  idHarga.split("_");
+                            var name =  idHarga.split("_");
+                            
+                            $('#name_program').val(name_program[1]);
+                            $('#name').val(name[2]);
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
