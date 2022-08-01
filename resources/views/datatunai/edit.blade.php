@@ -87,7 +87,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Status</label>
-                                <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status', $datanontunai->status) }}" placeholder="Masukkan Status">
+                                <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status', $datatunai->status) }}" placeholder="Masukkan Status">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
