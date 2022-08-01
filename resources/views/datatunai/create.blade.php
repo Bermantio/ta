@@ -95,8 +95,8 @@
                                 <label>Keterangan</label>
                                 <select name="keterangan" class="form-control" value="{{ old('keterangan') }}">
                                 <option value="" selected disabled>-- Donasi Sebagai --</option>
-                                <option value="Hamba Allah">Sebagai Hamba Allah</option>
-                                <option value="Nama Asli">Sebagai Nama Asli</option>
+                                <option value="Hamba Allah">Donasi sebagai Hamba Allah</option>
+                                <option value="Nama Asli">Donasi sebagai Nama Asli</option>
                                 </select>
                             </div>
 
