@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Agu 2022 pada 10.56
+-- Waktu pembuatan: 01 Agu 2022 pada 13.49
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.21
 
@@ -122,6 +122,13 @@ CREATE TABLE `datanontunais` (
   `kode_transaksi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kode_zakki` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_zakki` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_kelamin` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notelepon` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profesi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `berupa` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_transaksi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jumlah_transaksi` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_program` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -134,8 +141,8 @@ CREATE TABLE `datanontunais` (
 -- Dumping data untuk tabel `datanontunais`
 --
 
-INSERT INTO `datanontunais` (`id`, `kode_transaksi`, `kode_zakki`, `name_zakki`, `tanggal_transaksi`, `jumlah_transaksi`, `name_program`, `status`, `created_at`, `updated_at`) VALUES
-(2, '395', 'MUZ001_Mahliyasmita', 'Mahliyasmit', '2022-08-19', '250000', 'Infaq', '-', '2022-07-31 11:51:36', '2022-08-01 00:58:34');
+INSERT INTO `datanontunais` (`id`, `kode_transaksi`, `kode_zakki`, `name_zakki`, `jenis_kelamin`, `alamat`, `notelepon`, `profesi`, `keterangan`, `berupa`, `image`, `tanggal_transaksi`, `jumlah_transaksi`, `name_program`, `status`, `created_at`, `updated_at`) VALUES
+(2, '395', 'MUZ001_Mahliyasmita', 'Mahliyasmit', '', '', '', '', '', '', '', '2022-08-19', '250000', 'Infaq', '-', '2022-07-31 11:51:36', '2022-08-01 00:58:34');
 
 -- --------------------------------------------------------
 
@@ -188,9 +195,9 @@ CREATE TABLE `dataprograms` (
 --
 
 INSERT INTO `dataprograms` (`id`, `kode_program`, `name_program`, `jenis_program`, `tanggal_program`, `deskripsi`, `created_at`, `updated_at`) VALUES
-(1, 'PRO001', 'Zakat', '', '2022-06-29', '-', '2022-07-31 01:29:29', '2022-07-31 01:29:29'),
-(2, 'PRO002', 'Infaq', '', '2022-06-30', '-', '2022-07-31 01:29:48', '2022-07-31 01:29:48'),
-(3, 'PRO003', 'Sedekah', '', '2022-07-12', '-', '2022-07-31 01:30:07', '2022-07-31 01:30:07');
+(1, 'PRO001', 'Zakat Fitrah', 'Zakat', '2022-06-29', '-', '2022-07-31 01:29:29', '2022-08-01 04:10:32'),
+(2, 'PRO002', 'Infaq Masjid Darul Hikmah', 'Infaq', '2022-06-30', '-', '2022-07-31 01:29:48', '2022-08-01 04:11:45'),
+(3, 'PRO003', 'Shadaqah Muharram', 'Shadaqah', '2022-07-12', '-', '2022-07-31 01:30:07', '2022-08-01 04:11:19');
 
 -- --------------------------------------------------------
 
@@ -221,7 +228,7 @@ CREATE TABLE `datatunais` (
 --
 
 INSERT INTO `datatunais` (`id`, `kode_transaksi`, `kode_muz`, `name_muz`, `jenis_kelamin`, `alamat`, `notelepon`, `profesi`, `keterangan`, `tanggal_transaksi`, `jumlah_transaksi`, `name_program`, `status`, `created_at`, `updated_at`) VALUES
-(1, '148', 'MUZ001_Mahliyasmita', 'Mahliyasmita', '', '', 0, '', '', '2022-07-05', '250000', 'Zakat', '-', '2022-07-31 01:46:26', '2022-07-31 01:46:26');
+(2, '197', 'MUZ001_Mahliyasmita', 'Mahliyasmita', 'perempuan', 'Bandung', 876, 'b', 'Hamba Allah', '2022-08-01', '123', 'Zakat Fitrah', '1', '2022-08-01 04:12:35', '2022-08-01 04:12:35');
 
 -- --------------------------------------------------------
 
@@ -471,7 +478,7 @@ ALTER TABLE `dataprograms`
 -- AUTO_INCREMENT untuk tabel `datatunais`
 --
 ALTER TABLE `datatunais`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `datausers`
