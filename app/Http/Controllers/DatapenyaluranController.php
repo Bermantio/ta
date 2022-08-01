@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datapenyaluran;
+use App\Models\Dataprogram;
+use App\Models\Datamustahik;
+use DB;
 use Illuminate\Http\Request;
 
 class DatapenyaluranController extends Controller
@@ -25,7 +28,9 @@ class DatapenyaluranController extends Controller
      */
     public function create()
     {
-        return view('datapenyaluran.create');
+        $namaprog = Dataprogram::all();
+        $namahik = Datamustahik::all();
+        return view('datapenyaluran.create', compact('namaprog', 'namahik'));
     }
 
     /**
@@ -40,18 +45,22 @@ class DatapenyaluranController extends Controller
             'kode_transaksi'      => 'required',
             'tanggal_penyaluran'  => 'required',
             'name_program'        => 'required',
-            'nama_mustahik'       => 'required',
+            'name'                => 'required',
+            'jenis_kelamin'       => 'required',
+            'alamat'              => 'required',
+            'profesi'             => 'required',
             'jumlah_donasi'       => 'required',
-            'status'              => 'required',
         ]);
 
         $datapenyaluran = datapenyaluran::create([
             'kode_transaksi'        => $request->kode_transaksi,
             'tanggal_penyaluran'    => $request->tanggal_penyaluran,
             'name_program'          => $request->name_program,
-            'nama_mustahik'         => $request->nama_mustahik,
+            'name'                  => $request->name,
+            'jenis_kelamin'         => $request->jenis_kelamin,
+            'alamat'                => $request->alamat,
+            'profesi'               => $request->profesi,
             'jumlah_donasi'         => $request->jumlah_donasi,
-            'status'                => $request->status,
         ]);
 
         if($datapenyaluran){
@@ -82,7 +91,9 @@ class DatapenyaluranController extends Controller
      */
     public function edit(Datapenyaluran $datapenyaluran)
     {
-        return view('datapenyaluran.edit', compact('datapenyaluran'));
+        $namaprog = Dataprogram::all();
+        $namahik = Datamustahik::all();
+        return view('datapenyaluran.edit', compact('datapenyaluran', ));
     }
 
     /**
