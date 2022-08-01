@@ -1,4 +1,5 @@
 @extends ('layout.v_template');
+@section('title','Data Program')
 @section('content')
 <div>
         <!-- Content Header (Page header) -->
@@ -10,7 +11,7 @@
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-warning">
             <div class="card-header">
-                <h3 class="card-title">Data Program</h3>
+                <h3 class="card-title">Detail Data</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -22,10 +23,15 @@
                     <td>{{ $dataprogram->kode_program }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Jenis Program</td>
+                    <td width="150px">Nama Program</td>
                     <td width="30px">:</td>
                     <td>{{ $dataprogram->name_program }}</td>
-
+                </tr>
+                <tr>
+                    <td width="150px">Jenis Program</td>
+                    <td width="30px">:</td>
+                    <td>{{ $dataprogram->jenis_program }}</td>
+                </tr>
                 <tr>
                     <td width="150px">Tanggal Bencana</td>
                     <td width="30px">:</td>

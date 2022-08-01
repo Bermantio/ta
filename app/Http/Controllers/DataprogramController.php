@@ -40,6 +40,7 @@ class DataprogramController extends Controller
         $this->validate($request, [
             'kode_program'      => 'required',
             'name_program'      => 'required',
+            'jenis_program'      => 'required',
             'tanggal_program'   => 'required',
             'deskripsi'         => 'required',
         ]);
@@ -47,6 +48,7 @@ class DataprogramController extends Controller
         $dataprogram = dataprogram::create([
             'kode_program'        => $request->kode_program,
             'name_program'        => $request->name_program,
+            'jenis_program'        => $request->jenis_program,
             'tanggal_program'     => $request->tanggal_program,
             'deskripsi'           => $request->deskripsi,
         ]);
@@ -94,6 +96,7 @@ class DataprogramController extends Controller
         $this->validate($request, [
             'kode_program'      => 'required',
             'name_program'      => 'required',
+            'jenis_program'      => 'required',
             'tanggal_program'   => 'required',
             'deskripsi'         => 'required',
         ]);
@@ -103,6 +106,7 @@ class DataprogramController extends Controller
         $dataprogram->update([
             'kode_program'        => $request->kode_program,
             'name_program'        => $request->name_program,
+            'jenis_program'        => $request->jenis_program,
             'tanggal_program'     => $request->tanggal_program,
             'deskripsi'           => $request->deskripsi,
         ]);
