@@ -93,7 +93,7 @@ class DatapenyaluranController extends Controller
     {
         $namaprog = Dataprogram::all();
         $namahik = Datamustahik::all();
-        return view('datapenyaluran.edit', compact('datapenyaluran', ));
+        return view('datapenyaluran.edit', compact('datapenyaluran', 'namaprog', 'namahik'));
     }
 
     /**
