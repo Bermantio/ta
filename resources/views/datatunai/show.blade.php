@@ -24,7 +24,7 @@
                     @if(!empty($datatunai))
                     <div class="card-tools">
                         <a href="{{ url('print') }}" class="btn btn-primary"><i class="fa fa-print"></i>  Cetak</a>
-                        <p align="right">Tanggal Pesan : {{ $datatunai->tanggal_transaksi }}</p>
+                        <p align="right">Tanggal Transaksi : {{ $datatunai->tanggal_transaksi }}</p>
                     </div>
 
                     <table class="table table-bordered">
@@ -44,15 +44,40 @@
                     <td>{{ $datatunai->name_muz }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Nominal Transaksi</td>
+                    <td width="150px">Jenis Kelamin</td>
                     <td width="30px">:</td>
-                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
-                </tr>   
+                    <td>{{ $datatunai->jenis_kelamin }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">Alamat</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datatunai->alamat }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">Nomor Telepon atau WhatsApp</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datatunai->notelepon }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">Profesi</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datatunai->profesi }}</td>
+                </tr>
                 <tr>
                     <td width="150px">Program</td>
                     <td width="30px">:</td>
                     <td>{{ $datatunai->name_program }}</td>
-                </tr>   
+                </tr>  
+                <tr>
+                    <td width="150px">Keterangan</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datatunai->keterangan }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">Nominal Transaksi</td>
+                    <td width="30px">:</td>
+                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
+                </tr>    
                 <tr>
                     <td width="150px">Status</td>
                     <td width="30px">:</td>

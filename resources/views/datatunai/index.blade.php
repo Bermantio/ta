@@ -26,11 +26,16 @@
                               <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Kode Transaksi</th>
+                                <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Kode Muzakki</th>
                                 <th scope="col">Nama Muzakki</th>
-                                <th scope="col">Tanggal Transaksi</th>
+                                <th scope="col">Jenis Kelamin</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Nomor Telepon atau WhatsApp</th>
+                                <th scope="col">Profesi</th>
+                                <th scope="col">Nama Program</th>
+                                <th scope="col">Keterangan</th>          
                                 <th scope="col">Nominal Transaksi</th>
-                                <th scope="col">Program</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                               </tr>
@@ -41,11 +46,16 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $datatunai->kode_transaksi }}</td>
-                                    <td>{{ $datatunai->kode_muz }}</td>
-                                    <td>{{ $datatunai->name_muz }}</td>
                                     <td>{{ $datatunai->tanggal_transaksi }}</td>
-                                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
+                                    <td>{{ $datatunai->kode_muz }}</td>
+                                    <td>{{ $datatunai->name_muz }}</td> 
+                                    <td>{{ $datatunai->jenis_kelamin }}</td>
+                                    <td>{{ $datatunai->alamat }}</td>
+                                    <td>{{ $datatunai->notelepon }}</td>
+                                    <td>{{ $datatunai->profesi }}</td>
                                     <td>{{ $datatunai->name_program }}</td>
+                                    <td>{{ $datatunai->keterangan }}</td>                                   
+                                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
                                     <td>
                                         @if($datatunai->status == 1)
                                         Sudah Pesan & Belum dibayar

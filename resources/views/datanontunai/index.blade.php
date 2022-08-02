@@ -26,10 +26,18 @@
                               <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Kode Transaksi</th>
+                                <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Kode Muzakki</th>
                                 <th scope="col">Nama Muzakki</th>
-                                <th scope="col">Tanggal Transaksi</th>
+                                <th scope="col">Jenis Kelamin</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Nomor Telepon atau WhatsApp</th>
+                                <th scope="col">Profesi</th>
+                                <th scope="col">Nama Program</th>
+                                <th scope="col">Keterangan</th>                                
+                                <th scope="col">Berupa</th>
                                 <th scope="col">Nominal Transaksi</th>
+                                <th scope="col">Bukti Transaksi</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                               </tr>
@@ -40,10 +48,20 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $datanontunai->kode_transaksi }}</td>
+                                    <td>{{ $datanontunai->tanggal_transaksi }}</td>
                                     <td>{{ $datanontunai->kode_zakki }}</td>
                                     <td>{{ $datanontunai->name_zakki }}</td>
-                                    <td>{{ $datanontunai->tanggal_transaksi }}</td>
+                                    <td>{{ $datanontunai->jenis_kelamin }}</td>
+                                    <td>{{ $datanontunai->alamat }}</td>
+                                    <td>{{ $datanontunai->notelepon }}</td>
+                                    <td>{{ $datanontunai->profesi }}</td>
+                                    <td>{{ $datanontunai->name_program }}</td>
+                                    <td>{{ $datanontunai->keterangan }}</td>
+                                    <td>{{ $datanontunai->berupa }}</td>
                                     <td>{{ $datanontunai->jumlah_transaksi }}</td>
+                                    <td class="text-center">
+                                        <img src="{{ Storage::url('public/datamuzakkis/').$datanontunai->image }}" class="rounded" style="width: 150px">
+                                    </td>
                                     <td>{{ $datanontunai->status }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datanontunai.destroy', $datanontunai->id) }}" method="POST">

@@ -28,6 +28,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="font-weight-bold">Tanggal Transaksi</label>
+                                <input type="date" class="form-control @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{ old('tanggal_transaksi', $datatunai->tanggal_transaksi) }}" placeholder="Masukkan Tanggal Transaksi">
+                            </div>
+
+                            <div class="form-group">
                                 <label class="font-weight-bold">Kode Muzakki</label>
                                 <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki', $datatunai->kode_muzakki) }}" placeholder="Masukkan Kode Muzakki">
                             </div>
@@ -38,18 +43,46 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Tanggal Transaksi</label>
-                                <input type="date" class="form-control @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{ old('tanggal_transaksi', $datatunai->tanggal_transaksi) }}" placeholder="Masukkan Tanggal Transaksi">
+                                <label>Jenis Kelamin</label>
+                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
+                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+                                <option value="perempuan">Perempuan</option>
+                                <option value="laki-laki">Laki-Laki</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Jumlah Transaksi</label>
-                                <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" value="{{ old('jumlah_transaksi', $datatunai->jumlah_transaksi) }}" placeholder="Masukkan Jumlah Transaksi">
+                                <label class="font-weight-bold">Alamat</label>
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Program</label>
+                                <label class="font-weight-bold">Nomor Telepon atau WhatsApp</label>
+                                <input type="text" class="form-control @error('notelepon') is-invalid @enderror" name="notelepon" value="{{ old('notelepon') }}" placeholder="Masukkan Nomor">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="font-weight-bold">Profesi</label>
+                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Nama Program</label>
                                 <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program', $datatunai->name_program) }}" placeholder="Masukkan Jenis Program">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <select name="keterangan" class="form-control" value="{{ old('keterangan') }}">
+                                <option value="" selected disabled>-- Donasi Sebagai --</option>
+                                <option value="Hamba Allah">Donasi sebagai Hamba Allah</option>
+                                <option value="Nama Asli">Donasi sebagai Nama Asli</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Nominal Transaksi</label>
+                                <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" value="{{ old('jumlah_transaksi', $datatunai->jumlah_transaksi) }}" placeholder="Masukkan Jumlah Transaksi">
                             </div>
 
                             <div class="form-group">

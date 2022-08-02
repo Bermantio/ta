@@ -41,19 +41,39 @@ class DatanontunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
+            'tanggal_transaksi'   => 'required',
             'kode_zakki'          => 'required',
             'name_zakki'          => 'required',
-            'tanggal_transaksi'   => 'required',
+            'jenis_kelamin'   => 'required',
+            'alamat'   => 'required',
+            'notelepon'   => 'required',
+            'profesi'   => 'required',
+            'name_program'        => 'required',
+            'keterangan'        => 'required',
+            'berupa'   => 'required',
             'jumlah_transaksi'    => 'required',
+            'image'             => 'required|image|mimes:png,jpg,jpeg',
             'status'              => 'required',
         ]);
 
+        //upload image
+        $image = $request->file('image');
+        $image->storeAs('public/datamuzakkis', $image->hashName());
+
         $datanontunai = datanontunai::create([
             'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
             'kode_zakki'            => $request->kode_zakki,
             'name_zakki'            => $request->name_zakki,
-            'tanggal_transaksi'     => $request->tanggal_transaksi,
+            'jenis_kelamin'     => $request->jenis_kelamin,
+            'alamat'     => $request->alamat,
+            'notelepon'     => $request->notelepon,
+            'profesi'     => $request->profesi,
+            'name_program'          => $request->name_program,
+            'keterangan'     => $request->keterangan,
+            'berupa'     => $request->berupa,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
+            'image'             => $image->hashName(),
             'status'                => $request->status,
         ]);
 
@@ -99,10 +119,18 @@ class DatanontunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
+            'tanggal_transaksi'   => 'required',
             'kode_zakki'          => 'required',
             'name_zakki'          => 'required',
-            'tanggal_transaksi'   => 'required',
+            'jenis_kelamin'   => 'required',
+            'alamat'   => 'required',
+            'notelepon'   => 'required',
+            'profesi'   => 'required',
+            'name_program'        => 'required',
+            'keterangan'        => 'required',
+            'berupa'   => 'required',
             'jumlah_transaksi'    => 'required',
+            'image'             => 'required|image|mimes:png,jpg,jpeg',
             'status'              => 'required',
         ]);
 
@@ -116,6 +144,52 @@ class DatanontunaiController extends Controller
             'jumlah_transaksi'      => $request->jumlah_transaksi,
             'status'                => $request->status,
         ]);
+
+        if($request->file('image') == "") {
+    
+            $datanontunai->update([
+                'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
+            'kode_zakki'            => $request->kode_zakki,
+            'name_zakki'            => $request->name_zakki,
+            'jenis_kelamin'     => $request->jenis_kelamin,
+            'alamat'     => $request->alamat,
+            'notelepon'     => $request->notelepon,
+            'profesi'     => $request->profesi,
+            'name_program'          => $request->name_program,
+            'keterangan'     => $request->keterangan,
+            'berupa'     => $request->berupa,
+            'jumlah_transaksi'      => $request->jumlah_transaksi,
+            'image'             => $image->hashName(),
+            'status'                => $request->status,
+            ]);
+    
+        } else {
+    
+            //hapus old image
+            Storage::disk('local')->delete('public/datamuzakkis/'.$datanontunai->image);
+    
+            //upload new image
+            $image = $request->file('image');
+            $image->storeAs('public/datamuzakkis', $image->hashName());
+    
+            $datanontunai->update([
+                'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
+            'kode_zakki'            => $request->kode_zakki,
+            'name_zakki'            => $request->name_zakki,
+            'jenis_kelamin'     => $request->jenis_kelamin,
+            'alamat'     => $request->alamat,
+            'notelepon'     => $request->notelepon,
+            'profesi'     => $request->profesi,
+            'name_program'          => $request->name_program,
+            'keterangan'     => $request->keterangan,
+            'berupa'     => $request->berupa,
+            'jumlah_transaksi'      => $request->jumlah_transaksi,
+            'image'             => $image->hashName(),
+            'status'                => $request->status,
+            ]);
+        }
 
         if($datanontunai){
             //redirect dengan pesan sukses
