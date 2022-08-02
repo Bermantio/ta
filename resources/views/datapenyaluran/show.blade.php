@@ -20,7 +20,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <div class="pull-left">
-            <h2>Data Penyaluran</h2>
+            <h2>Detail Data</h2>
         </div>
         
         <!-- /.card-header -->

@@ -20,10 +20,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <div class="pull-left">
-            <h2>Data User</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('datauser.index') }}"> Back</a>
+            <h2>Detail Data</h2>
         </div>
         
         <!-- /.card-header -->
@@ -67,4 +64,8 @@
                     <td>{{ $datauser->status }}</td>
                 </tr> 
             </table>
+
+            <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('datauser.index') }}"> Kembali</a>
+        </div>
 @endsection
