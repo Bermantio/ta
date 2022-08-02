@@ -25,7 +25,6 @@
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Foto</th>
                                 <th scope="col">Kode User</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Nama Lengkap</th>
@@ -43,9 +42,6 @@
                             @forelse ($datausers as $datauser)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td class="text-center">
-                                        <img src="{{ Storage::url('public/datausers/').$datauser->image }}" class="rounded" style="width: 150px">
-                                    </td>
                                     <td>{{ $datauser->kode_user }}</td>
                                     <td>{{ $datauser->name_user }}</td>
                                     <td>{{ $datauser->nama_lengkap }}</td>
