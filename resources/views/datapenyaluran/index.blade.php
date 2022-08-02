@@ -48,7 +48,7 @@
                                     <td>{{ $datapenyaluran->jenis_kelamin }}</td>
                                     <td>{{ $datapenyaluran->alamat }}</td>
                                     <td>{{ $datapenyaluran->profesi }}</td>
-                                    <td>{{ $datapenyaluran->jumlah_donasi }}</td>
+                                    <td>Rp. {{ number_format($datapenyaluran->jumlah_donasi) }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapenyaluran.destroy', $datapenyaluran->id) }}" method="POST">
                                        
