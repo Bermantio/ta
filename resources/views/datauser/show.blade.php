@@ -42,7 +42,7 @@
                     <td>{{ $datauser->kode_user }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Nama Lengkao\p</td>
+                    <td width="150px">Nama Lengkao</td>
                     <td width="30px">:</td>
                     <td>{{ $datauser->name_user }}</td>
                 </tr>

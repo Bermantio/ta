@@ -40,13 +40,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nama Lengkap</label>
+                                <label class="font-weight-bold">Username</label>
                                 <input type="text" class="form-control @error('name_user') is-invalid @enderror" name="name_user" value="{{ old('name_user', $datauser->name_user) }}" placeholder="Masukkan Nama User">
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Email</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $datauser->email) }}" placeholder="Masukkan Email">
+                                <label class="font-weight-bold">Nama Lengkap</label>
+                                <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap', $datauser->nama_lengkap) }}" placeholder="Masukkan Nama User">
                             </div>
 
                             <div class="form-group">
@@ -61,6 +61,21 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
                                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat', $datauser->alamat) }}" placeholder="Masukkan Alamat">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Email</label>
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $datauser->email) }}" placeholder="Masukkan Email">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">No Telp</label>
+                                <input type="text" class="form-control @error('notelp') is-invalid @enderror" name="notelp" value="{{ old('notelp', $datauser->notelp) }}" placeholder="Masukkan No Telp">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Profesi</label>
+                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi', $datauser->profesi) }}" placeholder="Masukkan Profesi">
                             </div>
 
                             <div class="form-group">

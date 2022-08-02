@@ -41,10 +41,13 @@ class DatauserController extends Controller
             'image'             => 'required|image|mimes:png,jpg,jpeg',
             'kode_user'         => 'required',
             'name_user'         => 'required',
+            'nama_lengkap'      => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
-            'status'            => 'required',
             'email'             => 'required',
+            'notelp'            => 'required',
+            'profesi'           => 'required',
+            'status'            => 'required',
         ]);
 
         //upload image
@@ -106,10 +109,13 @@ class DatauserController extends Controller
             'image'             => 'required|image|mimes:png,jpg,jpeg',
             'kode_user'         => 'required',
             'name_user'         => 'required',
+            'nama_lengkap'      => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
-            'status'            => 'required',
             'email'             => 'required',
+            'notelp'            => 'required',
+            'profesi'           => 'required',
+            'status'            => 'required',
         ]);
     
         //get data Blog by ID
@@ -121,10 +127,13 @@ class DatauserController extends Controller
                 'image'             => $image->hashName(),
                 'kode_user'         => $request->kode_user,
                 'name_user'         => $request->name_user,
+                'nama_lengkap'      => $request->nama_lengkap,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
-                'status'            => $request->status,
                 'email'             => $request->email,
+                'notelp'            => $request->notelp,
+                'profesi'           => $request->profesi,
+                'status'            => $request->status,
             ]);
     
         } else {
@@ -140,10 +149,13 @@ class DatauserController extends Controller
                 'image'             => $image->hashName(),
                 'kode_user'         => $request->kode_user,
                 'name_user'         => $request->name_user,
+                'nama_lengkap'      => $request->nama_lengkap,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
-                'status'            => $request->status,
                 'email'             => $request->email,
+                'notelp'            => $request->notelp,
+                'profesi'           => $request->profesi,
+                'status'            => $request->status,
             ]);
         }
     

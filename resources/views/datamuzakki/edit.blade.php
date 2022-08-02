@@ -36,7 +36,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Kode Muzakki</label>
-                                <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki') }}" placeholder="Masukkan Kode Muzakki">
+                                <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki', $datamuzakki->kode_muzakki) }}" placeholder="Masukkan Kode Muzakki">
                             </div>
 
                             <div class="form-group">
@@ -56,12 +56,12 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama Muzakki</label>
-                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki') }}" placeholder="Masukkan Nama Muzakki">
+                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki', $datamuzakki->name_muzakki) }}" placeholder="Masukkan Nama Muzakki">
                             </div>
 
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
+                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin', $datamuzakki->jenis_kelamin) }}">
                                 <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
                                 <option value="perempuan">Perempuan</option>
                                 <option value="laki-laki">Laki-Laki</option>
@@ -70,22 +70,22 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat', $datamuzakki->alamat) }}" placeholder="Masukkan Alamat">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
+                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi', $datamuzakki->profesi) }}" placeholder="Masukkan Profesi">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Tanggal Dibuat</label>
-                                <input type="date" class="form-control @error('tanggal_dibuat') is-invalid @enderror" name="tanggal_dibuat" value="{{ old('tanggal_dibuat') }}" placeholder="Masukkan Tanggal">
+                                <input type="date" class="form-control @error('tanggal_dibuat') is-invalid @enderror" name="tanggal_dibuat" value="{{ old('tanggal_dibuat', $datamuzakki->tanggal_dibuat) }}" placeholder="Masukkan Tanggal">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Keterangan</label>
-                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan') }}" placeholder="Masukkan Keterangan">
+                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan', $datamuzakki->keterangan) }}" placeholder="Masukkan Keterangan">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>

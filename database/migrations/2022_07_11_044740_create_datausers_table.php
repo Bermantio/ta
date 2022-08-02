@@ -18,10 +18,13 @@ class CreateDatausersTable extends Migration
             $table->string('image');
             $table->char('kode_user');
             $table->char('name_user');
+            $table->char('nama_lengkap');
             $table->char('jenis_kelamin');
             $table->char('alamat');
-            $table->char('status');
             $table->char('email');
+            $table->char('notelp');
+            $table->char('profesi');
+            $table->char('status');
             $table->timestamps();
         });
     }
