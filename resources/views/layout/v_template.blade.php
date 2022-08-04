@@ -38,7 +38,7 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
-      <a class="nav-link nav-none">{{ Auth::user()->name }}</a>
+      <a class="nav-link nav-none">Hai {{ Auth::user()->name }} sebagai {{ Auth::user()->role }}</a>
       </li>
     </ul>
 
