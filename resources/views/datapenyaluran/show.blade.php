@@ -66,6 +66,7 @@
             </table>
 
             <div class="pull-right">
+            <a href="{{ route('datapenyaluran.edit', $datapenyaluran->id) }}" class="btn btn-secondary">Edit</a>
             <a class="btn btn-primary" href="{{ route('datapenyaluran.index') }}"> Kembali</a>
         </div>
 @endsection

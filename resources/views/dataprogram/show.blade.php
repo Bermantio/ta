@@ -43,7 +43,9 @@
                     <td>{{ $dataprogram->deskripsi }}</td>
                 </tr>                               
             </table>
-            <br><a class="btn btn-primary" href="{{ route('dataprogram.index') }}"> Kembali</a>
+            <br>
+            <a href="{{ route('dataprogram.edit', $dataprogram->id) }}" class="btn btn-secondary">Edit</a>
+            <a class="btn btn-primary" href="{{ route('dataprogram.index') }}"> Kembali</a>
             </div>
             </div>
         </div>
