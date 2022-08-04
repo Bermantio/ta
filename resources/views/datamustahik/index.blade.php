@@ -64,6 +64,7 @@
                               @endforelse
                             </tbody>
                           </table>  
+                    {{$datamustahiks->links()}}
                     </div>
                 </div>
             </div>
