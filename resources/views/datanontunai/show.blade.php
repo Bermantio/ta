@@ -23,7 +23,6 @@
                 <h3><i class="fa fa-shopping-cart"></i> Detail Transaksi</h3>
                     @if(!empty($datanontunai))
                     <div class="card-tools">
-                        <a href="{{ url('print') }}" class="btn btn-primary"><i class="fa fa-print"></i>  Cetak</a>
                         <p align="right">Tanggal Transaksi : {{ $datanontunai->tanggal_transaksi }}</p>
                     </div>
 
@@ -34,29 +33,14 @@
                     <td>{{ $datanontunai->kode_transaksi }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Kode Muzakki</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datanontunai->kode_zakki }}</td>
-                </tr>
-                <tr>
                     <td width="150px">Nama Muzakki</td>
                     <td width="30px">:</td>
                     <td>{{ $datanontunai->name_zakki }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Jenis Kelamin</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datanontunai->jenis_kelamin }}</td>
-                </tr>
-                <tr>
                     <td width="150px">Alamat</td>
                     <td width="30px">:</td>
                     <td>{{ $datanontunai->alamat }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Nomor Telepon atau WhatsApp</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datanontunai->notelepon }}</td>
                 </tr>
                 <tr>
                     <td width="150px">Profesi</td>
@@ -102,6 +86,7 @@
             
             @endif
             <br>
+            <a href="{{ url('print') }}" class="btn btn-primary"><i class="fa fa-print"></i>  Cetak</a>
             <a href="{{ url('datanontunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
             </div>

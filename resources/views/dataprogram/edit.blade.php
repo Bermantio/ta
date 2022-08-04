@@ -29,7 +29,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama Program</label>
-                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program') }}" placeholder="Masukkan Program">
+                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program', $dataprogram->name_program) }}" placeholder="Masukkan Program">
                             </div>
 
                             <div class="form-group">
@@ -53,7 +53,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <button type="batal" class="btn btn-md btn-secondary">Batal</button>
+                            <a class="btn btn-primary" href="{{ route('dataprogram.index') }}">Batal</a>
 
                         </form> 
                     </div>

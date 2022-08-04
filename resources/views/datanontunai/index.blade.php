@@ -28,7 +28,6 @@
                                 <th scope="col">Kode Transaksi</th>
                                 <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Nama Muzakki</th>
-                                <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">Profesi</th>
                                 <th scope="col">Nama Program</th>
@@ -46,12 +45,11 @@
                                     <td>{{ $datanontunai->kode_transaksi }}</td>
                                     <td>{{ $datanontunai->tanggal_transaksi }}</td>
                                     <td>{{ $datanontunai->name_zakki }}</td>
-                                    <td>{{ $datanontunai->jenis_kelamin }}</td>
                                     <td>{{ $datanontunai->alamat }}</td>
                                     <td>{{ $datanontunai->profesi }}</td>
                                     <td>{{ $datanontunai->name_program }}</td>
                                     <td>{{ $datanontunai->keterangan }}</td>
-                                    <td>{{ $datanontunai->jumlah_transaksi }}</td>
+                                    <td>Rp. {{ number_format($datanontunai->jumlah_transaksi) }}</td>
                                     <td>{{ $datanontunai->status }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datanontunai.destroy', $datanontunai->id) }}" method="POST">

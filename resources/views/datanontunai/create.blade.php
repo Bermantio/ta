@@ -131,6 +131,15 @@
                                 <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}" placeholder="Masukkan Status">
                             </div>
 
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select name="status" class="form-control" value="{{ old('status') }}">
+                                <option value="" selected disabled>-- Pilih Status --</option>
+                                <option value="Menunggu Konfirmasi">Menunggu Konfimasi</option>
+                                <option value="Sudah Konfirmasi">Sudah Konfirmasi</option>
+                                </select>
+                            </div>
+
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
