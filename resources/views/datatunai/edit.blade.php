@@ -28,56 +28,43 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Kode Muzakki</label>
+                                <select name="kode_muz" id="pilih" class="form-control" onchange="GetHarga(this.value)">
+                                <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
+                                    @foreach ($niken as $buah)
+                                        <option value="{{ $buah->kode_muzakki.'_'.$buah->name_muzakki }}">{{ $buah->kode_muzakki }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('kode_muz')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nama Muzakki</label>
+                                <input type="text" name="name_muz" id="name_muz" class="form-control" onchange="GetHarga(this.value)" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nama Program</label>
+                                <select name="name_program" class="form-control">
+                                <option value="" selected disableb>-- Pilih Program --</option>
+                                    @foreach ($program as $meili)
+                                        <option value="{{ $meili->name_program }}">{{ $meili->name_program }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('name_program')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="font-weight-bold">Tanggal Transaksi</label>
                                 <input type="date" class="form-control @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{ old('tanggal_transaksi', $datatunai->tanggal_transaksi) }}" placeholder="Masukkan Tanggal Transaksi">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Kode Muzakki</label>
-                                <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki', $datatunai->kode_muzakki) }}" placeholder="Masukkan Kode Muzakki">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nama Muzakki</label>
-                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki', $datatunai->name_muzakki) }}" placeholder="Masukkan Nama Muzakki">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
-                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="perempuan">Perempuan</option>
-                                <option value="laki-laki">Laki-Laki</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nomor Telepon atau WhatsApp</label>
-                                <input type="text" class="form-control @error('notelepon') is-invalid @enderror" name="notelepon" value="{{ old('notelepon') }}" placeholder="Masukkan Nomor">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nama Program</label>
-                                <input type="text" class="form-control @error('name_program') is-invalid @enderror" name="name_program" value="{{ old('name_program', $datatunai->name_program) }}" placeholder="Masukkan Jenis Program">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                                <select name="keterangan" class="form-control" value="{{ old('keterangan') }}">
-                                <option value="" selected disabled>-- Donasi Sebagai --</option>
-                                <option value="Hamba Allah">Donasi sebagai Hamba Allah</option>
-                                <option value="Nama Asli">Donasi sebagai Nama Asli</option>
-                                </select>
                             </div>
 
                             <div class="form-group">
@@ -94,6 +81,16 @@
                             <button type="reset" class="btn btn-md btn-warning">Reset</button>
 
                         </form> 
+                        <script> //relasi
+                            function GetHarga() {
+                            var idHarga = $('#pilih').val();
+                            var name_muz =  idHarga.split("_");
+                            var name_program =  idHarga.split("_");
+
+                            $('#name_muz').val(name_muz[1]);
+                            $('#name_program').val(name_program[2]);
+                            }
+                        </script>
                     </div>
                 </div>
             </div>

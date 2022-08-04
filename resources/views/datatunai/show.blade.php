@@ -44,35 +44,10 @@
                     <td>{{ $datatunai->name_muz }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Jenis Kelamin</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datatunai->jenis_kelamin }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Alamat</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datatunai->alamat }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Nomor Telepon atau WhatsApp</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datatunai->notelepon }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Profesi</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datatunai->profesi }}</td>
-                </tr>
-                <tr>
                     <td width="150px">Program</td>
                     <td width="30px">:</td>
                     <td>{{ $datatunai->name_program }}</td>
-                </tr>  
-                <tr>
-                    <td width="150px">Keterangan</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datatunai->keterangan }}</td>
-                </tr>
+                </tr> 
                 <tr>
                     <td width="150px">Nominal Transaksi</td>
                     <td width="30px">:</td>

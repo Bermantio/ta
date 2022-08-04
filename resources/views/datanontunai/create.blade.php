@@ -80,7 +80,7 @@
                                 <label>Nama Program</label>
                                 <select name="name_program" class="form-control">
                                 <option value="" selected disableb>-- Pilih Program --</option>
-                                    @foreach ($program as $meili)
+                                    @foreach ($nontunai as $meili)
                                         <option value="{{ $meili->name_program }}">{{ $meili->name_program }}</option>
                                     @endforeach
                                 </select>

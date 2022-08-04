@@ -46,34 +46,24 @@ class DatatunaiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Datatunai $datatunai)
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
-            'tanggal_transaksi'   => 'required',
             'kode_muz'            => 'required',
             'name_muz'            => 'required',
-            'jenis_kelamin'   => 'required',
-            'alamat'   => 'required',
-            'notelepon'   => 'required',
-            'profesi'   => 'required',
             'name_program'        => 'required',
-            'keterangan'        => 'required',
+            'tanggal_transaksi'   => 'required',
             'jumlah_transaksi'    => 'required',
             'status'              => 'required',
         ]);
 
         $datatunai = datatunai::create([
             'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
-            'tanggal_transaksi'     => $request->tanggal_transaksi,
             'kode_muz'              => $request->kode_muz,
             'name_muz'              => $request->name_muz,
-            'jenis_kelamin'     => $request->jenis_kelamin,
-            'alamat'     => $request->alamat,
-            'notelepon'     => $request->notelepon,
-            'profesi'     => $request->profesi,
             'name_program'          => $request->name_program,
-            'keterangan'     => $request->keterangan,
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
             'status'                => $request->status,
         ]);
@@ -106,7 +96,9 @@ class DatatunaiController extends Controller
      */
     public function edit(Datatunai $datatunai)
     {
-        return view('datatunai.edit', compact('datatunai'));
+        $niken = Datamuzakki::all();
+        $program = Dataprogram::all();
+        return view('datatunai.edit', compact('niken', 'program'));
     }
 
     /**
@@ -120,15 +112,10 @@ class DatatunaiController extends Controller
     {
         $this->validate($request, [
             'kode_transaksi'      => 'required',
-            'tanggal_transaksi'   => 'required',
             'kode_muz'            => 'required',
             'name_muz'            => 'required',
-            'jenis_kelamin'   => 'required',
-            'alamat'   => 'required',
-            'notelepon'   => 'required',
-            'profesi'   => 'required',
             'name_program'        => 'required',
-            'keterangan'        => 'required',
+            'tanggal_transaksi'   => 'required',
             'jumlah_transaksi'    => 'required',
             'status'              => 'required',
         ]);
@@ -136,16 +123,11 @@ class DatatunaiController extends Controller
         $datatunai = Datatunai::findOrFail($datatunai->id);
 
         $datatunai->update([
-            'kode_transaksi'        => $request->kode_transaksi,
-            'tanggal_transaksi'     => $request->tanggal_transaksi,
+            'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
             'kode_muz'              => $request->kode_muz,
             'name_muz'              => $request->name_muz,
-            'jenis_kelamin'     => $request->jenis_kelamin,
-            'alamat'     => $request->alamat,
-            'notelepon'     => $request->notelepon,
-            'profesi'     => $request->profesi,
             'name_program'          => $request->name_program,
-            'keterangan'     => $request->keterangan,
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
             'status'                => $request->status,
         ]);

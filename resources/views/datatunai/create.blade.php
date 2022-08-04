@@ -28,11 +28,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Tanggal Transaksi</label>
-                                <input type="date" class="form-control @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{ old('tanggal_transaksi') }}" placeholder="Masukkan Tanggal Transaksi">
-                            </div>
-
-                            <div class="form-group">
                                 <label>Kode Muzakki</label>
                                 <select name="kode_muz" id="pilih" class="form-control" onchange="GetHarga(this.value)">
                                 <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
@@ -53,30 +48,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
-                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="perempuan">Perempuan</option>
-                                <option value="laki-laki">Laki-Laki</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nomor Telepon atau WhatsApp</label>
-                                <input type="text" class="form-control @error('notelepon') is-invalid @enderror" name="notelepon" value="{{ old('notelepon') }}" placeholder="Masukkan Nomor">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
-                            </div>
-
-                            <div class="form-group">
                                 <label>Nama Program</label>
                                 <select name="name_program" class="form-control">
                                 <option value="" selected disableb>-- Pilih Program --</option>
@@ -92,17 +63,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Keterangan</label>
-                                <select name="keterangan" class="form-control" value="{{ old('keterangan') }}">
-                                <option value="" selected disabled>-- Donasi Sebagai --</option>
-                                <option value="Hamba Allah">Donasi sebagai Hamba Allah</option>
-                                <option value="Nama Asli">Donasi sebagai Nama Asli</option>
-                                </select>
+                                <label class="font-weight-bold">Tanggal Transaksi</label>
+                                <input type="date" class="form-control @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{ old('tanggal_transaksi') }}" placeholder="Masukkan Tanggal Transaksi">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nominal Transaksi</label>
-                                <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" id="jumlah_transaksi">
+                                <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" value="{{ old('jumlah_transaksi') }}" placeholder="Masukkan Jumlah Transaksi">
                             </div>
 
                             <div class="form-group">
