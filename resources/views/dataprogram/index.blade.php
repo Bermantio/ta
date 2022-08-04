@@ -48,10 +48,12 @@
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('dataprogram.destroy', $dataprogram->id) }}" method="POST">
                                         <a href="{{ route('dataprogram.show', $dataprogram->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
+                                        @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
                                         <a href="{{ route('dataprogram.edit', $dataprogram->id) }}" class="btn btn-sm btn-secondary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                            @endif
                                         </form>
                                     </td>
                                 </tr>
