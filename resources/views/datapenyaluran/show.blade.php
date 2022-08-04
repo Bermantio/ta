@@ -66,7 +66,9 @@
             </table>
 
             <div class="pull-right">
+            @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
             <a href="{{ route('datapenyaluran.edit', $datapenyaluran->id) }}" class="btn btn-secondary">Edit</a>
+            @endif
             <a class="btn btn-primary" href="{{ route('datapenyaluran.index') }}"> Kembali</a>
         </div>
 @endsection

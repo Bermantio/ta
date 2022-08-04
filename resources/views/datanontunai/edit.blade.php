@@ -31,10 +31,8 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <br>
-                            <a href="{{ url('datanontunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Kembali</a>
-
+                            <button type="submit" class="btn btn-md btn-primary">Update</button>                            
+                            <a href="{{ url('datanontunai') }}" class="btn btn-primary">Kembali</a>
                         </form> 
                     </div>
                 </div>
