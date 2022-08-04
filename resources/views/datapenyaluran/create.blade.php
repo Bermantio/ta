@@ -88,6 +88,7 @@
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                            <a class="btn btn-primary" href="{{ route('datapenyaluran.index') }}">BATAL</a>
 
                         </form> 
                         <script>

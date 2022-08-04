@@ -15,14 +15,10 @@
 </head>
 <body style="background: lightgray">
    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card border-0 shadow rounded">
-                    <div class="card-body">
-                        <div class="pull-left">
-            <h2>Detail Data</h2>
-        </div>
-        
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title"><strong>Detail Data</strong></h3>
+            </div>
         <!-- /.card-header -->
             <div class="card-body">
             <!-- masukin kode disini -->
@@ -65,7 +61,7 @@
                 <tr>
                     <td width="150px">Jumlah Donasi</td>
                     <td width="30px">:</td>
-                    <td>{{ $datapenyaluran->jumlah_donasi }}</td>
+                    <td>Rp. {{ number_format($datapenyaluran->jumlah_donasi) }}</td>
                 </tr> 
             </table>
 

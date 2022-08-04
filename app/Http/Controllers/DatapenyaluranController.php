@@ -116,7 +116,9 @@ class DatapenyaluranController extends Controller
             'jumlah_donasi'       => 'required',
         ]);
 
-        $datapenyaluran = datapenyaluran::create([
+        $datapenyaluran = datapenyaluran::findOrFail($datapenyaluran->id);
+
+        $datapenyaluran->update([
             'kode_transaksi'        => $request->kode_transaksi,
             'tanggal_penyaluran'    => $request->tanggal_penyaluran,
             'name_program'          => $request->name_program,
