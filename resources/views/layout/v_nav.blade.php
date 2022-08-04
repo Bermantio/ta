@@ -73,7 +73,7 @@
       </a>
     </li>
     @endif
-    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
+    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin' or auth()->user()->role=='Penghimpun')
     <li class="nav-item">
       <a href="/dataprogram" class="nav-link">
         <i class="nav-icon fas fa-clipboard-list"></i>

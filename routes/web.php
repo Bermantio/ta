@@ -42,10 +42,11 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan'],function(){
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
-Route::group(['middleware' => 'CheckRole:Admin,Penghimpun'],function(){
+Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
+    Route::resource('dataprogram', DataprogramController::class);
     Route::resource('datatunai', DatatunaiController::class);
 });
 
