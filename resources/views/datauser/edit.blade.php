@@ -53,8 +53,8 @@
                                 <label>Jenis Kelamin</label>
                                 <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin', $datauser->jenis_kelamin) }}">
                                 <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="perempuan">Perempuan</option>
-                                <option value="laki-laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
                                 </select>
                             </div>
 

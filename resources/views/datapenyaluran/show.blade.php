@@ -20,10 +20,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <div class="pull-left">
-            <h2>Data Penyaluran</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('datapenyaluran.index') }}"> Back</a>
+            <h2>Detail Data</h2>
         </div>
         
         <!-- /.card-header -->
@@ -48,7 +45,7 @@
                 <tr>
                     <td width="150px">Nama Mustahik</td>
                     <td width="30px">:</td>
-                    <td>{{ $datapenyaluran->nama_mustahik }}</td>
+                    <td>{{ $datapenyaluran->name }}</td>
                 </tr>   
                 <tr>
                     <td width="150px">Jenis Kelamin</td>
@@ -71,4 +68,8 @@
                     <td>{{ $datapenyaluran->jumlah_donasi }}</td>
                 </tr> 
             </table>
+
+            <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('datapenyaluran.index') }}"> Kembali</a>
+        </div>
 @endsection
