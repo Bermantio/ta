@@ -24,12 +24,12 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Kode</label>
-                                <input type="text" class="form-control @error('kode') is-invalid @enderror" name="kode" value="{{ old('kode') }}" placeholder="Masukkan Kode Mustahik">
+                                <input type="text" class="form-control @error('kode') is-invalid @enderror" name="kode" value="{{ old('kode', $datamustahik->kode) }}" placeholder="Masukkan Kode Mustahik">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama Mustahik">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $datamustahik->name) }}" placeholder="Masukkan Nama Mustahik">
                             </div>
 
                             <div class="form-group">
@@ -43,21 +43,20 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat', $datamustahik->alamat) }}" placeholder="Masukkan Alamat">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
+                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi', $datamustahik->profesi) }}" placeholder="Masukkan Profesi">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Keterangan</label>
-                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan') }}" placeholder="Masukkan Keterangan">
+                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan', $datamustahik->keterangan) }}" placeholder="Masukkan Keterangan">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <button type="reset" class="btn btn-md btn-warning">Reset</button>
                             <button type="batal" class="btn btn-md btn-secondary">Batal</button>
 
                         </form> 

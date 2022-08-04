@@ -49,7 +49,7 @@
                     <td>{{ $datamustahik->keterangan }}</td>
                 </tr>                               
             </table>
-            <br><a href="datamustahik" class="btn btn-primary btn-sm">Kembali</a>
+            <br><a class="btn btn-primary" href="{{ route('datamustahik.index') }}"> Kembali</a>
             </div>
             </div>
         </div>
