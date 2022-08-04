@@ -84,7 +84,7 @@
       </a>
     </li>
     @endif
-    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
+    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin' or auth()->user()->role=='Supervisor')
     <li class="nav-item">
       <a href="/datapenyaluran" class="nav-link">
         <i class="nav-icon fas fa-handshake"></i>      

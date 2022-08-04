@@ -49,10 +49,11 @@ Route::group(['middleware' => 'CheckRole:Admin,Penghimpun'],function(){
     Route::resource('datatunai', DatatunaiController::class);
 });
 
-Route::group(['middleware' => 'CheckRole:Admin,Supervisor'],function(){
+Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datauser', DatauserController::class);
+    Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
 Auth::routes();
