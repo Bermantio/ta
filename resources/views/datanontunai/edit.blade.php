@@ -27,7 +27,7 @@
                                 <select name="status" class="form-control" value="{{ old('status') }}">
                                 <option value="" selected disabled>-- Pilih Status --</option>
                                 <option value="Menunggu Konfirmasi">Menunggu Konfimasi</option>
-                                <option value="Sudah Konfirmasi">Sudah Konfirmasi</option>
+                                <option value="Selesai">Selesai</option>
                                 </select>
                             </div>
 
