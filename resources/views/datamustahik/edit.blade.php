@@ -57,7 +57,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <button type="batal" class="btn btn-md btn-secondary">Batal</button>
+                            <a class="btn btn-primary" href="{{ route('datamustahik.index') }}">Batal</a>
 
                         </form> 
                     </div>
