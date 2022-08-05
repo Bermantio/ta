@@ -15,7 +15,7 @@ class DatamustahikController extends Controller
      */
     public function index()
     {
-        $datamustahiks = Datamustahik::latest()->paginate(1);
+        $datamustahiks = Datamustahik::latest()->paginate(10);
         return view('datamustahik.index', compact('datamustahiks'));
         
     }

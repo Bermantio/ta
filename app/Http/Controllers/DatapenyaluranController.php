@@ -17,7 +17,7 @@ class DatapenyaluranController extends Controller
      */
     public function index()
     {
-        $datapenyalurans = Datapenyaluran::latest()->paginate(10);
+        $datapenyalurans = Datapenyaluran::latest()->paginate(2);
         return view('datapenyaluran.index', compact('datapenyalurans'));
     }
 

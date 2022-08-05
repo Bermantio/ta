@@ -69,7 +69,8 @@
                                   </div>
                               @endforelse
                             </tbody>
-                          </table>  
+                          </table>
+                          {{$datapenyalurans->links()}}  
                     </div>
                 </div>
             </div>
