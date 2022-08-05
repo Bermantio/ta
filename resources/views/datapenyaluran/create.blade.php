@@ -91,13 +91,11 @@
                             function GetHarga() {
                             var idHarga = $('#pilih').val();
                             var name_program =  idHarga.split("_");
-                            var name =  idHarga.split("_");
                             var jenis_kelamin =  idHarga.split("_");
                             var alamat =  idHarga.split("_");
                             var profesi =  idHarga.split("_");
                             
                             $('#name_program').val(name_program[1]);
-                            $('#name').val(name[2]);
                             $('#jenis_kelamin').val(jenis_kelamin[1]);
                             $('#alamat').val(alamat[2]);
                             $('#profesi').val(profesi[3]);
