@@ -23,11 +23,6 @@
                             @csrf
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Kode Transaksi</label>
-                                <input type="text" class="form-control @error('kode_transaksi') is-invalid @enderror" name="kode_transaksi" value="{{ old('kode_transaksi') }}" placeholder="Masukkan Kode Transaksi">
-                            </div>
-
-                            <div class="form-group">
                                 <label>Kode Muzakki</label>
                                 <select name="kode_muz" id="pilih" class="form-control" onchange="GetHarga(this.value)">
                                 <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
