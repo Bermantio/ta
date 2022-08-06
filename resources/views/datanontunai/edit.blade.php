@@ -27,14 +27,12 @@
                                 <select name="status" class="form-control" value="{{ old('status') }}">
                                 <option value="" selected disabled>-- Pilih Status --</option>
                                 <option value="Menunggu Konfirmasi">Menunggu Konfimasi</option>
-                                <option value="Sudah Konfirmasi">Sudah Konfirmasi</option>
+                                <option value="Selesai">Selesai</option>
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <br>
-                            <a href="{{ url('datanontunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Kembali</a>
-
+                            <button type="submit" class="btn btn-md btn-primary">Update</button>                            
+                            <a href="{{ url('datanontunai') }}" class="btn btn-primary">Kembali</a>
                         </form> 
                     </div>
                 </div>

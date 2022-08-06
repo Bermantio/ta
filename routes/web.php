@@ -18,7 +18,7 @@ Route::get('/print',[DatatunaiController::class, 'print']);
 //Route::get('/cetakdata',[DatatunaiController::cetakdata, 'cetakdata']);
 
 Route::get('/',[HomeController::class, 'index']);
-Route::group(['middleware' => 'CheckRole:Admin'],function(){
+Route::group(['middleware' => 'CheckRole:Admin' and 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
@@ -31,7 +31,7 @@ Route::group(['middleware' => 'CheckRole:Admin'],function(){
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
-Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan'],function(){
+Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan' and 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
@@ -42,17 +42,18 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan'],function(){
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
-Route::group(['middleware' => 'CheckRole:Admin,Penghimpun'],function(){
+Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan' and 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
+    Route::resource('dataprogram', DataprogramController::class);
     Route::resource('datatunai', DatatunaiController::class);
 });
 
-Route::group(['middleware' => 'CheckRole:Admin,Supervisor'],function(){
+Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan' and 'prevent-back-history'],function(){    
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datauser', DatauserController::class);
+    Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
-
 Auth::routes();

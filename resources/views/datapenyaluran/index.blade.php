@@ -20,7 +20,9 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
                         <a href="{{ route('datapenyaluran.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                        @endif
                         <table class="table table-bordered">
                             <thead>
                               <tr>
@@ -50,13 +52,14 @@
                                     <td>{{ $datapenyaluran->profesi }}</td>
                                     <td>Rp. {{ number_format($datapenyaluran->jumlah_donasi) }}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapenyaluran.destroy', $datapenyaluran->id) }}" method="POST">
-                                       
-                                        <a href="{{ route('datapenyaluran.edit', $datapenyaluran->id) }}" class="btn btn-sm btn-warning">EDIT</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapenyaluran.destroy', $datapenyaluran->id) }}" method="POST">                                                                               
                                         <a href="{{ route('datapenyaluran.show', $datapenyaluran->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
+                                        @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
+                                        <a href="{{ route('datapenyaluran.edit', $datapenyaluran->id) }}" class="btn btn-sm btn-warning">EDIT</a>                                        
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                            @endif
                                         </form>
                                     </td>
                                 </tr>
@@ -66,7 +69,8 @@
                                   </div>
                               @endforelse
                             </tbody>
-                          </table>  
+                          </table>
+                          {{$datapenyalurans->links()}}  
                     </div>
                 </div>
             </div>

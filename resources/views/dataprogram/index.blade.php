@@ -20,7 +20,9 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                    @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
                         <a href="{{ route('dataprogram.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                        @endif
                         <table class="table table-bordered">
                             <thead>
                               <tr>
@@ -46,10 +48,12 @@
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('dataprogram.destroy', $dataprogram->id) }}" method="POST">
                                         <a href="{{ route('dataprogram.show', $dataprogram->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
+                                        @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
                                         <a href="{{ route('dataprogram.edit', $dataprogram->id) }}" class="btn btn-sm btn-secondary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                            @endif
                                         </form>
                                     </td>
                                 </tr>

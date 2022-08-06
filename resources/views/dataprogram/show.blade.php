@@ -43,7 +43,11 @@
                     <td>{{ $dataprogram->deskripsi }}</td>
                 </tr>                               
             </table>
-            <br><a class="btn btn-primary" href="{{ route('dataprogram.index') }}"> Kembali</a>
+            <br>
+            @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
+            <a href="{{ route('dataprogram.edit', $dataprogram->id) }}" class="btn btn-secondary">Edit</a>
+            @endif
+            <a class="btn btn-primary" href="{{ route('dataprogram.index') }}"> Kembali</a>
             </div>
             </div>
         </div>

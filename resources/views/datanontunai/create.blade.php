@@ -127,11 +127,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Status</label>
-                                <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}" placeholder="Masukkan Status">
-                            </div>
-
-                            <div class="form-group">
                                 <label>Status</label>
                                 <select name="status" class="form-control" value="{{ old('status') }}">
                                 <option value="" selected disabled>-- Pilih Status --</option>
@@ -148,8 +143,10 @@
                             function GetHarga() {
                             var idHarga = $('#pilih').val();
                             var name_zakki =  idHarga.split("_");
+                            var name_program =  idHarga.split("_");
 
                             $('#name_zakki').val(name_zakki[1]);
+                            $('#name_program').val(name_program[1]);
                             }
                         </script>
                     </div>

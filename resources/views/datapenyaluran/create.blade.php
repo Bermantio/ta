@@ -45,14 +45,14 @@
                                         {{ $message }}
                                     @enderror
                                 </div>
-                            </div>   
+                            </div>    
 
                             <div class="form-group">
                                 <label>Nama Mustahik</label>
-                                <select name="name" class="form-control">
-                                <option value="" selected disableb>-- Pilih Nama Mustahik --</option>
+                                <select name="name" id="pilih" class="form-control" onchange="GetHarga(this.value)">
+                                <option value="" selected disabled>-- Pilih Nama Mustahik --</option>
                                     @foreach ($namahik as $nikber)
-                                        <option value="{{ $nikber->name }}">{{ $nikber->name }}</option>
+                                        <option value="{{ $nikber->name.'_'.$nikber->jenis_kelamin.'_'.$nikber->alamat.'_'.$nikber->profesi }}">{{ $nikber->name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
@@ -60,25 +60,21 @@
                                         {{ $message }}
                                     @enderror
                                 </div>
-                            </div> 
+                            </div>
 
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
-                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="Perempuan">Perempuan</option>
-                                <option value="Laki-laki">Laki-Laki</option>
-                                </select>
+                                <input type="text" name="jenis_kelamin" class="form-control" id="jenis_kelamin" onchange="GetHarga(this.value)" readonly>                                
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
+                                <input type="text" name="alamat" class="form-control" id="alamat" onchange="GetHarga(this.value)" readonly>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
+                                <input type="text" name="profesi" class="form-control" id="profesi" onchange="GetHarga(this.value)" readonly>
                             </div>
 
                             <div class="form-group">
@@ -95,10 +91,14 @@
                             function GetHarga() {
                             var idHarga = $('#pilih').val();
                             var name_program =  idHarga.split("_");
-                            var name =  idHarga.split("_");
+                            var jenis_kelamin =  idHarga.split("_");
+                            var alamat =  idHarga.split("_");
+                            var profesi =  idHarga.split("_");
                             
                             $('#name_program').val(name_program[1]);
-                            $('#name').val(name[2]);
+                            $('#jenis_kelamin').val(jenis_kelamin[1]);
+                            $('#alamat').val(alamat[2]);
+                            $('#profesi').val(profesi[3]);
                             }
                         </script>
                     </div>
