@@ -95,10 +95,6 @@
       </a>
     </li>
     @endif
-    
-    
-
-    
 </li>
 </li>
     <!-- Akhir Settings -->
