@@ -160,4 +160,5 @@ class DatatunaiController extends Controller
             return redirect()->route('datatunai.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }
+    
 }
