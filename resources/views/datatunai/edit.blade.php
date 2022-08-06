@@ -23,11 +23,6 @@
                             @method('PUT')
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Kode Transaksi</label>
-                                <input type="text" class="form-control @error('kode_transaksi') is-invalid @enderror" name="kode_transaksi" value="{{ old('kode_transaksi', $datatunai->kode_transaksi) }}" placeholder="Masukkan Kode Transaksi">
-                            </div>
-
-                            <div class="form-group">
                                 <label>Kode Muzakki</label>
                                 <select name="kode_muz" id="pilih" class="form-control" onchange="GetHarga(this.value)">
                                 <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
@@ -50,11 +45,6 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Tanggal Transaksi</label>
                                 <input type="date" class="form-control @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{ old('tanggal_transaksi', $datatunai->tanggal_transaksi) }}" placeholder="Masukkan Tanggal Transaksi">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Kode Muzakki</label>
-                                <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki', $datatunai->kode_muzakki) }}" placeholder="Masukkan Kode Muzakki">
                             </div>
 
                             <div class="form-group">

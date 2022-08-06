@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h3>Transaksi Sukses</h3>
                     <h5>Transaksi Anda sudah <strong>LUNAS</strong> dengan nominal : 
-                        <strong>Rp. {{ $datatunai->jumlah_transaksi }}</strong></h5>
+                        <strong>Rp. {{ number_format($datatunai->jumlah_transaksi+$datatunai->kode_transaksi) }}</strong></h5>
                 </div>
             </div>
             <div class="card-body">
@@ -28,11 +28,6 @@
                     </div>
 
                     <table class="table table-bordered">
-                <tr>
-                    <td width="150px">Kode Transaksi</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datatunai->kode_transaksi }}</td>
-                </tr>
                 <tr>
                     <td width="150px">Kode Muzakki</td>
                     <td width="30px">:</td>
@@ -51,7 +46,7 @@
                 <tr>
                     <td width="150px">Nominal Transaksi</td>
                     <td width="30px">:</td>
-                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
+                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi+$datatunai->kode_transaksi) }}</td>
                 </tr>    
                 <tr>
                     <td width="150px">Status</td>
@@ -63,7 +58,7 @@
                         @endif</td>
                 </tr> 
                 <tr>
-                    <td colspan="4" align="left"><strong>Total yang harus dibayarkan : Rp. {{ number_format($datatunai->jumlah_transaksi) }}</strong></td>
+                    <td colspan="4" align="left"><strong>Total yang harus dibayarkan : Rp. {{ number_format($datatunai->jumlah_transaksi+$datatunai->kode_transaksi) }}</strong></td>
                     
                 </tr>
             </table>

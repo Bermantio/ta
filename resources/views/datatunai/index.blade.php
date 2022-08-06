@@ -25,7 +25,6 @@
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Kode Transaksi</th>
                                 <th scope="col">Kode Muzakki</th>
                                 <th scope="col">Nama Muzakki</th>
                                 <th scope="col">Tanggal Transaksi</th> 
@@ -40,7 +39,6 @@
                             @forelse ($datatunais as $datatunai)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $datatunai->kode_transaksi }}</td>
                                     <td>{{ $datatunai->kode_muz }}</td>
                                     <td>{{ $datatunai->name_muz }}</td>
                                     <td>{{ $datatunai->tanggal_transaksi }}</td>
