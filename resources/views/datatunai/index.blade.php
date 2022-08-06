@@ -43,7 +43,7 @@
                                     <td>{{ $datatunai->name_muz }}</td>
                                     <td>{{ $datatunai->tanggal_transaksi }}</td>
                                     <td>{{ $datatunai->name_program }}</td> 
-                                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi) }}</td>
+                                    <td>Rp. {{ number_format($datatunai->jumlah_transaksi+$datatunai->kode_transaksi) }}</td>
                                     <td>
                                         @if($datatunai->status == 1)
                                         Sudah Pesan & Belum dibayar

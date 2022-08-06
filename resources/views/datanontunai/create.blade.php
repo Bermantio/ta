@@ -23,11 +23,6 @@
                             @csrf
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Kode Transaksi</label>
-                                <input type="text" class="form-control @error('kode_transaksi') is-invalid @enderror" name="kode_transaksi" value="{{ old('kode_transaksi') }}" placeholder="Masukkan Kode Transaksi">
-                            </div>
-
-                            <div class="form-group">
                                 <label class="font-weight-bold">Tanggal Transaksi</label>
                                 <input type="date" class="form-control @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{ old('tanggal_transaksi') }}" placeholder="Masukkan Tanggal Transaksi">
                             </div>

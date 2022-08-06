@@ -15,8 +15,9 @@
             <div class="card">
                 <div class="card-body">
                     <h3>Transaksi Sukses</h3>
-                    <h5>Transaksi Anda sudah <strong>LUNAS</strong> dengan nominal : 
-                        <strong>Rp. {{ $datanontunai->jumlah_transaksi }}</strong></h5>
+                    <h5>Transaksi Anda sudah <strong>LUNAS,</strong> selanjutnya untuk pembayaran silahkan transfer di rekening 
+                    <br><strong> Bank BNI Nomer Rekening : 31231-238421-323</strong> dengan nominal : 
+                    <strong> Rp. {{ number_format ($datanontunai->jumlah_transaksi+$datanontunai->kode_transaksi) }}</strong></h5>
                 </div>
             </div>
             <div class="card-body">
@@ -27,11 +28,6 @@
                     </div>
 
                     <table class="table table-bordered">
-                <tr>
-                    <td width="150px">Kode Transaksi</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datanontunai->kode_transaksi }}</td>
-                </tr>
                 <tr>
                     <td width="150px">Nama Muzakki</td>
                     <td width="30px">:</td>
@@ -76,10 +72,15 @@
                         @else
                         <strong>LUNAS</strong>
                         @endif</td>
-                </tr> 
+                </tr>
                 <tr>
-                    <td colspan="4" align="left"><strong>Total yang harus dibayarkan : Rp. {{ number_format($datanontunai->jumlah_transaksi) }}</strong></td>
-                    
+                    <td colspan="4" align="left"><strong>Total Transaksi : Rp. {{ number_format($datanontunai->jumlah_transaksi) }}</strong></td>  
+                </tr>
+                <tr>
+                    <td colspan="4" align="left"><strong> Kode Unik : {{ $datanontunai->kode_transaksi }}</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="left"><strong> Total Yang Harus Dibayarkan : Rp. {{ number_format($datanontunai->jumlah_transaksi+$datanontunai->kode_transaksi) }}</strong></td>
                 </tr>
             </table>
 

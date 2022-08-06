@@ -58,12 +58,15 @@
                         @endif</td>
                 </tr> 
                 <tr>
-                    <td colspan="4" align="left"><strong>Total yang harus dibayarkan : Rp. {{ number_format($datatunai->jumlah_transaksi+$datatunai->kode_transaksi) }}</strong></td>
-                    
+                    <td colspan="4" align="left"><strong>Total Transaksi : Rp. {{ number_format($datatunai->jumlah_transaksi) }}</strong></td>  
+                </tr>
+                <tr>
+                    <td colspan="4" align="left"><strong> Kode Unik : {{ number_format($datatunai->kode_transaksi) }}</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="left"><strong> Total Yang Harus Dibayarkan : Rp. {{ number_format($datatunai->jumlah_transaksi+$datatunai->kode_transaksi) }}</strong></td>
                 </tr>
             </table>
-
-            
             @endif
             <br>
             <a href="{{ url('datatunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>

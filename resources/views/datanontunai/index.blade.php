@@ -42,7 +42,6 @@
                             @forelse ($datanontunais as $datanontunai)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $datanontunai->kode_transaksi }}</td>
                                     <td>{{ $datanontunai->tanggal_transaksi }}</td>
                                     <td>{{ $datanontunai->name_zakki }}</td>
                                     <td>{{ $datanontunai->alamat }}</td>
