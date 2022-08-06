@@ -162,8 +162,8 @@
                             
                             <p><strong>Email : lazismukabpekalongan@gmail.com</strong>
                             <p><strong>Telepon(Fax) : </strong> 
-                            <a>(0285)420650</a></ol>
-                            <p><strong>WA : </strong> 
+                            <a>(0285)420650</a>
+                            <p><strong>Nomor Whatsapp : </strong> 
                             <a href="https://api.whatsapp.com/send?phone=6285741347979&text=Hi">+6285741347979</a></ol>
                             
                         </div>

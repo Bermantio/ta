@@ -18,7 +18,7 @@ Route::get('/print',[DatatunaiController::class, 'print']);
 //Route::get('/cetakdata',[DatatunaiController::cetakdata, 'cetakdata']);
 
 Route::get('/',[HomeController::class, 'index']);
-Route::group(['middleware' => 'CheckRole:Admin' and 'prevent-back-history'],function(){
+Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);

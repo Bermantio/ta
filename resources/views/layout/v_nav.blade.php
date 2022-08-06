@@ -5,6 +5,16 @@
          with font-awesome or any other icon font library -->
 
       <!-- Data -->
+      <li class="nav-item menu-open">
+    <li class="nav-item">
+      <a href="/home" class="nav-link">
+        <i class="nav-icon fas fa-house-user"></i>
+        <p>
+          Beranda
+          <i class="right fas"></i>
+        </p>
+      </a>
+    </li>
       @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin' or auth()->user()->role=='Penghimpun')
       <li class="nav-item"><a href="#" class="nav-link">
     <i class="nav-icon fas fa-receipt"></i>
