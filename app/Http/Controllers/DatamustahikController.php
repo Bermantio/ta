@@ -29,6 +29,13 @@ class DatamustahikController extends Controller
         return view('datamustahik.create');
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datamustahiks = Datamustahik::latest()->where('name', '%'.$search.'%')->paginate(10);
+        return view('datamustahik.index',['datamustahiks' => $datamustahiks]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -14,7 +14,8 @@ use App\Http\Controllers\DatapenyaluranController;
 
 //Route::get('/laporantunai.lap', [App\Http\Controllers\LaporantunaiController::class, 'index'])->name('lap');
 Route::get('/print',[DatatunaiController::class, 'print']);
-
+//Route::get('/search','DatamustahikController@search');
+Route::get('/search',[DatamustahikController::class, 'search']);
 //Route::get('/cetakdata',[DatatunaiController::cetakdata, 'cetakdata']);
 
 Route::get('/',[HomeController::class, 'index']);
