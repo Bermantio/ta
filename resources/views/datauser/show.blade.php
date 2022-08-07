@@ -32,16 +32,10 @@
                     <td width="30px">:</td>
                     <td>{{ $datauser->image }}</td>
                 </tr>
-
                 <tr>
-                    <td width="150px">Kode User</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datauser->kode_user }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Nama Lengkao</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datauser->name_user }}</td>
+                    <td width="150px">Nama Lengkap</td>
+                    <td width="30px">:</td> 
+                    <td>{{ $datauser->nama_lengkap }}</td>
                 </tr>
                 <tr>
                     <td width="150px">Email</td>
@@ -57,6 +51,16 @@
                     <td width="150px">Alamat</td>
                     <td width="30px">:</td>
                     <td>{{ $datauser->alamat }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">No Telepon</td>
+                    <td width="30px">:</td> 
+                    <td>{{ $datauser->notelp }}</td>
+                </tr>
+                <tr>
+                    <td width="150px">Profesi</td>
+                    <td width="30px">:</td> 
+                    <td>{{ $datauser->notelp }}</td>
                 </tr>   
                 <tr>
                     <td width="150px">Status</td>

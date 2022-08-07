@@ -18,14 +18,19 @@
                                 <td>{{ $user->name }}</td>
                             </tr>
                             <tr>
+                                <td>Jenis Kelamin</td>
+                                <td width="10">:</td>
+                                <td>{{ $user->jenis_kelamin }}</td>
+                            </tr>              
+                            <tr>
                                 <td>Email</td>
                                 <td>:</td>
                                 <td>{{ $user->email }}</td>
                             </tr>
                             <tr>
-                                <td>No HP</td>
+                                <td>No Telepon</td>
                                 <td>:</td>
-                                <td>{{ $user->nohp }}</td>
+                                <td>{{ $user->notelepon }}</td>
                             </tr>
                             <tr>
                                 <td>Alamat</td>

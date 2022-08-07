@@ -18,72 +18,71 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <form action="{{ route('datauser.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                         
-                            @csrf
+                            @csrf                
 
-                            <div class="form-group">
-                                <label class="font-weight-bold">Foto</label>
-                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Kode User</label>
-                                <input type="text" class="form-control @error('kode_user') is-invalid @enderror" name="kode_user" value="{{ old('kode_user') }}" placeholder="Masukkan Kode Muzakki">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Username</label>
-                                <input type="text" class="form-control @error('name_user') is-invalid @enderror" name="name_user" value="{{ old('name_user') }}" placeholder="Masukkan Nama User">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nama Lengkap</label>
-                                <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap') }}" placeholder="Masukkan Nama User">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
-                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="Perempuan">Perempuan</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Email</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Masukkan Email">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">No Telp</label>
-                                <input type="text" class="form-control @error('notelp') is-invalid @enderror" name="notelp" value="{{ old('notelp') }}" placeholder="Masukkan No Telp">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Status User</label>
-                                <select name="status" class="form-control" value="{{ old('status') }}">
-                                <option value="" selected disabled>-- Pilih --</option>
+                            <div class="input-group mb-3">
+                                <input id="name" placeholder="Nama Lengkap" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+              @error('name')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+        <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+              @error('email')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+        <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+              @error('password')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+        <input id="password_confirmation" placeholder="Confirm Your Password" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="current-password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+                            <div class="input-group mb-3">
+                                <select name="role" class="form-control" value="{{ old('role') }}">
+                                <option value="" selected disabled>Status User</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Penghimpun">Penghimpun</option>
                                 <option value="Pendayagunaan">Pendayagunaan</option>
                                 <option value="Supervisor">Supervisor</option>
+                                <option value="Muzakki">Muzakki</option>
                                 </select>
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                            <a class="btn btn-primary" href="{{ route('datauser.index') }}">BATAL</a>
 
                         </form> 
                     </div>
