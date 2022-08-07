@@ -16,7 +16,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="/home" class="nav-link">
+      <a href="/profil" class="nav-link">
         <i class="nav-icon fas fa-address-card"></i>
         <p>
           Profil
