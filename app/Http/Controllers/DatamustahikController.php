@@ -32,7 +32,7 @@ class DatamustahikController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $datamustahiks = Datamustahik::latest()->where('name', '%'.$search.'%')->paginate(10);
+        $datamustahiks = Datamustahik::latest()->where('name', 'like', '%'.$search.'%')->paginate(10);
         return view('datamustahik.index',['datamustahiks' => $datamustahiks]);
     }
 
