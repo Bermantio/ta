@@ -37,6 +37,11 @@
                                 <td>:</td>
                                 <td>{{ $user->alamat }}</td>
                             </tr>
+                            <tr>
+                                <td>Profesi</td>
+                                <td>:</td>
+                                <td>{{ $user->profesi }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -77,13 +82,24 @@
                             </div>
                         </div>
 
+                        <div class="input-group mb-3">
+                            <label for="jeniskelamin" class="col-md-2 col-form-label text-md-right">Jenis Kelamin</label>
+                            <div class="col-md-6">
+                            <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
+                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+                                <option value="Perempuan">Perempuan</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                </select>                                                   
+                                </div>
+                        </div>
+
                         <div class="form-group row">
-                            <label for="nohp" class="col-md-2 col-form-label text-md-right">No. HP</label>
+                            <label for="notelepon" class="col-md-2 col-form-label text-md-right">No. Telepon</label>
 
                             <div class="col-md-6">
-                                <input id="nohp" type="text" class="form-control @error('nohp') is-invalid @enderror" name="nohp" value="{{ $user->nohp }}" required autocomplete="nohp" autofocus>
+                                <input id="notelepon" type="text" class="form-control @error('notelepon') is-invalid @enderror" name="notelepon" value="{{ $user->notelepon }}" required autocomplete="notelepon" autofocus>
 
-                                @error('nohp')
+                                @error('notelepon')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -98,6 +114,20 @@
                                 <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" required="">{{ $user->alamat }}</textarea>
 
                                 @error('alamat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="profesi" class="col-md-2 col-form-label text-md-right">Profesi</label>
+
+                            <div class="col-md-6">
+                                <textarea name="profesi" class="form-control @error('profesi') is-invalid @enderror" required="">{{ $user->profesi }}</textarea>
+
+                                @error('profesi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -60,7 +60,7 @@
                 <tr>
                     <td width="150px">Profesi</td>
                     <td width="30px">:</td> 
-                    <td>{{ $datauser->notelp }}</td>
+                    <td>{{ $datauser->profesi }}</td>
                 </tr>   
                 <tr>
                     <td width="150px">Status</td>
