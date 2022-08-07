@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DatamustahikController;
 use App\Http\Controllers\DatalazismuController;
 use App\Http\Controllers\DatalaporanController;
@@ -21,6 +22,7 @@ Route::get('/search',[DatamustahikController::class, 'search']);
 Route::get('/',[HomeController::class, 'index']);
 Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datalaporan', DatalaporanController::class);
@@ -34,6 +36,7 @@ Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],functio
 
 Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datalaporan', DatalaporanController::class);
@@ -45,6 +48,7 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-his
 
 Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('dataprogram', DataprogramController::class);
@@ -53,6 +57,7 @@ Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'preve
 
 Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'prevent-back-history'],function(){    
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datauser', DatauserController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
