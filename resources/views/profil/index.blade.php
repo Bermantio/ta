@@ -3,6 +3,8 @@
 
 @section('content')
 
+<!DOCTYPE html>
+<html lang="en">
 <body style="background: lightgray">
     <div class="container mt-5">
         <div class="row">
@@ -12,6 +14,11 @@
                     <h4><i class="fa fa-user"></i> My Profil</h4>
                     <table class="table">
                         <tbody>
+                        <tr>
+                                <td>Foto</td>
+                                <td width="10">:</td>
+                                <td>{{ $user->image }}</td>
+                            </tr>
                             <tr>
                                 <td>Nama</td>
                                 <td width="10">:</td>
@@ -53,6 +60,13 @@
                     <h4><i class="fa fa-pencil-alt"></i> Edit Profil</h4>
                     <form method="POST" action="{{ url('profil') }}">
                         @csrf
+
+                            <div class="input-group mb-3">
+                                <label class="col-md-2 col-form-label text-md-right">Foto</label>
+                                <div class="col-md-6">
+                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image', $user->image) }}">                                                    
+                                </div>
+                            </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
