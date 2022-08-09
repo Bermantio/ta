@@ -21,6 +21,16 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <a href="{{ route('datatunai.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                        <div class="col-md-4">
+                            <form action="/search" method="get">
+                                <div class="input-group">
+                                    <input type="search" name="search" class="form-control">
+                                    <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-warning">Search</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div> <br>
                         <table class="table table-bordered">
                             <thead>
                               <tr>
@@ -40,7 +50,7 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $datatunai->kode_muz }}</td>
-                                    <td>{{ $datatunai->name_muz }}</td>
+                                    <td><a href="/datamuzakki/show">{{ $datatunai->name_muz }}</a></td>
                                     <td>{{ $datatunai->tanggal_transaksi }}</td>
                                     <td>{{ $datatunai->name_program }}</td> 
                                     <td>Rp. {{ number_format($datatunai->jumlah_transaksi+$datatunai->kode_transaksi) }}</td>

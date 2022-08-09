@@ -23,6 +23,16 @@
                     @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
                         <a href="{{ route('datapenyaluran.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
                         @endif
+                        <div class="col-md-4">
+                            <form action="/search" method="get">
+                                <div class="input-group">
+                                    <input type="search" name="search" class="form-control">
+                                    <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-warning">Search</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div> <br>
                         <table class="table table-bordered">
                             <thead>
                               <tr>

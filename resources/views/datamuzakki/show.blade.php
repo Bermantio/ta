@@ -59,7 +59,7 @@
                     <td>{{ $datamuzakki->keterangan }}</td>
                 </tr>                               
             </table>
-            <br><a href="datamustahik" class="btn btn-primary btn-sm">Kembali</a>
+            <br><a href="datamuzakki" class="btn btn-primary btn-sm">Kembali</a>
             </div>
             </div>
         </div>

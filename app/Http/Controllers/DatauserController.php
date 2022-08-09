@@ -29,6 +29,13 @@ class DatauserController extends Controller
         return view('datauser.create');
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datausers = Datauser::latest()->where('name_user', 'like', '%'.$search.'%')->paginate(10);
+        return view('datauser.index',['datausers' => $datausers]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

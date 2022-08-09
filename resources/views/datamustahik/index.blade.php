@@ -20,17 +20,18 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <a href="{{ route('datamustahik.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                        <a href="{{ route('datamustahik.create') }}" class="btn  btn-success ">TAMBAH DATA</a>
+                    <div align="right">
                         <div class="col-md-4">
-                    <form action="/search" method="get">
-                    <div class="input-group">
-                        <input type="search" name="search" class="form-control">
-                        <span class="input-group-prepend">
-                        <button type="submit" class="btn btn-primary">Search</button>
-                        </span>
-                    </div>
-                    </form>
-                </div>
+                            <form action="/search" method="get">
+                                <div class="input-group">
+                                    <input type="search" name="search" class="form-control">
+                                    <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-md btn-warning mb-3">Search</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div> <br>
                         <table class="table table-bordered">
                             <thead>
                               <tr>

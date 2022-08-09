@@ -33,6 +33,13 @@ class DatapenyaluranController extends Controller
         return view('datapenyaluran.create', compact('namaprog', 'namahik'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datapenyalurans = Datapenyaluran::latest()->where('name', 'like', '%'.$search.'%')->paginate(10);
+        return view('datapenyaluran.index',['datapenyalurans' => $datapenyalurans]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

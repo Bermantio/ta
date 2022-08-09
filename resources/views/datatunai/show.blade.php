@@ -23,7 +23,10 @@
                 <h3><i class="fa fa-shopping-cart"></i> Detail Transaksi</h3>
                     @if(!empty($datatunai))
                     <div class="card-tools">
-                        <a href="{{ url('print') }}" class="btn btn-primary"><i class="fa fa-print"></i>  Cetak</a>
+                    <div align="right">
+                        <a href="{{ url('print') }}" class="btn btn-warning"><i class="fa fa-print"></i>  Cetak</a>   
+                        <a href="{{ url('datatunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    </div><br>
                         <p align="right">Tanggal Transaksi : {{ $datatunai->tanggal_transaksi }}</p>
                     </div>
 
@@ -69,7 +72,7 @@
             </table>
             @endif
             <br>
-            <a href="{{ url('datatunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+            
             </div>
             </div>
         </div>

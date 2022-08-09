@@ -31,6 +31,13 @@ class DatanontunaiController extends Controller
         return view('datanontunai.create', compact('nontunai'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datanontunais = Datanontunai::latest()->where('name_zakki', 'like', '%'.$search.'%')->paginate(10);
+        return view('datanontunai.index',['datanontunais' => $datanontunais]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

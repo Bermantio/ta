@@ -40,6 +40,13 @@ class DatatunaiController extends Controller
         return view('datatunai.create', compact('niken', 'program'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datatunais = Datatunai::latest()->where('name_muz', 'like', '%'.$search.'%')->paginate(10);
+        return view('datatunai.index',['datatunais' => $datatunais]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

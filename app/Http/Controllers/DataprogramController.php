@@ -29,6 +29,13 @@ class DataprogramController extends Controller
         return view('dataprogram.create');
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $dataprograms = Dataprogram::latest()->where('name_program', 'like', '%'.$search.'%')->paginate(10);
+        return view('dataprogram.index',['dataprograms' => $dataprograms]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
