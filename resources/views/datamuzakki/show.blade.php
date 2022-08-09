@@ -22,12 +22,7 @@
                     <td width="150px">Kode Muzakki</td>
                     <td width="30px">:</td>
                     <td>{{ $datamuzakki->kode_muzakki }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Nama User</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datamuzakki->name_user }}</td>
-                </tr>
+                </tr>                
                 <tr>
                     <td width="150px">Nama Muzakki</td>
                     <td width="30px">:</td>
@@ -47,19 +42,14 @@
                     <td width="150px">Profesi</td>
                     <td width="30px">:</td>
                     <td>{{ $datamuzakki->profesi }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Tanggal Dibuat</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datamuzakki->tanggal_dibuat }}</td>
-                </tr>
-                <tr>
-                    <td width="150px">Keterangan</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datamuzakki->keterangan }}</td>
-                </tr>                               
+                </tr>                       
             </table>
+<<<<<<< HEAD
             <br><a href="datamuzakki" class="btn btn-primary btn-sm">Kembali</a>
+=======
+            <a href="{{ route('datamuzakki.edit', $datamuzakki->id) }}" class="btn btn-secondary">Edit</a>
+            <a class="btn btn-primary" href="{{ route('datamuzakki.index') }}"> Kembali</a>
+>>>>>>> be2d120fa143bebb23aebee727b298efe6c1136f
             </div>
             </div>
         </div>

@@ -24,7 +24,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Foto</label>
-                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
+                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image', $datauser->image) }}">
                             
                                 <!-- error message untuk title -->
                                 @error('image')
@@ -32,17 +32,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Kode User</label>
-                                <input type="text" class="form-control @error('kode_user') is-invalid @enderror" name="kode_user" value="{{ old('kode_user', $datauser->kode_user) }}" placeholder="Masukkan Kode Muzakki">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Username</label>
-                                <input type="text" class="form-control @error('name_user') is-invalid @enderror" name="name_user" value="{{ old('name_user', $datauser->name_user) }}" placeholder="Masukkan Nama User">
-                            </div>
+                            </div>                            
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama Lengkap</label>
@@ -90,7 +80,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <button type="batal" class="btn btn-md btn-secondary">Batal</button>
+                            <a class="btn btn-primary" href="{{ route('datauser.index') }}">Batal</a>
 
                         </form> 
                     </div>

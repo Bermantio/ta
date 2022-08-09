@@ -3,6 +3,8 @@
 
 @section('content')
 
+<!DOCTYPE html>
+<html lang="en">
 <body style="background: lightgray">
     <div class="container mt-5">
         <div class="row">
@@ -12,25 +14,40 @@
                     <h4><i class="fa fa-user"></i> My Profil</h4>
                     <table class="table">
                         <tbody>
+                        <tr>
+                                <td>Foto</td>
+                                <td width="10">:</td>
+                                <td>{{ $user->image }}</td>
+                            </tr>
                             <tr>
                                 <td>Nama</td>
                                 <td width="10">:</td>
                                 <td>{{ $user->name }}</td>
                             </tr>
                             <tr>
+                                <td>Jenis Kelamin</td>
+                                <td width="10">:</td>
+                                <td>{{ $user->jenis_kelamin }}</td>
+                            </tr>              
+                            <tr>
                                 <td>Email</td>
                                 <td>:</td>
                                 <td>{{ $user->email }}</td>
                             </tr>
                             <tr>
-                                <td>No HP</td>
+                                <td>No Telepon</td>
                                 <td>:</td>
-                                <td>{{ $user->nohp }}</td>
+                                <td>{{ $user->notelepon }}</td>
                             </tr>
                             <tr>
                                 <td>Alamat</td>
                                 <td>:</td>
                                 <td>{{ $user->alamat }}</td>
+                            </tr>
+                            <tr>
+                                <td>Profesi</td>
+                                <td>:</td>
+                                <td>{{ $user->profesi }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -43,6 +60,13 @@
                     <h4><i class="fa fa-pencil-alt"></i> Edit Profil</h4>
                     <form method="POST" action="{{ url('profil') }}">
                         @csrf
+
+                            <div class="input-group mb-3">
+                                <label class="col-md-2 col-form-label text-md-right">Foto</label>
+                                <div class="col-md-6">
+                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image', $user->image) }}">                                                    
+                                </div>
+                            </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -72,13 +96,24 @@
                             </div>
                         </div>
 
+                        <div class="input-group mb-3">
+                            <label for="jeniskelamin" class="col-md-2 col-form-label text-md-right">Jenis Kelamin</label>
+                            <div class="col-md-6">
+                            <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
+                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+                                <option value="Perempuan">Perempuan</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                </select>                                                   
+                                </div>
+                        </div>
+
                         <div class="form-group row">
-                            <label for="nohp" class="col-md-2 col-form-label text-md-right">No. HP</label>
+                            <label for="notelepon" class="col-md-2 col-form-label text-md-right">No. Telepon</label>
 
                             <div class="col-md-6">
-                                <input id="nohp" type="text" class="form-control @error('nohp') is-invalid @enderror" name="nohp" value="{{ $user->nohp }}" required autocomplete="nohp" autofocus>
+                                <input id="notelepon" type="text" class="form-control @error('notelepon') is-invalid @enderror" name="notelepon" value="{{ $user->notelepon }}" required autocomplete="notelepon" autofocus>
 
-                                @error('nohp')
+                                @error('notelepon')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -93,6 +128,20 @@
                                 <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" required="">{{ $user->alamat }}</textarea>
 
                                 @error('alamat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="profesi" class="col-md-2 col-form-label text-md-right">Profesi</label>
+
+                            <div class="col-md-6">
+                                <textarea name="profesi" class="form-control @error('profesi') is-invalid @enderror" required="">{{ $user->profesi }}</textarea>
+
+                                @error('profesi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

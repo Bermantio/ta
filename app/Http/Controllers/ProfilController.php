@@ -23,16 +23,25 @@ class ProfilController extends Controller
     	return view('profil.index', compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
     	 $this->validate($request, [
-            'password'  => 'confirmed',
+            'name'  => 'required',
+			'email'  => 'required',
+			'jenis_kelamin'  => 'required',
+			'alamat'  => 'required',
+			'profesi'  => 'required',
+			'notelepon'  => 'required',
+			'password'  => 'confirmed',
         ]);
 
     	$user = User::where('id', Auth::user()->id)->first();
     	$user->name = $request->name;
     	$user->email = $request->email;
+		$user->jenis_kelamin = $request->jenis_kelamin;
+		$user->profesi = $request->profesi;
     	$user->alamat = $request->alamat;
+		$user->notelepon = $request->notelepon;
     	if(!empty($request->password))
     	{
     		$user->password = Hash::make($request->password);

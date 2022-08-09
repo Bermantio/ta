@@ -35,15 +35,11 @@
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Foto</th>
                                 <th scope="col">Kode Muzakki</th>
-                                <th scope="col">Nama User</th>
                                 <th scope="col">Nama Muzakki</th>
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">Profesi</th>
-                                <th scope="col">Tanggal Dibuat</th>
-                                <th scope="col">Keterangan</th>
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
@@ -52,17 +48,11 @@
                             @forelse ($datamuzakkis as $datamuzakki)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td class="text-center">
-                                        <img src="{{ Storage::url('public/datamuzakkis/').$datamuzakki->image }}" class="rounded" style="width: 150px">
-                                    </td>
                                     <td>{{ $datamuzakki->kode_muzakki }}</td>
-                                    <td>{{ $datamuzakki->name_user }}</td>
                                     <td>{{ $datamuzakki->name_muzakki }}</td>
                                     <td>{{ $datamuzakki->jenis_kelamin }}</td>
                                     <td>{{ $datamuzakki->alamat }}</td>
                                     <td>{{ $datamuzakki->profesi }}</td>
-                                    <td>{{ $datamuzakki->tanggal_dibuat }}</td>
-                                    <td>{{ $datamuzakki->keterangan }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datamuzakki.destroy', $datamuzakki->id) }}" method="POST">
                                         <a href="{{ route('datamuzakki.show', $datamuzakki->id) }}" class="btn btn-sm btn-warning">DETAIL</a>

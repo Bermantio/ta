@@ -23,40 +23,23 @@
                             @csrf
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Foto</label>
-                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
-                            
-                                <!-- error message untuk title -->
-                                @error('image')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
                                 <label class="font-weight-bold">Kode Muzakki</label>
                                 <input type="text" class="form-control @error('kode_muzakki') is-invalid @enderror" name="kode_muzakki" value="{{ old('kode_muzakki') }}" placeholder="Masukkan Kode Muzakki">
                             </div>
 
                             <div class="form-group">
-                                <label>Nama User</label>
-                                <select name="name_user" class="form-control">
-                                <option value="" selected disableb>-- Pilih Nama User --</option>
+                                <label>Nama Muzakki</label>
+                                <select name="name_muzakki" class="form-control">
+                                <option value="" selected disableb>-- Pilih Nama Muzakki --</option>
                                     @foreach ($puspan as $meili)
-                                        <option value="{{ $meili->name_user }}">{{ $meili->name_user }}</option>
+                                        <option value="{{ $meili->name_muzakki }}">{{ $meili->name_muzakki }}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
-                                    @error('name_user')
+                                    @error('name_muzakki')
                                         {{ $message }}
                                     @enderror
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nama Muzakki</label>
-                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki') }}" placeholder="Masukkan Nama Muzakki">
                             </div>
 
                             <div class="form-group">
@@ -78,26 +61,17 @@
                                 <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
                             </div>
 
-                            <div class="form-group">
-                                <label class="font-weight-bold">Tanggal Dibuat</label>
-                                <input type="date" class="form-control @error('tanggal_dibuat') is-invalid @enderror" name="tanggal_dibuat" value="{{ old('tanggal_dibuat') }}" placeholder="Masukkan Tanggal">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Keterangan</label>
-                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan') }}" placeholder="Masukkan Keterangan">
-                            </div>
-
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                            <a class="btn btn-primary" href="{{ route('datamuzakki.index') }}">BATAL</a>
 
                         </form> 
                         <script>
                             function GetHarga() {
                             var idHarga = $('#pilih').val();
-                            var name_user =  idHarga.split("_");
+                            var name_muzakki =  idHarga.split("_");
                             
-                            $('#name_user').val(name_user[1]);
+                            $('#name_muzakki').val(name_muzakki[1]);
                             }
                         </script>
                     </div>
