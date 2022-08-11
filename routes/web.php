@@ -11,6 +11,7 @@ use App\Http\Controllers\DatatunaiController;
 use App\Http\Controllers\DatanontunaiController;
 use App\Http\Controllers\DataprogramController;
 use App\Http\Controllers\DatapenyaluranController;
+use App\Http\Controllers\ProfilController;
 
 //Route::get('/laporantunai.lap', [App\Http\Controllers\LaporantunaiController::class, 'index'])->name('lap');
 Route::get('/print',[DatatunaiController::class, 'print']);
@@ -61,6 +62,7 @@ Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'preve
 
 Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'prevent-back-history'],function(){    
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datauser', DatauserController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
