@@ -33,7 +33,7 @@
                     <td>{{ $dataprogram->jenis_program }}</td>
                 </tr>
                 <tr>
-                    <td width="150px">Tanggal Bencana</td>
+                    <td width="150px">Tanggal Program</td>
                     <td width="30px">:</td>
                     <td>{{ $dataprogram->tanggal_program }}</td>
                 </tr>

@@ -18,7 +18,7 @@ class DatauserController extends Controller
      */
     public function index()
     {
-        $datausers = User::latest()->paginate(10);
+        $datausers = User::latest()->paginate(2);
         return view('datauser.index', compact('datausers'));
     }
 

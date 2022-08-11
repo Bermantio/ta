@@ -73,7 +73,8 @@
                                   </div>
                               @endforelse
                             </tbody>
-                          </table>  
+                          </table>
+                          {{$dataprograms->links()}}   
                     </div>
                 </div>
             </div>

@@ -44,12 +44,8 @@
                     <td>{{ $datamuzakki->profesi }}</td>
                 </tr>                       
             </table>
-<<<<<<< HEAD
-            <br><a href="datamuzakki" class="btn btn-primary btn-sm">Kembali</a>
-=======
-            <a href="{{ route('datamuzakki.edit', $datamuzakki->id) }}" class="btn btn-secondary">Edit</a>
+            <br><a href="{{ route('datamuzakki.edit', $datamuzakki->id) }}" class="btn btn-primary">Edit</a>
             <a class="btn btn-primary" href="{{ route('datamuzakki.index') }}"> Kembali</a>
->>>>>>> be2d120fa143bebb23aebee727b298efe6c1136f
             </div>
             </div>
         </div>

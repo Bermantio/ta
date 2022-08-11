@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datamuzakki;
-use App\Models\Datauser;
+use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +28,7 @@ class DatamuzakkiController extends Controller
      */
     public function create()
     {
-        $puspan = Datauser::all();
+        $puspan = User::all();
         return view('datamuzakki.create', compact('puspan'));
     }
 

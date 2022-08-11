@@ -79,7 +79,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nominal Penyaluran</label>
-                                <input type="text" class="form-control @error('jumlah_donasi') is-invalid @enderror" name="jumlah_donasi" value="{{ old('jumlah_donasi') }}" placeholder="Masukkan Jumlah Donasi">
+                                <input type="text" class="form-control @error('jumlah_donasi') is-invalid @enderror" name="jumlah_donasi" value="{{ old('jumlah_donasi', $datapenyaluran->jumlah_donasi) }}" placeholder="Masukkan Jumlah Donasi">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>

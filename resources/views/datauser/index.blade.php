@@ -73,6 +73,7 @@
                               @endforelse
                             </tbody>
                           </table>  
+                          {{$datausers->links()}}
                     </div>
                 </div>
             </div>

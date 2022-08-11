@@ -76,18 +76,10 @@ body {
           <!-- /.col -->
         </div>
       </form>
-      <p class="mb-0">
-        <center><a href="{{ route('register') }}" class="text-center">Register</a></center>
-      </p>
     </div>
     <!-- /.login-card-body -->
   </div>
-</div>
-		</form>
-	</div>
-</div>
-</div>
-</div>
+
 <script src="{{ asset('asset/admin_lte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('asset/admin_lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
