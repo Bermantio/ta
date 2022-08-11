@@ -28,14 +28,14 @@
             <!-- masukin kode disini -->
             <table class="table table-bordered">
                 <tr>
-                    <td width="150px">foto</td>
+                    <td width="150px">Foto</td>
                     <td width="30px">:</td>
                     <td>{{ $datauser->image }}</td>
                 </tr>
                 <tr>
                     <td width="150px">Nama Lengkap</td>
                     <td width="30px">:</td> 
-                    <td>{{ $datauser->nama_lengkap }}</td>
+                    <td>{{ $datauser->name }}</td>
                 </tr>
                 <tr>
                     <td width="150px">Email</td>
@@ -55,7 +55,7 @@
                 <tr>
                     <td width="150px">No Telepon</td>
                     <td width="30px">:</td> 
-                    <td>{{ $datauser->notelp }}</td>
+                    <td>{{ $datauser->notelepon }}</td>
                 </tr>
                 <tr>
                     <td width="150px">Profesi</td>
@@ -65,7 +65,7 @@
                 <tr>
                     <td width="150px">Status</td>
                     <td width="30px">:</td>
-                    <td>{{ $datauser->status }}</td>
+                    <td>{{ $datauser->role }}</td>
                 </tr> 
             </table>
 
