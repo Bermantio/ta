@@ -36,7 +36,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama Lengkap</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="nama_lengkap" value="{{ old('name', $datauser->name) }}" placeholder="Masukkan Nama User">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $datauser->name) }}" placeholder="Masukkan Nama Lengkap">
                             </div>
 
                             <div class="form-group">
@@ -70,12 +70,12 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Password</label>
-                                <input type="text" class="form-control @error('password') is-invalid @enderror" type="password" name="password" value="{{ old('password') }}" placeholder="Masukkan Password" required autocomplete="current-password">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" value="{{ old('password') }}" placeholder="Masukkan Password" required autocomplete="current-password">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Ulangi Password</label>
-                                <input type="text" class="form-control @error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation" value="{{ old('password') }}" placeholder="Ulangi Password" required autocomplete="current-password">
+                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation" value="{{ old('password') }}" placeholder="Ulangi Password" required autocomplete="current-password">
                             </div>
 
                             <div class="form-group">

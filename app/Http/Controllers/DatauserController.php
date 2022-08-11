@@ -116,7 +116,7 @@ class DatauserController extends Controller
     public function update(Request $request, User $datauser)
     {
         $this->validate($request, [
-            'image'             => 'required|image|mimes:png,jpg,jpeg',
+            //'image'             => 'required|image|mimes:png,jpg,jpeg',
             'name'         => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
@@ -130,10 +130,10 @@ class DatauserController extends Controller
         //get data Blog by ID
         $datauser = User::findOrFail($datauser->id);
     
-        if($request->file('image') == "") {
+        /*if($request->file('image') == "") {*/
     
             $datauser->update([
-                'image'             => $image->hashName(),
+                //'image'             => $image->hashName(),
                 'name'      => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
@@ -143,8 +143,18 @@ class DatauserController extends Controller
                 'role'            => $request->role,
                 'password' =>Hash::make($request->password),
             ]);
+
+        $datauser->role = $request->role;
+        $datauser->jenis_kelamin = $request->jenis_kelamin;
+        $datauser->alamat = $request->alamat;
+        $datauser->notelepon = $request->notelepon;
+        $datauser->profesi = $request->profesi;
+        $datauser->name = $request->name;
+        $datauser->email = $request->email;
+        $datauser->password = Hash::make($request->password);
+        $datauser->save();
     
-        } else {
+        /*} else {
     
             //hapus old image
             Storage::disk('local')->delete('public/datausers/'.$datauser->image);
@@ -164,7 +174,7 @@ class DatauserController extends Controller
                 'role'            => $request->role,
                 'password' =>Hash::make($request->password),
             ]);
-        }
+        }*/
     
         if($datauser){
             //redirect dengan pesan sukses

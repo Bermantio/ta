@@ -30,6 +30,7 @@ Route::get('/search',[DatamustahikController::class, 'search']);
 Route::get('/',[HomeController::class, 'index']);
 Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datalaporan', DatalaporanController::class);
@@ -43,6 +44,7 @@ Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],functio
 
 Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datalaporan', DatalaporanController::class);
@@ -54,6 +56,7 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-his
 
 Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('dataprogram', DataprogramController::class);
