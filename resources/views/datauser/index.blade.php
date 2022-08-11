@@ -49,12 +49,12 @@
                             @forelse ($datausers as $datauser)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $datauser->nama_lengkap }}</td>
+                                    <td>{{ $datauser->name }}</td>
                                     <td>{{ $datauser->jenis_kelamin }}</td>
                                     <td>{{ $datauser->alamat }}</td>
-                                    <td>{{ $datauser->notelp }}</td>
+                                    <td>{{ $datauser->notelepon }}</td>
                                     <td>{{ $datauser->profesi }}</td>
-                                    <td>{{ $datauser->status }}</td>
+                                    <td>{{ $datauser->role }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datauser.destroy', $datauser->id) }}" method="POST">
                                        
