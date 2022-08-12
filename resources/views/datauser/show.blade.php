@@ -30,7 +30,7 @@
                 <tr>
                     <td width="150px">Foto</td>
                     <td width="30px">:</td>
-                    <td>{{ $datauser->image }}</td>
+                    <td><img src="{{ asset('storage/datausers/'.$datauser->image) }}" height="100" width="100"/></td>
                 </tr>
                 <tr>
                     <td width="150px">Nama Lengkap</td>

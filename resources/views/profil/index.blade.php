@@ -17,7 +17,7 @@
                         <tr>
                                 <td>Foto</td>
                                 <td width="10">:</td>
-                                <td>{{ $user->image }}</td>
+                                <td><img src="{{ asset('storage/datausers/'.$user->image) }}"height="100" width="100" /></td>
                             </tr>
                             <tr>
                                 <td>Nama</td>
