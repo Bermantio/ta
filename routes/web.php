@@ -71,11 +71,7 @@ Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'preve
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
-Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan,Supervisor', 'prevent-back-history'],function(){
-    Route::get('/home',[HomeController::class, 'index']);
-    Route::resource('profil', ProfilController::class);
-    Route::resource('datalaporan', DatalaporanController::class);
-});
+
  
 //Report PDF
 Route::get('/downloadpdf',[DatatunaiController::class, 'downloadpdf']);

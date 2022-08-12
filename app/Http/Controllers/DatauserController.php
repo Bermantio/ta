@@ -116,7 +116,7 @@ class DatauserController extends Controller
     public function update(Request $request, User $datauser)
     {
         $this->validate($request, [
-            //'image'             => 'required|image|mimes:png,jpg,jpeg',
+            'image'             => 'required|image|mimes:png,jpg,jpeg',
             'name'         => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',

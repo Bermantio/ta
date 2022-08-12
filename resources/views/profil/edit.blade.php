@@ -8,52 +8,6 @@
 <body style="background: lightgray">
     <div class="container mt-5">
         <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4>Profil</h4>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                                <td>Foto</td>
-                                <td width="10">:</td>
-                                <td>{{ $user->image }}</td>
-                            </tr>
-                            <tr>
-                                <td>Nama</td>
-                                <td width="10">:</td>
-                                <td>{{ $user->name }}</td>
-                            </tr>
-                            <tr>
-                                <td>Jenis Kelamin</td>
-                                <td width="10">:</td>
-                                <td>{{ $user->jenis_kelamin }}</td>
-                            </tr>              
-                            <tr>
-                                <td>Email</td>
-                                <td>:</td>
-                                <td>{{ $user->email }}</td>
-                            </tr>
-                            <tr>
-                                <td>No Telepon</td>
-                                <td>:</td>
-                                <td>{{ $user->notelepon }}</td>
-                            </tr>
-                            <tr>
-                                <td>Alamat</td>
-                                <td>:</td>
-                                <td>{{ $user->alamat }}</td>
-                            </tr>
-                            <tr>
-                                <td>Profesi</td>
-                                <td>:</td>
-                                <td>{{ $user->profesi }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
         <div class="col-md-12 mt-2">
             <div class="card">
                 <div class="card-body">
@@ -117,9 +71,10 @@
                                 <label class="font-weight-bold">Ulangi Password</label>
                                 <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation" value="{{ old('password') }}" placeholder="Ulangi Password" required autocomplete="current-password">
                             </div>
+                            
                             <button type="submit" class="btn btn-md btn-primary">Update</button>
 
-                        </form> 
+                    </form> 
                 </div>
             </div>
         </div>

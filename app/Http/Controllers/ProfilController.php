@@ -19,37 +19,85 @@ class ProfilController extends Controller
     public function index()
     {
     	$user = User::where('id', Auth::user()->id)->first();
-
     	return view('profil.index', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
     	 $this->validate($request, [
-            'name'  => 'required',
-			'email'  => 'required',
-			'jenis_kelamin'  => 'required',
-			'alamat'  => 'required',
-			'profesi'  => 'required',
-			'notelepon'  => 'required',
-			'password'  => 'confirmed',
+            'image'             => 'required|image|mimes:png,jpg,jpeg',
+            'name'         => 'required',
+            'jenis_kelamin'     => 'required',
+            'alamat'            => 'required',
+            'email'             => 'required',
+            'notelepon'            => 'required',
+            'profesi'           => 'required',
+            'password' => 'required',
         ]);
 
     	$user = User::where('id', Auth::user()->id)->first();
-    	$user->name = $request->name;
-    	$user->email = $request->email;
-		$user->jenis_kelamin = $request->jenis_kelamin;
-		$user->profesi = $request->profesi;
-    	$user->alamat = $request->alamat;
-		$user->notelepon = $request->notelepon;
-    	if(!empty($request->password))
-    	{
-    		$user->password = Hash::make($request->password);
-    	}
-    	
-    	$user->update();
+    	if($request->file('image') == "") {
+    
+            $user->update([
+              'image'             => $image->hashName(),
+                'name'      => $request->name,
+                'jenis_kelamin'     => $request->jenis_kelamin,
+                'alamat'            => $request->alamat,
+                'email'             => $request->email,
+                'notelepon'            => $request->notelepon,
+                'profesi'           => $request->profesi,
+                'password' =>Hash::make($request->password),
+            ]);        
+    
+        } else {
+    
+            //hapus old image
+            Storage::disk('local')->delete('public/datausers/'.$user->image);
+    
+            //upload new image
+            $image = $request->file('image');
+            $image->storeAs('public/datausers', $image->hashName());
+    
+            $user->update([
+                'image'             => $image->hashName(),
+                'name'      => $request->name,
+                'jenis_kelamin'     => $request->jenis_kelamin,
+                'alamat'            => $request->alamat,
+                'email'             => $request->email,
+                'notelepon'            => $request->notelepon,
+                'profesi'           => $request->profesi,
+                'password' =>Hash::make($request->password),
+            ]);
+        }
+    
+        if($user){
+            //redirect dengan pesan sukses
+            return redirect()->route('profil.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('profil.index')->with(['error' => 'Data Gagal Diupdate!']);
+        }
+    }
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'image'             => 'required|image|mimes:png,jpg,jpeg',
+            'name'         => 'required',
+            'jenis_kelamin'     => 'required',
+            'alamat'            => 'required',
+            'email'             => 'required',
+            'notelepon'            => 'required',
+            'profesi'           => 'required',
+            'password' => 'required',
+        ]);
 
-    	Alert::success('User Sukses diupdate', 'Success');
-    	return redirect('profil');
+        $user->jenis_kelamin = $request->jenis_kelamin;
+        $user->alamat = $request->alamat;
+        $user->notelepon = $request->notelepon;
+        $user->profesi = $request->profesi;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
     }
 }

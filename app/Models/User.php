@@ -22,7 +22,7 @@ class User extends Authenticatable
         'password',
         'role',
         'image',
-        'jeniskelamin',
+        'jenis_kelamin',
         'alamat',
         'notelepon',
         'profesi'
