@@ -22,8 +22,8 @@ use App\Http\Controllers\ProfilController;
 //Route::get('/cetakpdf', 'App\Http\Controllers\DatatunaiController::cetak_pdf()');
 //Route::get('/search',[DatamuzakkiController::class, 'search']);
 //Route::get('/search',[DatauserController::class, 'search']);
-//Route::get('/search',[DatatunaiController::class, 'search']);
-//Route::get('/search',[DatanontunaiController::class, 'search']);
+Route::get('/search',[DatatunaiController::class, 'search']);
+Route::get('/search',[DatanontunaiController::class, 'search']);
 //Route::get('/search',[DataprogramController::class, 'search']);
 //Route::get('/search',[DatapenyaluranController::class, 'search']);
 
