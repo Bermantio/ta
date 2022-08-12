@@ -48,31 +48,31 @@ class DatamuzakkiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image'             => 'required|image|mimes:png,jpg,jpeg',
+            //'image'             => 'required|image|mimes:png,jpg,jpeg',
             'kode_muzakki'      => 'required',
-            'name_user'         => 'required',
+            //'name_user'         => 'required',
             'name_muzakki'      => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
             'profesi'           => 'required',
-            'tanggal_dibuat'    => 'required',
-            'keterangan'        => 'required',
+            //'tanggal_dibuat'    => 'required',
+            //'keterangan'        => 'required',
         ]);
 
         //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/datamuzakkis', $image->hashName());
+        /*$image = $request->file('image');
+        $image->storeAs('public/datamuzakkis', $image->hashName());*/
 
         $datamuzakki = Datamuzakki::create([
-            'image'             => $image->hashName(),
+            //'image'             => $image->hashName(),
             'kode_muzakki'      => $request->kode_muzakki,
-            'name_user'         => $request->name_user,
+            //'name_user'         => $request->name_user,
             'name_muzakki'      => $request->name_muzakki,
             'jenis_kelamin'     => $request->jenis_kelamin,
             'alamat'            => $request->alamat,
             'profesi'           => $request->profesi,
-            'tanggal_dibuat'    => $request->tanggal_dibuat,
-            'keterangan'        => $request->keterangan,
+            //'tanggal_dibuat'    => $request->tanggal_dibuat,
+            //'keterangan'        => $request->keterangan,
         ]);
 
         if($datamuzakki){
@@ -117,35 +117,35 @@ class DatamuzakkiController extends Controller
     public function update(Request $request, Datamuzakki $datamuzakki)
     {
         $this->validate($request, [
-            'image'             => 'required|image|mimes:png,jpg,jpeg',
+            //'image'             => 'required|image|mimes:png,jpg,jpeg',
             'kode_muzakki'      => 'required',
-            'name_user'         => 'required',
+            //'name_user'         => 'required',
             'name_muzakki'      => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
             'profesi'           => 'required',
-            'tanggal_dibuat'    => 'required',
-            'keterangan'        => 'required',
+            //'tanggal_dibuat'    => 'required',
+            //'keterangan'        => 'required',
         ]);
     
         //get data Blog by ID
         $datamuzakki = Datamuzakki::findOrFail($datamuzakki->id);
     
-        if($request->file('image') == "") {
+        //if($request->file('image') == "") {
     
             $datamuzakki->update([
-                'image'             => $image->hashName(),
+                //'image'             => $image->hashName(),
                 'kode_muzakki'      => $request->kode_muzakki,
-                'name_user'         => $request->name_user,
+                //'name_user'         => $request->name_user,
                 'name_muzakki'      => $request->name_muzakki,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
                 'profesi'           => $request->profesi,
-                'tanggal_dibuat'    => $request->tanggal_dibuat,
-                'keterangan'        => $request->keterangan,
+                //'tanggal_dibuat'    => $request->tanggal_dibuat,
+                //'keterangan'        => $request->keterangan,
             ]);
     
-        } else {
+        /*} else {
     
             //hapus old image
             Storage::disk('local')->delete('public/datamuzakkis/'.$datamuzakki->image);
@@ -165,7 +165,7 @@ class DatamuzakkiController extends Controller
                 'tanggal_dibuat'    => $request->tanggal_dibuat,
                 'keterangan'        => $request->keterangan,
             ]);
-        }
+        }*/
     
         if($datamuzakki){
             //redirect dengan pesan sukses
@@ -185,7 +185,7 @@ class DatamuzakkiController extends Controller
     public function destroy(Datamuzakki $datamuzakki)
     {
         $datamuzakki = Datamuzakki::findOrFail($datamuzakki->id);
-        Storage::disk('local')->delete('public/datamuzakkis/'.$datamuzakki->image);
+        //Storage::disk('local')->delete('public/datamuzakkis/'.$datamuzakki->image);
         $datamuzakki->delete();
 
         if($datamuzakki){

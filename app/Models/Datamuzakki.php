@@ -14,7 +14,7 @@ class Datamuzakki extends Model
      * @var array
      */
     protected $fillable = [
-        'image', 'kode_muzakki', 'name_user','name_muzakki', 'jenis_kelamin', 
-        'alamat', 'profesi', 'tanggal_dibuat', 'keterangan'
+        'kode_muzakki', 'name_muzakki', 'jenis_kelamin', 
+        'alamat', 'profesi'
     ];
 }
