@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Agu 2022 pada 21.15
+-- Waktu pembuatan: 11 Agu 2022 pada 06.47
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.21
 
@@ -320,9 +320,8 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `kode_user` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Penghimpun',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jenis_kelamin` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -340,8 +339,8 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `kode_user`, `image`, `role`, `name`, `jenis_kelamin`, `alamat`, `notelepon`, `profesi`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '', '', 'Admin', 'Ber', '', '', '', '', 'bermantio@yahoo.com', NULL, '$2y$10$S5iuOtELWKYLSu2.2S0Wgu7swUAXCcQ6iygxvW/pEpGvsh2Cdq1mO', NULL, '2022-07-29 15:31:54', '2022-07-29 15:31:54');
+INSERT INTO `users` (`id`, `image`, `role`, `name`, `jenis_kelamin`, `alamat`, `notelepon`, `profesi`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, '', 'Admin', 'Ber', 'Laki', 'pek', '0858', 'aku', 'bermantio@yahoo.com', NULL, '$2y$10$S5iuOtELWKYLSu2.2S0Wgu7swUAXCcQ6iygxvW/pEpGvsh2Cdq1mO', NULL, '2022-07-29 15:31:54', '2022-07-29 15:31:54');
 
 --
 -- Indexes for dumped tables
