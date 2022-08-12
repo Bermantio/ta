@@ -6,6 +6,7 @@ use App\Models\Datatunai;
 use App\Models\Datamuzakki;
 use App\Models\Dataprogram;
 use DB;
+use PDF;    
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,11 +23,18 @@ class DatatunaiController extends Controller
         return view('datatunai.index', compact('datatunais'));
     }
 
-    public function print(Datatunai $datatunai)
+    public function downloadpdf()
     {
-        $niken = Datatunai::latest()->paginate(10);
-        return view('datatunai.print', compact('datatunai'));
+    	$datatunai = Datatunai::all();
+    	$pdf = PDF::loadview('datatunai.cetakpdf',['datatunai' => $datatunai]);
+    	return $pdf->download('laporandata.pdf');
     }
+
+    //public function print()
+    //{
+    //    $niken = Datatunai::latest()->paginate(10);
+    //    return view('datatunai.print', compact('datatunai'));
+    //}
 
     /**
      * Show the form for creating a new resource.

@@ -13,12 +13,12 @@ use App\Http\Controllers\DataprogramController;
 use App\Http\Controllers\DatapenyaluranController;
 
 //Route::get('/laporantunai.lap', [App\Http\Controllers\LaporantunaiController::class, 'index'])->name('lap');
-Route::get('/print',[DatatunaiController::class, 'print']);
+//Route::get('/cetak_pdf',[DatatunaiController::class, 'print']);
 //Route::get('/search','DatamustahikController@search');
 //Route::get('/cetakdata',[DatatunaiController::cetakdata, 'cetakdata']);
-
+//Route::get('/cetakpdf',[DatatunaiController::class, 'cetak']);
 //search
-Route::get('/search',[DatamustahikController::class, 'search']);
+//Route::get('/cetakpdf', 'App\Http\Controllers\DatatunaiController::cetak_pdf()');
 //Route::get('/search',[DatamuzakkiController::class, 'search']);
 //Route::get('/search',[DatauserController::class, 'search']);
 //Route::get('/search',[DatatunaiController::class, 'search']);
@@ -65,4 +65,8 @@ Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'preve
     Route::resource('datauser', DatauserController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
+ 
+//Report PDF
+Route::get('/downloadpdf',[DatatunaiController::class, 'downloadpdf']);
+
 Auth::routes();
