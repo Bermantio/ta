@@ -29,10 +29,10 @@
 
                             <div class="form-group">
                                 <label>Nama Muzakki</label>
-                                <select name="name_muzakki" class="form-control">
-                                <option value="" selected disableb>-- Pilih Nama Muzakki --</option>
+                                <select name="name_muzakki" id="pilih" class="form-control" onchange="GetHarga(this.value)">
+                                <option value="" selected disabled>-- Pilih Nama Muzakki --</option>
                                     @foreach ($puspan as $meili)
-                                        <option value="{{ $meili->name_muzakki }}">{{ $meili->name_muzakki }}</option>
+                                        <option value="{{ $meili->name_muzakki.'_'.$meili->jenis_kelamin.'_'.$meili->alamat.'_'.$meili->profesi }}">{{ $meili->name_muzakki }}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
@@ -44,21 +44,17 @@
 
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
-                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="Perempuan">Perempuan</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                </select>
+                                <input type="text" name="jenis_kelamin" class="form-control" id="jenis_kelamin" onchange="GetHarga(this.value)" readonly>                                
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
+                                <input type="text" name="alamat" class="form-control" id="alamat" onchange="GetHarga(this.value)" readonly>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Profesi</label>
-                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
+                                <input type="text" name="profesi" class="form-control" id="profesi" onchange="GetHarga(this.value)" readonly>
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
@@ -69,9 +65,13 @@
                         <script>
                             function GetHarga() {
                             var idHarga = $('#pilih').val();
-                            var name_muzakki =  idHarga.split("_");
+                            var jenis_kelamin =  idHarga.split("_");
+                            var alamat =  idHarga.split("_");
+                            var profesi =  idHarga.split("_");
                             
-                            $('#name_muzakki').val(name_muzakki[1]);
+                            $('#jenis_kelamin').val(jenis_kelamin[1]);
+                            $('#alamat').val(alamat[2]);
+                            $('#profesi').val(profesi[3]);
                             }
                         </script>
                     </div>

@@ -15,7 +15,7 @@ class DataprogramController extends Controller
      */
     public function index()
     {
-        $dataprograms = Dataprogram::latest()->paginate(10);
+        $dataprograms = Dataprogram::latest()->paginate(2);
         return view('dataprogram.index', compact('dataprograms'));
     }
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\DatatunaiController;
 use App\Http\Controllers\DatanontunaiController;
 use App\Http\Controllers\DataprogramController;
 use App\Http\Controllers\DatapenyaluranController;
+use App\Http\Controllers\ProfilController;
 
 //Route::get('/laporantunai.lap', [App\Http\Controllers\LaporantunaiController::class, 'index'])->name('lap');
 //Route::get('/cetak_pdf',[DatatunaiController::class, 'print']);
@@ -29,6 +30,7 @@ use App\Http\Controllers\DatapenyaluranController;
 Route::get('/',[HomeController::class, 'index']);
 Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datalaporan', DatalaporanController::class);
@@ -42,6 +44,7 @@ Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],functio
 
 Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datalaporan', DatalaporanController::class);
@@ -53,6 +56,7 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-his
 
 Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('dataprogram', DataprogramController::class);
@@ -61,6 +65,7 @@ Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'preve
 
 Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'prevent-back-history'],function(){    
     Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
     Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datauser', DatauserController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);

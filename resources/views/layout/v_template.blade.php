@@ -60,7 +60,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <center>
 <div class="image"> <br>
-  <img src="img/lazis.png" class="img-circle elevation-2" height="100" width="100">
+  <img src="{{url('/img/lazis.png')}}" class="img-circle elevation-2" height="100" width="100">
 </div>
 </center>
     <a class="brand-link">

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Datauser;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Console\Input\Input;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class DatauserController extends Controller
 {
@@ -15,7 +18,7 @@ class DatauserController extends Controller
      */
     public function index()
     {
-        $datausers = Datauser::latest()->paginate(10);
+        $datausers = User::latest()->paginate(2);
         return view('datauser.index', compact('datausers'));
     }
 
@@ -32,7 +35,7 @@ class DatauserController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $datausers = Datauser::latest()->where('name_user', 'like', '%'.$search.'%')->paginate(10);
+        $datausers = User::latest()->where('name_user', 'like', '%'.$search.'%')->paginate(10);
         return view('datauser.index',['datausers' => $datausers]);
     }
 
@@ -45,33 +48,33 @@ class DatauserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image'             => 'required|image|mimes:png,jpg,jpeg',
-            'kode_user'         => 'required',
-            'name_user'         => 'required',
-            'nama_lengkap'      => 'required',
-            'jenis_kelamin'     => 'required',
-            'alamat'            => 'required',
+            //'image'             => 'required|image|mimes:png,jpg,jpeg',
+            'name'         => 'required',
+            //'jenis_kelamin'     => 'required',
+            //'alamat'            => 'required',
             'email'             => 'required',
-            'notelp'            => 'required',
-            'profesi'           => 'required',
-            'status'            => 'required',
+            //'notelepon'            => 'required',
+            //'profesi'           => 'required',
+            'role'            => 'required',
+            'password' => 'required',
         ]);
 
         //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/datausers', $image->hashName());
+        //$image = $request->file('image');
+        //$image->storeAs('public/datausers', $image->hashName());
 
         //insert ke tabel user
-        $user = new \App\Models\User;
-        $user->role = 'datauser';
-        $user->name = $request->name_user;
-        $user->email = $request->email;
-        $user->password = bcrypt('password');
-        $user->save();
+        $datauser = new \App\Models\User;
+        $datauser->role = $request->role;
+        //$datauser->jenis_kelamin = $request->jenis_kelamin;
+        //$datauser->alamat = $request->alamat;
+        //$datauser->notelepon = $request->notelepon;
+        //$datauser->profesi = $request->profesi;
+        $datauser->name = $request->name;
+        $datauser->email = $request->email;
+        $datauser->password = Hash::make($request->password);
+        $datauser->save();
         
-        $request->request->add(['user_id' => $user->id]);
-        $datauser = Datauser::create($request->all());
-
         if($datauser){
             //redirect dengan pesan sukses
             return redirect()->route('datauser.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -87,7 +90,7 @@ class DatauserController extends Controller
      * @param  \App\Models\Datauser  $datauser
      * @return \Illuminate\Http\Response
      */
-    public function show(Datauser $datauser)
+    public function show(User $datauser)
     {
         return view('datauser.show',compact('datauser'));
     }
@@ -98,7 +101,7 @@ class DatauserController extends Controller
      * @param  \App\Models\Datauser  $datauser
      * @return \Illuminate\Http\Response
      */
-    public function edit(Datauser $datauser)
+    public function edit(User $datauser)
     {
         return view('datauser.edit', compact('datauser'));
     }
@@ -110,38 +113,36 @@ class DatauserController extends Controller
      * @param  \App\Models\Datauser  $datauser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Datauser $datauser)
+    public function update(Request $request, User $datauser)
     {
         $this->validate($request, [
-            'image'             => 'required|image|mimes:png,jpg,jpeg',
-            'kode_user'         => 'required',
-            'name_user'         => 'required',
-            'nama_lengkap'      => 'required',
+            //'image'             => 'required|image|mimes:png,jpg,jpeg',
+            'name'         => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
             'email'             => 'required',
-            'notelp'            => 'required',
+            'notelepon'            => 'required',
             'profesi'           => 'required',
-            'status'            => 'required',
+            'role'            => 'required',
+            'password' => 'required',
         ]);
     
         //get data Blog by ID
-        $datauser = Datauser::findOrFail($datauser->id);
+        $datauser = User::findOrFail($datauser->id);
     
         if($request->file('image') == "") {
     
             $datauser->update([
                 'image'             => $image->hashName(),
-                'kode_user'         => $request->kode_user,
-                'name_user'         => $request->name_user,
-                'nama_lengkap'      => $request->nama_lengkap,
+                'name'      => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
                 'email'             => $request->email,
-                'notelp'            => $request->notelp,
+                'notelepon'            => $request->notelepon,
                 'profesi'           => $request->profesi,
-                'status'            => $request->status,
-            ]);
+                'role'            => $request->role,
+                'password' =>Hash::make($request->password),
+            ]);        
     
         } else {
     
@@ -154,15 +155,14 @@ class DatauserController extends Controller
     
             $datauser->update([
                 'image'             => $image->hashName(),
-                'kode_user'         => $request->kode_user,
-                'name_user'         => $request->name_user,
-                'nama_lengkap'      => $request->nama_lengkap,
+                'name'      => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
                 'email'             => $request->email,
-                'notelp'            => $request->notelp,
+                'notelepon'            => $request->notelepon,
                 'profesi'           => $request->profesi,
-                'status'            => $request->status,
+                'role'            => $request->role,
+                'password' =>Hash::make($request->password),
             ]);
         }
     
@@ -181,9 +181,9 @@ class DatauserController extends Controller
      * @param  \App\Models\Datauser  $datauser
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Datauser $datauser)
+    public function destroy(User $datauser)
     {
-        $datauser = Datauser::findOrFail($datauser->id);
+        $datauser = User::findOrFail($datauser->id);
         $datauser->delete();
 
         if($datauser){

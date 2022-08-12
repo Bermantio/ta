@@ -36,7 +36,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Nama Lengkap</label>
-                                <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" value="{{ old('nama_lengkap', $datauser->nama_lengkap) }}" placeholder="Masukkan Nama User">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $datauser->name) }}" placeholder="Masukkan Nama Lengkap">
                             </div>
 
                             <div class="form-group">
@@ -59,8 +59,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">No Telp</label>
-                                <input type="text" class="form-control @error('notelp') is-invalid @enderror" name="notelp" value="{{ old('notelp', $datauser->notelp) }}" placeholder="Masukkan No Telp">
+                                <label class="font-weight-bold">No Telepon</label>
+                                <input type="text" class="form-control @error('notelepon') is-invalid @enderror" name="notelepon" value="{{ old('notelepon', $datauser->notelepon) }}" placeholder="Masukkan No Telepon">
                             </div>
 
                             <div class="form-group">
@@ -69,13 +69,24 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="font-weight-bold">Password</label>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" value="{{ old('password') }}" placeholder="Masukkan Password" required autocomplete="current-password">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Ulangi Password</label>
+                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation" value="{{ old('password') }}" placeholder="Ulangi Password" required autocomplete="current-password">
+                            </div>
+
+                            <div class="form-group">
                                 <label>Status User</label>
-                                <select name="status" class="form-control" value="{{ old('status') }}">
+                                <select name="role" class="form-control" value="{{ old('role') }}">
                                 <option value="" selected disabled>-- Pilih --</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Penghimpun">Penghimpun</option>
                                 <option value="Pendayagunaan">Pendayagunaan</option>
                                 <option value="Supervisor">Supervisor</option>
+                                <option value="Muzakki">Muzakki</option>
                                 </select>
                             </div>
 
