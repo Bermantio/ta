@@ -67,7 +67,7 @@
                     <td width="30px">:</td>
                     <td>{{ $datauser->role }}</td>
                 </tr> 
-            </table>
+            </table><br>
 
             <div class="pull-right">
             <a href="{{ route('datauser.edit', $datauser->id) }}" class="btn btn-secondary">Edit</a>

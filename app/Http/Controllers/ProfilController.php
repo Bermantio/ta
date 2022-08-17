@@ -26,27 +26,27 @@ class ProfilController extends Controller
     {
     	 $this->validate($request, [
             'image'             => 'required|image|mimes:png,jpg,jpeg',
-            'name'         => 'required',
+            'name'              => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
             'email'             => 'required',
-            'notelepon'            => 'required',
+            'notelepon'         => 'required',
             'profesi'           => 'required',
-            'password' => 'required',
+            'password'          => 'required',
         ]);
 
     	$user = User::where('id', Auth::user()->id)->first();
     	if($request->file('image') == "") {
     
             $user->update([
-              'image'             => $image->hashName(),
-                'name'      => $request->name,
+              'image'               => $image->hashName(),
+                'name'              => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
                 'email'             => $request->email,
-                'notelepon'            => $request->notelepon,
+                'notelepon'         => $request->notelepon,
                 'profesi'           => $request->profesi,
-                'password' =>Hash::make($request->password),
+                'password'          =>Hash::make($request->password),
             ]);        
     
         } else {
@@ -60,13 +60,13 @@ class ProfilController extends Controller
     
             $user->update([
                 'image'             => $image->hashName(),
-                'name'      => $request->name,
+                'name'              => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
                 'email'             => $request->email,
-                'notelepon'            => $request->notelepon,
+                'notelepon'         => $request->notelepon,
                 'profesi'           => $request->profesi,
-                'password' =>Hash::make($request->password),
+                'password'          =>Hash::make($request->password),
             ]);
         }
     
@@ -82,13 +82,13 @@ class ProfilController extends Controller
     {
         $this->validate($request, [
             'image'             => 'required|image|mimes:png,jpg,jpeg',
-            'name'         => 'required',
+            'name'              => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
             'email'             => 'required',
-            'notelepon'            => 'required',
+            'notelepon'         => 'required',
             'profesi'           => 'required',
-            'password' => 'required',
+            'password'          => 'required',
         ]);
 
         $user->jenis_kelamin = $request->jenis_kelamin;

@@ -29,32 +29,25 @@
 
                             <div class="form-group">
                                 <label>Nama Muzakki</label>
-                                <select name="name_muzakki" id="pilih" class="form-control" onchange="GetHarga(this.value)">
-                                <option value="" selected disabled>-- Pilih Nama Muzakki --</option>
-                                    @foreach ($puspan as $meili)
-                                        <option value="{{ $meili->name_muzakki.'_'.$meili->jenis_kelamin.'_'.$meili->alamat.'_'.$meili->profesi }}">{{ $meili->name_muzakki }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="text-danger">
-                                    @error('name_muzakki')
-                                        {{ $message }}
-                                    @enderror
-                                </div>
+                                <input type="text" class="form-control @error('name_muzakki') is-invalid @enderror" name="name_muzakki" value="{{ old('name_muzakki') }}" placeholder="Masukkan Nama Muzakki">
                             </div>
 
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
-                                <input type="text" name="jenis_kelamin" class="form-control" id="jenis_kelamin" onchange="GetHarga(this.value)" readonly>                                
+                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
+                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+                                <option value="Perempuan">Perempuan</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                </select>
                             </div>
-
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
-                                <input type="text" name="alamat" class="form-control" id="alamat" onchange="GetHarga(this.value)" readonly>
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Profesi</label>
-                                <input type="text" name="profesi" class="form-control" id="profesi" onchange="GetHarga(this.value)" readonly>
+                                <input type="text" class="form-control @error('profesi') is-invalid @enderror" name="profesi" value="{{ old('profesi') }}" placeholder="Masukkan Profesi">
                             </div>
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>

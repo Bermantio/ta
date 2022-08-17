@@ -117,14 +117,14 @@ class DatauserController extends Controller
     {
         $this->validate($request, [
             'image'             => 'required|image|mimes:png,jpg,jpeg',
-            'name'         => 'required',
+            'name'              => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
             'email'             => 'required',
-            'notelepon'            => 'required',
+            'notelepon'         => 'required',
             'profesi'           => 'required',
-            'role'            => 'required',
-            'password' => 'required',
+            'role'              => 'required',
+            'password'          => 'required',
         ]);
     
         //get data Blog by ID
@@ -133,15 +133,15 @@ class DatauserController extends Controller
         if($request->file('image') == "") {
     
             $datauser->update([
-                'image'             => $image->hashName(),
-                'name'      => $request->name,
-                'jenis_kelamin'     => $request->jenis_kelamin,
-                'alamat'            => $request->alamat,
-                'email'             => $request->email,
-                'notelepon'            => $request->notelepon,
-                'profesi'           => $request->profesi,
+                'image'           => $image->hashName(),
+                'name'            => $request->name,
+                'jenis_kelamin'   => $request->jenis_kelamin,
+                'alamat'          => $request->alamat,
+                'email'           => $request->email,
+                'notelepon'       => $request->notelepon,
+                'profesi'         => $request->profesi,
                 'role'            => $request->role,
-                'password' =>Hash::make($request->password),
+                'password'        =>Hash::make($request->password),
             ]);        
     
         } else {
@@ -155,14 +155,14 @@ class DatauserController extends Controller
     
             $datauser->update([
                 'image'             => $image->hashName(),
-                'name'      => $request->name,
+                'name'              => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
                 'email'             => $request->email,
-                'notelepon'            => $request->notelepon,
+                'notelepon'         => $request->notelepon,
                 'profesi'           => $request->profesi,
-                'role'            => $request->role,
-                'password' =>Hash::make($request->password),
+                'role'              => $request->role,
+                'password'          =>Hash::make($request->password),
             ]);
         }
     

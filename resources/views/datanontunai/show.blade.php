@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h3>Transaksi Sukses</h3>
                     <h5>Transaksi Anda sudah <strong>LUNAS,</strong> selanjutnya untuk pembayaran silahkan transfer di rekening 
-                    <br><strong> Bank BNI Nomer Rekening : 31231-238421-323</strong> dengan nominal : 
+                    <br><strong> Bank BSI Nomer Rekening : 7020 898 048 a.n BTM BLIGO.</strong> dengan nominal : 
                     <strong> Rp. {{ number_format ($datanontunai->jumlah_transaksi+$datanontunai->kode_transaksi) }}</strong></h5>
                 </div>
             </div>

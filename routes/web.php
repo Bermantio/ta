@@ -37,6 +37,7 @@ Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],functio
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('datauser', DatauserController::class);
     Route::resource('datatunai', DatatunaiController::class);
+    Route::get('/search',[DatatunaiController::class, 'search']);
     Route::resource('datanontunai', DatanontunaiController::class);
     Route::resource('dataprogram', DataprogramController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
@@ -71,8 +72,11 @@ Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'preve
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
+Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan,Supervisor', 'prevent-back-history'],function(){
+    Route::get('/home',[HomeController::class, 'index']);
+    Route::resource('profil', ProfilController::class);
+});
 
- 
 //Report PDF
 Route::get('/downloadpdf',[DatatunaiController::class, 'downloadpdf']);
 

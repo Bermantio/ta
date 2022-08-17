@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <a href="{{ route('datanontunai.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                        
                         <div class="col-md-4">
                             <form action="/search" method="get">
                                 <div class="input-group">
