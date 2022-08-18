@@ -35,7 +35,7 @@ class DatauserController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $datausers = User::latest()->where('name_user', 'like', '%'.$search.'%')->paginate(10);
+        $datausers = User::latest()->where('name', 'like', '%'.$search.'%')->paginate(10);
         return view('datauser.index',['datausers' => $datausers]);
     }
 

@@ -32,7 +32,7 @@
                                 <select name="kode_zakki" id="pilih" class="form-control" onchange="GetHarga(this.value)">
                                 <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
                                     @foreach ($nontunai as $buah)
-                                        <option value="{{ $buah->kode_muzakki.'_'.$buah->name_muzakki }}">{{ $buah->kode_muzakki }}</option>
+                                        <option value="{{ $buah->kode_zakki.'_'.$buah->name_muzakki }}">{{ $buah->kode_muzakki }}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
@@ -45,15 +45,6 @@
                             <div class="form-group">
                                 <label>Nama Muzakki</label>
                                 <input type="text" name="name_zakki" id="name_zakki" class="form-control" onchange="GetHarga(this.value)" readonly>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" value="{{ old('jenis_kelamin') }}">
-                                <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                <option value="Perempuan">Perempuan</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                </select>
                             </div>
 
                             <div class="form-group">
@@ -96,29 +87,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Berupa</label>
-                                <select name="keterangan" class="form-control" value="{{ old('berupa') }}">
-                                <option value="" selected disabled>-- Bentuk Donasi --</option>
-                                <option value="Dengan Barang">Dengan Barang</option>
-                                <option value="Dengan Uang">Dengan Uang</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="font-weight-bold">Nominal Transaksi</label>
                                 <input type="text" class="form-control @error('jumlah_transaksi') is-invalid @enderror" name="jumlah_transaksi" value="{{ old('jumlah_transaksi') }}" placeholder="Masukkan Jumlah Transaksi">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Upload Bukti Transaksi</label>
-                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
-                            
-                                <!-- error message untuk title -->
-                                @error('image')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                             </div>
 
                             <div class="form-group">

@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Transaksi Non Tunai')
+@section('title')
 
 @section('content')
 
@@ -9,33 +9,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Transaksi Non Tunai</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
-<body style="background: lightgray">
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card border-0 shadow rounded">
-                    <div class="card-body">
-                        
-                        <div class="col-md-4">
-                            <form action="/search" method="get">
-                                <div class="input-group">
-                                    <input type="search" name="search" class="form-control">
-                                    <span class="input-group-prepend">
-                                    <button type="submit" class="btn btn-warning">Search</button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div> <br>
-                        <table class="table table-bordered">
-                            <thead>
+<div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Data Transaksi Non Tunai</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    
+                    <div class="col-sm-12 col-md-6">
+                        <div id="datatable_filter" >
+                            <label>
+                                <form action="/search3" method="get">
+                                <input type="search" name="search" class="form-contr ol form-control-sm">
+                                <button type="submit" class="btn btn-secondary">Search</button>
+                                </form>
+                            </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="datatable" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="datatable_info">
+                  <tbody>
+                  <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Kode Transaksi</th>
                                 <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Nama Muzakki</th>
                                 <th scope="col">Alamat</th>
@@ -62,8 +64,8 @@
                                     <td>{{ $datanontunai->status }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datanontunai.destroy', $datanontunai->id) }}" method="POST">
-                                        <a href="{{ route('datanontunai.show', $datanontunai->id) }}" class="btn btn-sm btn-warning">DETAIL</a>
-                                        <a href="{{ route('datanontunai.edit', $datanontunai->id) }}" class="btn btn-sm btn-warning">EDIT</a>
+                                        <a href="{{ route('datanontunai.show', $datanontunai->id) }}" class="btn btn-sm btn-info">DETAIL</a>
+                                        <a href="{{ route('datanontunai.edit', $datanontunai->id) }}" class="btn btn-sm btn-warning">EDIT</a><br>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -76,13 +78,18 @@
                                   </div>
                               @endforelse
                             </tbody>
-                          </table>  
+                            </table></div></div>
+                
+                </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                              </table>  
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

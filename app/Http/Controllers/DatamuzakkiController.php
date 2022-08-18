@@ -32,10 +32,10 @@ class DatamuzakkiController extends Controller
         return view('datamuzakki.create', compact('puspan'));
     }
 
-    public function search()
+    public function search(Request $request)
     {
         $search = $request->get('search');
-        $datamuzakkis = Datamuzakki::latest()->where('name_user', 'like', '%'.$search.'%')->paginate(10);
+        $datamuzakkis = Datamuzakki::latest()->where('name_muzakki', 'like', '%'.$search.'%')->paginate(10);
         return view('datamuzakki.index',['datamuzakkis' => $datamuzakkis]);
     }
 

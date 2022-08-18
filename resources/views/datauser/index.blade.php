@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <a href="{{ route('datauser.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
                         <div class="col-md-4">
-                            <form action="/search" method="get">
+                            <form action="/search1" method="get">
                                 <div class="input-group">
                                     <input type="search" name="search" class="form-control">
                                     <span class="input-group-prepend">

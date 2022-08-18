@@ -30,6 +30,13 @@ class DatatunaiController extends Controller
     	return $pdf->download('laporandata.pdf');
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datatunais = Datatunai::latest()->where('name_muz', 'like', '%'.$search.'%')->paginate(10);
+        return view('datatunai.index',['datatunais' => $datatunais]);
+    }
+
     //public function print()
     //{
     //    $niken = Datatunai::latest()->paginate(10);
@@ -48,13 +55,6 @@ class DatatunaiController extends Controller
         return view('datatunai.create', compact('niken', 'program'));
     }
 
-    public function search(Request $request)
-    {
-        $search = $request->get('search');
-        $datatunais = Datatunai::latest()->where('name_muz', 'like', '%'.$search.'%')->paginate(10);
-        return view('datatunai.index',['datatunais' => $datatunais]);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -64,7 +64,6 @@ class DatatunaiController extends Controller
     public function store(Request $request, Datatunai $datatunai)
     {
         $this->validate($request, [
-            'kode_transaksi'      => 'required',
             'kode_muz'            => 'required',
             'name_muz'            => 'required',
             'name_program'        => 'required',
@@ -74,8 +73,8 @@ class DatatunaiController extends Controller
         ]);
 
         $datatunai = datatunai::create([
-            'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
-            'kode_muz'              => $request->kode_muz,
+            //'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            'kode_muz'              => $request->kode_muz, 
             'name_muz'              => $request->name_muz,
             'name_program'          => $request->name_program,
             'tanggal_transaksi'     => $request->tanggal_transaksi,
@@ -126,19 +125,18 @@ class DatatunaiController extends Controller
     public function update(Request $request, Datatunai $datatunai)
     {
         $this->validate($request, [
-            'kode_transaksi'      => 'required',
-            'kode_muz'            => 'required',
-            'name_muz'            => 'required',
-            'name_program'        => 'required',
-            'tanggal_transaksi'   => 'required',
-            'jumlah_transaksi'    => 'required',
-            'status'              => 'required',
+                'kode_muz'            => 'required',
+                'name_muz'            => 'required',
+                'name_program'        => 'required',
+                'tanggal_transaksi'   => 'required',
+                'jumlah_transaksi'    => 'required',
+                'status'              => 'required',
         ]);
 
         $datatunai = Datatunai::findOrFail($datatunai->id);
 
         $datatunai->update([
-            'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
+            //'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
             'kode_muz'              => $request->kode_muz,
             'name_muz'              => $request->name_muz,
             'name_program'          => $request->name_program,

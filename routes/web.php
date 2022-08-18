@@ -20,12 +20,13 @@ use App\Http\Controllers\ProfilController;
 //Route::get('/cetakpdf',[DatatunaiController::class, 'cetak']);
 //search
 //Route::get('/cetakpdf', 'App\Http\Controllers\DatatunaiController::cetak_pdf()');
-//Route::get('/search',[DatamuzakkiController::class, 'search']);
-//Route::get('/search',[DatauserController::class, 'search']);
-Route::get('/search',[DatatunaiController::class, 'search']);
-Route::get('/search',[DatanontunaiController::class, 'search']);
-//Route::get('/search',[DataprogramController::class, 'search']);
-//Route::get('/search',[DatapenyaluranController::class, 'search']);
+Route::get('/search',[DatamuzakkiController::class, 'search']);
+Route::get('/search1',[DatauserController::class, 'search']);
+Route::get('/search2',[DatatunaiController::class, 'search']);
+Route::get('/search3',[DatanontunaiController::class, 'search']);
+Route::get('/search4',[DataprogramController::class, 'search']);
+Route::get('/search5',[DatapenyaluranController::class, 'search']);
+Route::get('/search6',[DatamustahikController::class, 'search']);
 
 Route::get('/',[HomeController::class, 'index']);
 Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],function(){
@@ -33,11 +34,9 @@ Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],functio
     Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
-    Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('datauser', DatauserController::class);
     Route::resource('datatunai', DatatunaiController::class);
-    Route::get('/search',[DatatunaiController::class, 'search']);
     Route::resource('datanontunai', DatanontunaiController::class);
     Route::resource('dataprogram', DataprogramController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
@@ -48,7 +47,6 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-his
     Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
     Route::resource('datalazismu', DatalazismuController::class);
-    Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('datanontunai', DatanontunaiController::class);
     Route::resource('dataprogram', DataprogramController::class);
@@ -58,7 +56,6 @@ Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-his
 Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('profil', ProfilController::class);
-    Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('dataprogram', DataprogramController::class);
     Route::resource('datatunai', DatatunaiController::class);
@@ -67,7 +64,6 @@ Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan', 'preve
 Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'prevent-back-history'],function(){    
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('profil', ProfilController::class);
-    Route::resource('datalaporan', DatalaporanController::class);
     Route::resource('datauser', DatauserController::class);
     Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
