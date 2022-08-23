@@ -24,18 +24,12 @@
                     @if(!empty($datatunai))
                     <div class="card-tools">
                     <div align="right">
-                        <a href="{{ url('downloadpdf') }}" target="_blank" class="btn btn-warning"><i class="fa fa-print"></i>  Cetak</a>   
                         <a href="{{ url('datatunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div><br>
                         <p align="right">Tanggal Transaksi : {{ $datatunai->tanggal_transaksi }}</p>
                     </div>
 
                     <table class="table table-bordered">
-                <tr>
-                    <td width="150px">Kode Muzakki</td>
-                    <td width="30px">:</td>
-                    <td>{{ $datatunai->kode_muz }}</td>
-                </tr>
                 <tr>
                     <td width="150px">Nama Muzakki</td>
                     <td width="30px">:</td>

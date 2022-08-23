@@ -39,13 +39,14 @@ Route::group(['middleware' => 'CheckRole:Admin', 'prevent-back-history'],functio
     Route::resource('datatunai', DatatunaiController::class);
     Route::resource('datanontunai', DatanontunaiController::class);
     Route::resource('dataprogram', DataprogramController::class);
-    // Route::resource('datapenyaluran', DatapenyaluranController::class);
+    Route::resource('datapenyaluran', DatapenyaluranController::class);
 });
 
 Route::group(['middleware' => 'CheckRole:Admin,Pendayagunaan', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('profil', ProfilController::class);
     Route::resource('datamustahik', DatamustahikController::class);
+    Route::resource('datauser', DatauserController::class);
     Route::resource('datalazismu', DatalazismuController::class);
     Route::resource('datamuzakki', DatamuzakkiController::class);
     Route::resource('datanontunai', DatanontunaiController::class);
@@ -71,13 +72,11 @@ Route::group(['middleware' => 'CheckRole:Admin,Supervisor,Pendayagunaan', 'preve
 Route::group(['middleware' => 'CheckRole:Admin,Penghimpun,Pendayagunaan,Supervisor', 'prevent-back-history'],function(){
     Route::get('/home',[HomeController::class, 'index']);
     Route::resource('profil', ProfilController::class);
+    Route::resource('datauser', DatauserController::class);
 });
 
 //Report PDF
-Route::get('/downloadpdf',[DatatunaiController::class, 'cetakpdf']);
+//::get('/downloadpdf',[DatatunaiController::class, 'cetakpdf']);
 //Route::get('/datatunai/{id?}/downloadpdf',[DatatunaiController::class, 'downloadpdf']);
 
 Auth::routes();
-
-
-Route::resource('datapenyaluran', DatapenyaluranController::class);

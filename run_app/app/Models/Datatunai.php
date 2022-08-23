@@ -15,6 +15,6 @@ class Datatunai extends Model
      */
     //protected $table = "datatunai";
     protected $fillable = [
-         'kode_muz', 'name_muz', 'tanggal_transaksi', 'name_program',  'jumlah_transaksi', 'status'
+         'name_muz', 'tanggal_transaksi', 'name_program',  'jumlah_transaksi', 'status'
     ];
 }

@@ -20,13 +20,14 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                    
                     <div class="col-sm-12 col-md-6">
                         <div id="datatable_filter" >
+                        @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin')
                         <a href="{{ route('dataprogram.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                        @endif
                             <label>
                                 <form action="/search4" method="get">
-                                <input type="search" name="search" class="form-contr ol form-control-sm">
+                                <input type="search" name="search" placeholder="Nama Program" class="form-contr ol form-control-sm">
                                 <button type="submit" class="btn btn-secondary">Search</button>
                                 </form>
                             </label>

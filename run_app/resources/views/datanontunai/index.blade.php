@@ -23,7 +23,7 @@
                         <div id="datatable_filter" >
                             <label>
                                 <form action="/search3" method="get">
-                                <input type="search" name="search" class="form-contr ol form-control-sm">
+                                <input type="search" name="search" placeholder="Nama Muzakki" class="form-contr ol form-control-sm">
                                 <button type="submit" class="btn btn-secondary">Search</button>
                                 </form>
                             </label>
@@ -37,16 +37,10 @@
                   <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Nama Muzakki</th>
-                                <th scope="col">Alamat</th>
-                                <th scope="col">No Telp/HP/WA</th>
-                                <th scope="col">Profesi</th>
+                                <th scope="col">Tanggal Transaksi</th>
                                 <th scope="col">Nama Program</th>
-                                <th scope="col">Donasi Sebagai</th>
-                                <th scope="col">Berupa</th>
                                 <th scope="col">Nominal Transaksi</th>
-                                <th scope="col">Bukti Transaksi</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                               </tr>
@@ -56,21 +50,15 @@
                             @forelse ($datanontunais as $datanontunai)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $datanontunai->tanggal_transaksi }}</td>
                                     <td>{{ $datanontunai->name_zakki }}</td>
-                                    <td>{{ $datanontunai->alamat }}</td>
-                                    <td>{{ $datanontunai->notelepon }}</td>
-                                    <td>{{ $datanontunai->profesi }}</td>
+                                    <td>{{ $datanontunai->tanggal_transaksi }}</td>
                                     <td>{{ $datanontunai->name_program }}</td>
-                                    <td>{{ $datanontunai->keterangan }}</td>
-                                    <td>{{ $datanontunai->berupa }}</td>
                                     <td>Rp. {{ number_format($datanontunai->jumlah_transaksi) }}</td>
-                                    <td>{{ $datanontunai->image }}</td>
                                     <td>{{ $datanontunai->status }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datanontunai.destroy', $datanontunai->id) }}" method="POST">
                                         <a href="{{ route('datanontunai.show', $datanontunai->id) }}" class="btn btn-sm btn-info">DETAIL</a>
-                                        <a href="{{ route('datanontunai.edit', $datanontunai->id) }}" class="btn btn-sm btn-warning">Ubah Status</a><br>
+                                    
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -90,6 +78,7 @@
                   <!-- /.card-body -->
                 </div>
                               </table>  
+                              {{$datanontunais->links()}}
                         </div>
                     </div>
                 </div>

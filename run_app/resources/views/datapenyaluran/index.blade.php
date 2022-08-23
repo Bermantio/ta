@@ -23,10 +23,12 @@
                     
                     <div class="col-sm-12 col-md-6">
                         <div id="datatable_filter" >
+                        @if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin' or auth()->user()->role=='Pendayagunaan')
                         <a href="{{ route('datapenyaluran.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
+                        @endif
                             <label>
                                 <form action="/search5" method="get">
-                                <input type="search" name="search" class="form-contr ol form-control-sm">
+                                <input type="search" name="search" placeholder="Nama Mustahik" class="form-contr ol form-control-sm">
                                 <button type="submit" class="btn btn-secondary">Search</button>
                                 </form>
                             </label>

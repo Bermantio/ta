@@ -68,7 +68,11 @@
                     <td width="30px">:</td>
                     <td>Rp. {{ number_format($datanontunai->jumlah_transaksi) }}</td>
                 </tr>
-                    
+                <tr>
+                    <td width="150px">Bukti Transaksi</td>
+                    <td width="30px">:</td>
+                    <td>{{ $datanontunai->image }}</td>
+                </tr>
                 <tr>
                     <td width="150px">Status</td>
                     <td width="30px">:</td>
@@ -85,7 +89,7 @@
             
             @endif
             <br>
-            <a href="{{ url('print') }}" class="btn btn-primary"><i class="fa fa-print"></i>  Cetak</a>
+            <a href="{{ route('datanontunai.edit', $datanontunai->id) }}" class="btn btn-sm btn-warning">Ubah Status</a>
             <a href="{{ url('datanontunai') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
             </div>

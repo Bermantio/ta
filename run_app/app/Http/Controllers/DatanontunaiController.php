@@ -16,7 +16,7 @@ class DatanontunaiController extends Controller
      */
     public function index()
     {
-        $datanontunais = Datanontunai::latest()->paginate(10);
+        $datanontunais = Datanontunai::latest()->paginate(3);
         return view('datanontunai.index', compact('datanontunais'));
     }
 
@@ -47,20 +47,18 @@ class DatanontunaiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            //'kode_transaksi'      => 'required',
-            'tanggal_transaksi'   => 'required',
-            //'kode_zakki'          => 'required',
             'name_zakki'          => 'required',
-            //'jenis_kelamin'       => 'required',
-            'alamat'              => 'required',
-            'notelepon'           => 'required',
-            'profesi'             => 'required',
+            //'alamat'            => 'required',
+            //'notelepon'         => 'required',
+            //'profesi'           => 'required',
             'name_program'        => 'required',
-            'keterangan'          => 'required',
-            'berupa'              => 'required',
+            'tanggal_transaksi'   => 'required',
+            //'keterangan'        => 'required',
+            //'berupa'            => 'required',
             'jumlah_transaksi'    => 'required',
-            'image'               => 'required|image|mimes:png,jpg,jpeg',
+            //'image'             => 'required|image|mimes:png,jpg,jpeg',
             'status'              => 'required',
+            
         ]);
 
         //upload image
@@ -69,18 +67,19 @@ class DatanontunaiController extends Controller
 
         $datanontunai = datanontunai::create([
             //'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
-            'tanggal_transaksi'     => $request->tanggal_transaksi,
+            
             //'kode_zakki'            => $request->kode_zakki,
             'name_zakki'            => $request->name_zakki,
             //'jenis_kelamin'         => $request->jenis_kelamin,
-            'alamat'                => $request->alamat,
-            'notelepon'             => $request->notelepon,
-            'profesi'               => $request->profesi,
+            //'alamat'                => $request->alamat,
+            //'notelepon'             => $request->notelepon,
+            //'profesi'               => $request->profesi,
             'name_program'          => $request->name_program,
-            'keterangan'            => $request->keterangan,
-            'berupa'                => $request->berupa,
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
+            //'keterangan'            => $request->keterangan,
+            //'berupa'                => $request->berupa,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
-            'image'                 => $image->hashName(),
+            //'image'                 => $image->hashName(),
             'status'                => $request->status,
         ]);
 

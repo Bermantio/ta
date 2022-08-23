@@ -26,7 +26,7 @@
                         <a href="{{ route('datatunai.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
                             <label>
                                 <form action="/search2" method="get">
-                                <input type="search" name="search" class="form-contr ol form-control-sm">
+                                <input type="search" name="search" placeholder="Nama Muzakki" class="form-contr ol form-control-sm">
                                 <button type="submit" class="btn btn-secondary">Search</button>
                                 </form>
                             </label>
@@ -39,7 +39,6 @@
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Kode Muzakki</th>
                                 <th scope="col">Nama Muzakki</th>
                                 <th scope="col">Nama Program</th>
                                 <th scope="col">Tanggal Transaksi</th> 
@@ -50,10 +49,9 @@
                             </thead>
                             <tbody>
                             @php $no = 1; @endphp
-                            @forelse ($datatunai as $datatunai)
+                            @forelse ($datatunais as $datatunai)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $datatunai->kode_muz }}</td>
                                     <td>{{ $datatunai->name_muz }}</a></td>
                                     <td>{{ $datatunai->name_program }}</td> 
                                     <td>{{ $datatunai->tanggal_transaksi }}</td>
@@ -81,6 +79,7 @@
                               @endforelse
                             </tbody>
                           </table>  
+                          {{$datatunais->links()}}
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\NontunaiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\ApiDataPenyaluranController;
 use App\Http\Controllers\Api\ApiDataNontunaiController;
+use App\Http\Controllers\Api\ApiDataProfilController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,6 +35,12 @@ Route::group(['middleware' => 'auth:sanctum'],function(){
     Route::post('/datanontunai/{id}',[ApiDataNontunaiController::class,'update']);
     Route::post('/post/{id}',[ApiDataNontunaiController::class,'show']);
     Route::apiResource('/delete', App\Http\Controllers\Api\ApiDataNontunaiController::class);
+
+    Route::apiResource('/profil', App\Http\Controllers\Api\ApiDataProfilController::class);
+    Route::apiResource('/post', App\Http\Controllers\Api\ApiDataProfilController::class);
+    Route::post('/profil/{id}',[ApiDataProfilController::class,'update']);
+    Route::post('/post/{id}',[ApiDataProfilController::class,'show']);
+    Route::apiResource('/delete', App\Http\Controllers\Api\ApiDataProfilController::class);
     
 });
 

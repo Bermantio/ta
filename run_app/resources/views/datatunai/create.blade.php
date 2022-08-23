@@ -23,23 +23,18 @@
                             @csrf
 
                             <div class="form-group">
-                                <label>Kode Muzakki</label>
-                                <select name="kode_muz" id="pilih" class="form-control" onchange="GetHarga(this.value)">
+                                <label>Nama Muzakki</label>
+                                <select name="name_muz" id="pilih" class="form-control" onchange="GetHarga(this.value)">
                                 <option value="" selected disableb>-- Pilih Kode Muzakki --</option>
                                     @foreach ($niken as $buah)
-                                        <option value="{{ $buah->kode_muzakki.'_'.$buah->name_muzakki }}">{{ $buah->kode_muzakki }}</option>
+                                        <option value="{{ $buah->name_muzakki }}">{{ $buah->name_muzakki }}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
-                                    @error('kode_muz')
+                                    @error('name_muz')
                                         {{ $message }}
                                     @enderror
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Nama Muzakki</label>
-                                <input type="text" name="name_muz" id="name_muz" class="form-control" onchange="GetHarga(this.value)" readonly>
                             </div>
 
                             <div class="form-group">

@@ -2,6 +2,7 @@
 @section('title')
 
 @section('content')
+@if(auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Admin' or auth()->user()->role=='Penghimpun' or auth()->user()->role=='Pendayagunaan' or auth()->user()->role=='Supervisor')
 <!DOCTYPE html>
 <html lang="en">
 <body>
@@ -297,5 +298,5 @@
 </script>
 </body>
 </html>
-
+@endif
 @endsection

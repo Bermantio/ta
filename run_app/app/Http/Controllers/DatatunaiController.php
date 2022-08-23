@@ -19,23 +19,15 @@ class DatatunaiController extends Controller
      */
     public function index()
     {
-        $datatunai = Datatunai::latest()->paginate(10);
-        return view('datatunai.index', compact('datatunai'));
-    }
-
-    public function downloadpdf(datatunai $datatunai)
-    {
-    	//$datatunai = Datatunai::all();
-        $datatunai = Datatunai::findOrFail($datatunai->id);
-    //	$pdf = PDF::loadview('datatunai.cetakpdf',['datatunai' => $datatunai]);
-    	return view('datatunai.cetakpdf', compact('datatunai', 'datatunai'));
+        $datatunais = Datatunai::latest()->paginate(3);
+        return view('datatunai.index', compact('datatunais'));
     }
 
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $datatunai = Datatunai::latest()->where('name_muz', 'like', '%'.$search.'%')->paginate(10);
-        return view('datatunai.index',['datatunai' => $datatunai]);
+        $datatunais = Datatunai::latest()->where('name_muz', 'like', '%'.$search.'%')->paginate(10);
+        return view('datatunai.index',['datatunais' => $datatunais]);
     }
 
     //public function print()
@@ -65,7 +57,7 @@ class DatatunaiController extends Controller
     public function store(Request $request, Datatunai $datatunai)
     {
         $this->validate($request, [
-            'kode_muz'            => 'required',
+            //'kode_muz'            => 'required',
             'name_muz'            => 'required',
             'name_program'        => 'required',
             'tanggal_transaksi'   => 'required',
@@ -75,7 +67,7 @@ class DatatunaiController extends Controller
 
         $datatunai = datatunai::create([
             //'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
-            'kode_muz'              => $request->kode_muz, 
+            //'kode_muz'              => $request->kode_muz, 
             'name_muz'              => $request->name_muz,
             'name_program'          => $request->name_program,
             'tanggal_transaksi'     => $request->tanggal_transaksi,
@@ -126,7 +118,6 @@ class DatatunaiController extends Controller
     public function update(Request $request, Datatunai $datatunai)
     {
         $this->validate($request, [
-                'kode_muz'            => 'required',
                 'name_muz'            => 'required',
                 'name_program'        => 'required',
                 'tanggal_transaksi'   => 'required',
@@ -138,7 +129,7 @@ class DatatunaiController extends Controller
 
         $datatunai->update([
             //'kode_transaksi'        => $request->kode_transaksi = mt_rand(100, 999),
-            'kode_muz'              => $request->kode_muz,
+            //'kode_muz'              => $request->kode_muz,
             'name_muz'              => $request->name_muz,
             'name_program'          => $request->name_program,
             'tanggal_transaksi'     => $request->tanggal_transaksi,

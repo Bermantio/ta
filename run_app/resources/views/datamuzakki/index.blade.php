@@ -28,7 +28,7 @@
                             <a href="{{ route('datamuzakki.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
                             <label>
                                 <form action="/search" method="get">
-                                <input type="search" name="search" class="form-contr ol form-control-sm">
+                                <input type="search" name="search" placeholder="Nama Muzakki" class="form-contr ol form-control-sm">
                                 <button type="submit" class="btn btn-secondary">Search</button>
                                 </form>
                             </label>
@@ -74,15 +74,17 @@
                             </tbody>
                   
                 </tbody>
-                </table></div></div>
+                </table>
+                {{$datamuzakkis->links()}}
+            </div>
+        </div>
                 
             </div>
               </div>
               <!-- /.card-body -->
             </div>
-
-
                           </table>  
+                          
                     </div>
                 </div>
             </div>

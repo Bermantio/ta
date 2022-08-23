@@ -26,7 +26,7 @@
                         <a href="{{ route('datauser.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
                             <label>
                                 <form action="/search1" method="get">
-                                <input type="search" name="search" class="form-contr ol form-control-sm">
+                                <input type="search" name="search" placeholder="Masukkan Nama"class="form-contr ol form-control-sm">
                                 <button type="submit" class="btn btn-secondary">Search</button>
                                 </form>
                             </label>

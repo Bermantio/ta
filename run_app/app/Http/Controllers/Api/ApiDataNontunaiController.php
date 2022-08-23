@@ -35,17 +35,17 @@ class ApiDataNontunaiController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'tanggal_transaksi'  =>'required',
+            'tanggal_transaksi' =>'required',
             'name_zakki'        =>'required',
             'alamat'            =>'required',
-            'notelepon'            =>'required',
+            'notelepon'         =>'required',
             'profesi'           =>'required',
             'name_program'      =>'required',
             'keterangan'        =>'required',
             'berupa'            =>'required',
             'jumlah_transaksi'  =>'required',
             'image'             =>'required|image|mimes:png,jpg,jpeg',
-            'status'            =>'required',
+            //'status'            =>'required',
         ]);
 
         if($validator->fails()) {
@@ -57,18 +57,18 @@ class ApiDataNontunaiController extends Controller
         $image->storeAs('public/nontunais', $image->hashName());
         
         $data_nontunai = Datanontunai::create([
-            'tanggal_transaksi'      => $request->tanggal_transaksi,
+            'tanggal_transaksi'     => $request->tanggal_transaksi,
             'kode_zakki'            => $request->kode_zakki,
             'name_zakki'            => $request->name_zakki,
             'alamat'                => $request->alamat,
-            'notelepon'                => $request->notelepon,
+            'notelepon'             => $request->notelepon,
             'profesi'               => $request->profesi,
             'name_program'          => $request->name_program,
             'keterangan'            => $request->keterangan,
             'berupa'                => $request->berupa,
             'jumlah_transaksi'      => $request->jumlah_transaksi,
             'image'                 => $image->hashName(),
-            'status'                => $request->status,
+            //'status'                => $request->status,
         ]);
         return new DataNontunaiResource(true, 'List Data', $data_nontunai);
     }

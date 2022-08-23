@@ -17,7 +17,7 @@ class DatamuzakkiController extends Controller
      */
     public function index()
     {
-        $datamuzakkis = Datamuzakki::latest()->paginate(10);
+        $datamuzakkis = Datamuzakki::latest()->paginate(3);
         return view('datamuzakki.index', compact('datamuzakkis'));
     }
 
