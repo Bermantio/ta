@@ -15,8 +15,6 @@ class CreateDatatunaisTable extends Migration
     {
         Schema::create('datatunais', function (Blueprint $table) {
             $table->id();
-            $table->char('kode_transaksi');
-            $table->char('kode_muz');
             $table->char('name_muz');
             $table->char('name_program');
             $table->char('tanggal_transaksi');

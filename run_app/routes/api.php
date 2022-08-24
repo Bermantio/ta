@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login', [AuthController::class,'login']);
+Route::post('register', [AuthController::class,'register']);
 
 Route::group(['middleware' => 'auth:sanctum'],function(){
     Route::apiResource('/datapenyaluran', App\Http\Controllers\Api\ApiDataPenyaluranController::class);

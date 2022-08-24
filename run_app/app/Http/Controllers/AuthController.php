@@ -8,6 +8,24 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required',
+            'password_confirmation' => 'required|password'
+        ]);
+        $user = new User([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'password_confirmation' => Hash::make($request->password_confirmation)
+        ]);
+        $user->save();
+        return response()->json(['message'=>'User has been registered'],200);
+    }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -36,10 +54,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+    
 
     /**
      * Show the form for creating a new resource.
