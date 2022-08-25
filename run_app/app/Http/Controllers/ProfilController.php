@@ -25,7 +25,7 @@ class ProfilController extends Controller
     public function update(Request $request, User $user)
     {
     	 $this->validate($request, [
-            'image'             => 'required|image|mimes:png,jpg,jpeg',
+            // 'image'             => 'required|image|mimes:png,jpg,jpeg',
             'name'              => 'required',
             'jenis_kelamin'     => 'required',
             'alamat'            => 'required',
@@ -39,7 +39,7 @@ class ProfilController extends Controller
     	if($request->file('image') == "") {
     
             $user->update([
-              'image'               => $image->hashName(),
+            //   'image'               => $image->hashName(),
                 'name'              => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
@@ -59,7 +59,7 @@ class ProfilController extends Controller
             $image->storeAs('public/datausers', $image->hashName());
     
             $user->update([
-                'image'             => $image->hashName(),
+                // 'image'             => $image->hashName(),
                 'name'              => $request->name,
                 'jenis_kelamin'     => $request->jenis_kelamin,
                 'alamat'            => $request->alamat,
@@ -68,6 +68,16 @@ class ProfilController extends Controller
                 'profesi'           => $request->profesi,
                 'password'          =>Hash::make($request->password),
             ]);
+        }
+
+        if($request->has('image')){
+
+            $namagambar = time(). '.' .$request->image->extension();
+            $request->image->move(public_path('image_rz/profil'), $namagambar);
+            $user->image = $namagambar;
+            $user->save();
+        }else{
+
         }
     
         if($user){
